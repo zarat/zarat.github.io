@@ -7,10 +7,8 @@ permalink: /blog/scriptstack
 published: true
 ---
 
-I want to introduce [ScriptStack](https://github.com/zarat/scriptstack). A scripting API to create [your own, object oriented scripting language](https://github.com/zarat/ScriptStack/wiki/2.4-Demo-application) in minutes. 
+I want to introduce [ScriptStack](https://github.com/zarat/scriptstack). A scripting API to create [your own, object oriented scripting language](https://github.com/zarat/ScriptStack/wiki/2.4-Demo-application) in minutes. [StackShell](https://github.com/zarat/StackShell) is a first implementation.
 
 <!--excerpt_separator-->
 
 <div class="media-container"><img src="https://raw.githubusercontent.com/zarat/StackShell/master/ide.gif" style="width:100%"></div>
-
-You may also visit [StackShell](https://github.com/zarat/StackShell) - a first implementation.
