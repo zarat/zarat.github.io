@@ -1,13 +1,17 @@
 ---
 layout: post
-title:  "Why i love Microsofts .net reflection feature"
+title:  "ScriptStack - an embedded .NET scripting language and IDE"
 description: 
 category: test
-permalink: /blog/net-reflection
+permalink: /blog/scriptstack
 published: true
 ---
 
-I love Microsoft's .NET reflection feature and I encourage everyone to try it out. [ScriptStack](https://github.com/zarat/scriptstack) - a scripting API i created for unity or as a standalone interpreter - is basically build on top of this feature. Lets try to build a pluggable program using this feature. First i create an interface to communicate between the host application and the plugin. 
+I love Microsoft's .NET reflection feature and I encourage everyone to try it out. [ScriptStack](https://github.com/zarat/scriptstack) - a scripting API - is basically build on top of this feature. [StackShell](https://github.com/zarat/StackShell) is a first implementation.
+
+![preview](https://raw.githubusercontent.com/zarat/StackShell/master/ide.gif)
+
+Lets try to build a pluggable program using this feature. First i create an interface to communicate between the host application and the plugin. 
 <!--excerpt_separator-->
 In this interface are functions where the plugin exposes its functions and a function to call a method.
 
