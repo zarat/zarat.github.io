@@ -8,11 +8,11 @@ published: true
 ---
 
 I love Microsoft's .NET reflection feature and I encourage everyone to try it out. [ScriptStack](https://github.com/zarat/scriptstack) - a scripting API - is basically build on top of this feature. [StackShell](https://github.com/zarat/StackShell) is a first implementation.
-
+<!--excerpt_separator-->
 <div class="media-container"><img src="https://raw.githubusercontent.com/zarat/StackShell/master/ide.gif"></div>
 
 Lets try to build a pluggable program using this feature. First i create an interface to communicate between the host application and the plugin. 
-<!--excerpt_separator-->
+
 In this interface are functions where the plugin exposes its functions and a function to call a method.
 
 <pre>
