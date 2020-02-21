@@ -7,7 +7,7 @@ permalink: /blog/gridruler
 published: true
 ---
 
-I want to introduce my newest project [GridRuler](https://github.com/zarat/GridRuler). It now has scripting support using the [ScriptStack API](https://github.com/zarat/ScriptStack).
+I want to introduce [GridRuler](https://github.com/zarat/GridRuler). It now has scripting support using the [ScriptStack API](https://github.com/zarat/ScriptStack).
 
 <!--excerpt_separator-->
 
