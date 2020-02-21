@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "ScriptStack - an embedded .NET scripting language and IDE"
-description: 
+title:  "ScriptStack - Create your own script language"
+description: "ScriptStack is an API to create your own, object oriented script language"
 category: test
 permalink: /blog/scriptstack
 published: true
