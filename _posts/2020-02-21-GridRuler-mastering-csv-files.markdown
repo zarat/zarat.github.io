@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GridRuler - Advanced CSV file processor with custom rule evaluation."
+title:  "GridRuler - Mastering CSV files"
 description: "Advanced CSV file processor with custom rule evaluation."
 category: test
 permalink: /blog/gridruler
