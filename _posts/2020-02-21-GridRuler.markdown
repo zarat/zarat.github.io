@@ -9,4 +9,4 @@ published: true
 
 I want to introduce my newest project [GridRuler](https://github.com/zarat/GridRuler). It now has scripting support using the [ScriptStack API](https://github.com/zarat/ScriptStack).
 <!--excerpt_separator-->
-<img src="https://raw.githubusercontent.com/zarat/GridRuler/master/gridruler.gif">
+<img src="https://raw.githubusercontent.com/zarat/GridRuler/master/gridruler.gif" style="width:100%">
