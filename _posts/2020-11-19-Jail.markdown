@@ -10,7 +10,7 @@ published: true
 Jail has an object-oriented, c-like syntax similar to [Javascript](https://www.w3schools.com/js/js_syntax.asp).
 
 ## Datatypes
-Strings are enclosed in double quotes `"I am a string"`, Chars in single quotes `'a'` and arrays in brackets `[1, 3.14, 'a', "Hello world"]`. Numbers are not enclosed at all.
+Strings are enclosed in double quotes `"I am a string"`, Chars in single quotes `'a'`, arrays in brackets `[1, 3.14, 'a', "Hello world"]` and objects in curly braces `{ str: "Hello world", num: 3.14 }`. Numbers are not enclosed at all.
 
 <!--excerpt_separator-->
 
