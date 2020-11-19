@@ -63,6 +63,7 @@ blockquote {
     padding-left: 15px;
     border-left: 0.5em solid #ccc;
 }
+/*
 pre,code {
      padding:10px;
      overflow-x:auto;
@@ -71,6 +72,7 @@ pre,code {
      font-size: 95%;
      line-height: 140%;
 }
+*/
 div{
      -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
