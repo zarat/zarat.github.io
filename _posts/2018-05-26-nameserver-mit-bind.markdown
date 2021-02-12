@@ -3,7 +3,7 @@ layout: post
 title: Eigener Nameserver mit Bind
 author: Manuel Zarat
 tags: protokoll
-permalink: /blog/eigener-nameserver-mit-bind
+permalink: /blog/nameserver-mit-bind
 ---
 
 BIND ist ein von der Universität Berkeley (USA) entwickelter (Open Source) DNS Server und wurde auf fast jedes Betriebssystem portiert. Bis heute gilt BIND als „die Referenz“ unter den DNS Servern und bildet den Grundstock des heutigen Internets.
