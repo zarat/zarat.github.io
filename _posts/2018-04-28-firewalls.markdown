@@ -4,7 +4,7 @@ title: Arten von Firewalls
 author: Manuel Zarat
 category: sicherheit
 tags: security
-permalink: /blog/arten-von-firewalls
+permalink: /blog/firewalls
 ---
 
 Zum Schutz privater Netzwerke durch Einflüsse von Außen oder auch aus dem eigenen Netzwerk setzt man Firewalls ein. Man unterscheidet dabei zwischen Software – und Hardwarefirewalls, es gibt aber auch Mischungen aus beidem. Verschiedene Arten von Filter – und Regeltechniken ermöglichen Protokollierung, Inspektion und sogar Manipulation ein – und ausgehender Datenpakete. 
