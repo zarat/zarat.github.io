@@ -4,7 +4,7 @@ title: SQL Injections und wie sie entstehen
 author: Manuel Zarat
 category: tutorials
 tags: protokoll
-permalink: /blog/sql-injections
+permalink: /blog/sqlinjections
 ---
 
 <p>Ich habe ein Beispiel auf <a href="http://www.sqlfiddle.com/#!9/70f022" target="_blank" rel="noopener">SQL Fiddle</a> erstellt.</p>
