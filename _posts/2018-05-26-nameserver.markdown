@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Eigener Nameserver mit Bind
+title: Einen Nameserver mit bind erstellen
 author: Manuel Zarat
 tags: protokoll
 permalink: /blog/nameserver
