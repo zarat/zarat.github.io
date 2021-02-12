@@ -7,7 +7,7 @@ tags: voip
 permalink: /blog/asterisk
 ---
 
-Seit in meiner Firma die Alcatel ISDN Anlage ausgemustert wurde, beschäftige ich mich intensiv mit der neuen, hauseigenen VoIP Lösung Asterisk. Einige Vorteile von IP Telefonie gegenüber herkömmlicher Telefonie sind:
+Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstandards aufgebaut sind. Dabei werden für Telefonie typische Informationen, mithin Sprache und Steuerinformationen beispielsweise für den Aufbau einer Verbindung, über ein Datennetz übertragen. Bei den Gesprächsteilnehmern können Computer, auf IP-Telefonie spezialisierte Telefonendgeräte oder klassische Telefone, die über spezielle Adapter angeschlossen sind, die Verbindung herstellen.
 
 <!--excerpt_separator-->
 
