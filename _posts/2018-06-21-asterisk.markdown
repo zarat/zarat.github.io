@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Eigene VoIP Anlage mit Asterisk
+title: Eine VoIP Anlage mit Asterisk
 author: Manuel Zarat
 category: tutorials
 tags: voip
-permalink: /blog/eigene-voip-anlage-mit-asterisk
+permalink: /blog/asterisk
 ---
 
 Seit in meiner Firma die Alcatel ISDN Anlage ausgemustert wurde, beschäftige ich mich intensiv mit der neuen, hauseigenen VoIP Lösung Asterisk. Einige Vorteile von IP Telefonie gegenüber herkömmlicher Telefonie sind:
