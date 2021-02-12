@@ -3,7 +3,7 @@ layout: post
 title: Einen GPG Schlüsselbund erstellen
 author: Manuel Zarat
 tags: protokoll
-permalink: /blog/einen-gpg-schlusselbund-erstellen
+permalink: /blog/gpg-keyring
 ---
 
 GnuPG verwendet ein asymmetrisches Verfahren, was bedeutet jeder Teilnehmer hat 2 Schlüssel – einen öffentlichen und einen privaten. Wenn Sie OpenPGP noch nie verwendet und noch kein Schlüsselpaar erzeugt haben, wird Ihr Schlüsselbund noch vollkommen leer sein.
