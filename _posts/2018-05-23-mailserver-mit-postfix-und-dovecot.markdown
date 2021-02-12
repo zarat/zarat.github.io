@@ -3,7 +3,7 @@ layout: post
 title: Eigener Mailserver mit Postfix und Dovecot
 author: Manuel Zarat
 category: tutorials
-permalink: /blog/eigener-mailserver-mit-postfix-und-dovecot
+permalink: /blog/mailserver-mit-postfix-und-dovecot
 ---
 
 Ein Mailserver ist kein einzelner Dienst, sondern setzt sich üblicherweise aus mehreren Komponenten zusammen. Das sind im Wesentlichen ein Mail transfer agent (MTA) für das Senden und Empfangen sowie ein Message delivery agent (MDA) für den Zugriff auf Mails durch die jeweiligen Benutzer. 
