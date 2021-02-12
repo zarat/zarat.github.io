@@ -6,7 +6,7 @@ tags: protokoll
 permalink: /blog/nameserver
 ---
 
-Nameserver (DNS Server) verwalten die Informationen, welche IP-Adresse zu welchem Domain-Namen gehört. Jedesmal, wenn eine Seite im Internet angewählt wird, muss ein Nameserver die entsprechende IP-Adresse des Servers auf dem die Homepage liegt (techn. "gehostet wird") zurückliefern und auflösen, damit der Computer eine direkte Verbindung zum Server aufbauen kann. Firmeneigene Intranet Umgebungen haben ebenfalls eigene Nameserver.
+Nameserver (DNS Server) verwalten die Informationen, welche IP-Adresse zu welchem Domain-Namen gehört. Jedesmal, wenn eine Seite im Internet angewählt wird, muss ein Nameserver die entsprechende IP-Adresse des Servers auf dem die Homepage liegt (techn. "gehostet wird") zurückliefern und auflösen, damit der Computer eine direkte Verbindung zum Server aufbauen kann. Internetprovider oder firmeneigene Intranet Umgebungen haben ebenfalls eigene Nameserver.
 
 BIND ist ein von der Universität Berkeley (USA) entwickelter (Open Source) DNS Server und wurde auf fast jedes Betriebssystem portiert. Bis heute gilt BIND als „die Referenz“ unter den DNS Servern und bildet den Grundstock des heutigen Internets.
 <!--excerpt_separator-->
