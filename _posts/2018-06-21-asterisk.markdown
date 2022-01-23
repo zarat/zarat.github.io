@@ -3,6 +3,7 @@ layout: post
 title: Eine VoIP Anlage mit Asterisk
 author: Manuel Zarat
 categories: tutorials
+tags: protokoll
 permalink: /post/asterisk-voip-server
 ---
 
