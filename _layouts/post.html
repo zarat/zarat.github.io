@@ -8,16 +8,16 @@ layout: default
 
     <div class="sp-content-item-head-secondary">
          
-      {{ page.date | date: "%B" }}
+      published {{ page.date | date: "%B" }}
       {{ page.date | date: "%d" }},
-      {{ page.date | date: "%Y" }} |
+      {{ page.date | date: "%Y" }}
       
-      {% for category in page.categories %}
+      under {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
       {% endfor %}
-      <br>
-      tags: {% for tag in page.tags %}
+      
+      tagged {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
       {% endfor %}
