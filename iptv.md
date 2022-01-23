@@ -8,7 +8,7 @@ Eine Liste freier IPTV Sender.
 
 <video id="player" controls></video>
 
-<script src="hls.js" type="text/javascript"></script>
+<script src="{{ site.url }}/assets/hls.js" type="text/javascript"></script>
 <script>
 function loadVideo() {
       var video = document.getElementById('player');
