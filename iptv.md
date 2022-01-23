@@ -16,6 +16,8 @@ Eine Liste freier IPTV Sender.
       <option selected=selected>Select</option>
       <option value="https://orf1.mdn.ors.at/out/u/orf1/qxb/manifest.m3u8">ORF 1</option>
       <option value="https://orf2.mdn.ors.at/out/u/orf2/qxb/manifest.m3u8">ORF 2</option>
+      <option value="https://orf3.mdn.ors.at/out/u/orf3/qxb/manifest.m3u8">ORF 3</option>
+      <option value="https://orfs.mdn.ors.at/out/u/orfs/qxb/manifest.m3u8">ORF Sport+</option>
 </select>
 <video width="100%" id="player" controls></video>
 
