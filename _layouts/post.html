@@ -7,16 +7,23 @@ layout: default
     <div class="sp-content-item-head">{{ page.title }}</div>
 
     <div class="sp-content-item-head-secondary">
-         
+
+      {{ page.date | date: "%B" }}
+      {{ page.date | date: "%d" }},
+      {{ page.date | date: "%Y" }} 
+      
       {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
-      {% endfor %} |
-      
-      {{ page.date | date: "%B" }}
-      {{ page.date | date: "%d" }},
-      {{ page.date | date: "%Y" }} |
-      
+      {% endfor %} 
+
+    </div>
+
+    <div class="sp-content-item-body">
+      {{ content }}
+    </div>
+    
+    <div class="sp-content-item-body">
       {% if page.tags %}
       Tags:
       {% for tag in page.tags %}
@@ -24,11 +31,6 @@ layout: default
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
       {% endfor %} 
       {% endif %}
-
-    </div>
-
-    <div class="sp-content-item-body">
-      {{ content }}
     </div>
     
   </div>
