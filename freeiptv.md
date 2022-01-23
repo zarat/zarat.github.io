@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Free IPTV
-permalink: /iptv/
+permalink: /freeiptv/
 ---
 
 Eine Liste freier IPTV Sender.
