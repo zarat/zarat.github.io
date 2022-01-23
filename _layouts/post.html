@@ -10,10 +10,6 @@ layout: default
       abgelegt unter: {% for category in site.categories %}
       <a href="../category/{{ category | first }}">{{ category | first }}</a>,   
   {% endfor %} am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
-      
-      {% for tag in site.tags %}
-	{{ tag | first }} 
-{% endfor %}
 
     </div>
 
