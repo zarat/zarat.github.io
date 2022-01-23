@@ -12,7 +12,7 @@ layout: default
   {% endfor %} am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
       
       {% for tag in site.tags %}
-	{{ tag }} 
+	{{ tag | first }} 
 {% endfor %}
 
     </div>
