@@ -3,6 +3,7 @@ layout: post
 title: Einen Nameserver mit bind erstellen
 author: Manuel Zarat
 categories: tutorials
+tags: protokoll
 permalink: /post/bind9-nameserver
 ---
 
