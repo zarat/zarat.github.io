@@ -7,17 +7,20 @@ layout: default
     <div class="sp-content-item-head">{{ page.title }}</div>
 
     <div class="sp-content-item-head-secondary">
-      {% for category in page.categories %}
+         
+      {{ post.date | date: "%B" }}
+      {{ post.date | date: "%d" }},
+      {{ post.date | date: "%Y" }}
+      
+      filed under: {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
-      {% endfor %} 
-      
-      am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
+      {% endfor %}
 
-  {% for tag in page.tags %}
-    {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
-  {% endfor %}
+      flagged with: {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+      {% endfor %}
       
     </div>
 
