@@ -7,9 +7,10 @@ layout: default
     <div class="sp-content-item-head">{{ page.title }}</div>
 
     <div class="sp-content-item-head-secondary">
-      <!-- {% for category in site.categories %}
-      <a href="../category/{{ category | first }}">{{ category | first }}</a>,   
-      {% endfor %} -->
+      {% for category in page.categories %}
+      {% capture category_name %}{{ tag }}{% endcapture %}
+      <a href="../category/{{ category_name }}">{{ category_name }}</a>   
+      {% endfor %} 
       
       am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
 
