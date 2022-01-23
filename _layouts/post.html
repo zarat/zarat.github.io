@@ -24,13 +24,10 @@ layout: default
     </div>
     
     <div class="sp-content-item-body">
-      {% if page.tags %}
-      Tags:
       {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
       {% endfor %} 
-      {% endif %}
     </div>
     
   </div>
