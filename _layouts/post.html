@@ -7,17 +7,15 @@ layout: default
     <div class="sp-content-item-head">{{ page.title }}</div>
 
     <div class="sp-content-item-head-secondary">
-      {% for category in site.categories %}
+      <!-- {% for category in site.categories %}
       <a href="../category/{{ category | first }}">{{ category | first }}</a>,   
-      {% endfor %} 
+      {% endfor %} -->
       
       am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
 
-      {% for tag in post.tags %}
+      <!-- {% for tag in post.tags %}
       <a href="../tag/{{ tag | first }}">{{ tag | first }}</a>,   
-      {% endfor %}
-      
-      {% include collecttags.html %}
+      {% endfor %} -->
       
     </div>
 
