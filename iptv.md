@@ -11,13 +11,14 @@ Eine Liste freier IPTV Sender.
 
 <script src="{{ site.url }}/assets/hls.js" type="text/javascript"></script>
 <script>
+var videourl = 'https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8';
 function loadVideo() {
       var video = document.getElementById('player');
       if (Hls.isSupported()) {
         var hls = new Hls({
           debug: true,
         });
-        hls.loadSource('https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8');
+        hls.loadSource(videourl);
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           video.muted = false;
@@ -28,7 +29,7 @@ function loadVideo() {
       // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
       // This is using the built-in support of the plain video element, without using hls.js.
       else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = 'https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8';
+        video.src = videourl;
         video.addEventListener('canplay', function () {
           video.play();
         });
