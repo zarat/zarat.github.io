@@ -6,10 +6,15 @@ permalink: /iptv/
 
 Eine Liste freier IPTV Sender.
 
-<select>
-      <option value="1">1</option>
+<script>
+      function changeChannel(v) {
+            console.log(v);
+      }
+</script>
+
+<select name="channel" onchange="changeChannel(this)">
+      <option value="https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8">Exxpress</option>
       <option value="2">2</option>
-      <option value="3">3</option>
 </select>
 <video width="100%" id="player" controls></video>
 
