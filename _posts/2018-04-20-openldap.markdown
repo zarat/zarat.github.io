@@ -2,8 +2,8 @@
 layout: post
 title: Einen OpenLDAP Verzeichnisdienst erstellen
 author: Manuel Zarat
-tags: protokoll
-permalink: /post/openldap
+categories: tutorials
+permalink: /post/openldap-verzeichnisdienst
 ---
 
 <p>OpenLDAP ist ein Datenbank Backend zum Verwalten von Organisationseinheiten wie Benutzern, Rechnern u.ä in größeren Organisationen. In Verbindung mit Samba ist es ein vollwertiger Ersatz für einen Domain Controller **der Ebene 2003**.</p>
