@@ -2,8 +2,8 @@
 layout: post
 title: Arten von Firewalls
 author: Manuel Zarat
-category: sicherheit
-tags: security
+categories: tutorials
+tags: sicherheit
 permalink: /post/firewalls
 ---
 
