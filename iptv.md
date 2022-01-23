@@ -13,8 +13,8 @@ Eine Liste freier IPTV Sender.
 </script>
 
 <select name="channel" onchange="changeChannel(this)">
-      <option value="https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8">Exxpress</option>
-      <option value="2">2</option>
+      <option value="https://orf1.mdn.ors.at/out/u/orf1/qxb/manifest.m3u8">ORF 1</option>
+      <option value="https://orf2.mdn.ors.at/out/u/orf2/qxb/manifest.m3u8">ORF 2</option>
 </select>
 <video width="100%" id="player" controls></video>
 
@@ -46,5 +46,5 @@ function loadVideo(videourl) {
 }
 
 //setTimeout(loadVideo, 1000);
-loadVideo(vurl);
+//loadVideo(vurl);
     </script>
