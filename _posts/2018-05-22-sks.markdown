@@ -1,0 +1,48 @@
+---
+layout: post
+title: Einen SKS Schlüsselserver installieren
+author: Manuel Zarat
+category: tutorials
+tags: verschlüsselung
+permalink: /post/sks
+---
+
+Der SKS Keyserver lässt sich bequem über den Paketmanager installieren
+
+<pre>apt-get install sks</pre>
+
+Weil der Dienst nach der Installation automatisch startet, beende ich ihn vorerst.
+
+<!--excerpt_separator-->
+
+<pre>service sks stop</pre>
+
+Während der Installation wurde ein Benutzer debian-sks angelegt. Unter diesem installieren wir den Server mit
+
+<pre>su debian-sks -c '/usr/sbin/sks build'</pre>
+
+Da mein Schlüsselserver sich nicht mit anderen synchronisieren soll ersetze ich noch den Inhalt folgender Dateien
+
+<pre>echo '# Empty - Do not communicate with other keyservers.' >/etc/sks/mailsync
+echo '# Empty - Do not communicate with other keyservers.' >/etc/sks/membership</pre>
+
+Nun noch einige kleine Parameter setzen
+
+<pre>cat >/etc/sks/sksconf <<'EOF'
+pagesize: 16
+ptree_pagesize: 16
+EOF</pre>
+
+als Service registrieren
+
+<pre>systemctl enable sks.service</pre>
+
+und den Autostart aktivieren.
+
+<pre>echo 'initstart=yes' >/etc/default/sks</pre>
+
+Der Schlüsselserver ist somit einsatzbereit und kann mit
+
+<pre>service sks start</pre>
+
+gestartet werden und damit ist unser Schlüsselserver auch schon bereit ihn zu testen.

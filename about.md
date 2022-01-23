@@ -1,0 +1,39 @@
+---
+layout: page
+title: About
+permalink: /about/
+---
+Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: manuel (at) zarat (dot) ml.
+
+<pre>
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBGAyXJ4BCADJ6pahobB5Euxuq7mOdej9IQrlKyQGR1y2bRLNtNyJ5cPCvsAG
+GIUeBnFEPJF3Upncva7CgzrA1GpdxNATzaf+Ns1XPdfOMqhZpo+kTtpf8NAMQZi7
+m18I+xFRBCVnGnypsi52c1DrPY+yi++4SzK+pWgFPgT4HxPsHD2BbTac+6Pos0Ui
+PPhQUXQArcVcl9eEryiTpXa1CDbk2dRSc2aXm0j/lf8SGffdGRZpHPzmZYbEz7EJ
+J5/lCzJn7Q7Z5wi7VKaaxrMDcVA108u1pcO/FW/bIV4A3lcZsBDvvgskiMShU08J
+mgIFDjidZwFUGkGxqVFgdUk+gLMy8njAXm5zABEBAAG0IU1hbnVlbCBaIDxtYW51
+ZWwuemFyYXRAZ21haWwuY29tPokBVAQTAQoAPhYhBOS0Dho+DiMeaEG7cuoN+4IJ
+iSTWBQJgMlyeAhsDBQkB4TOABQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEOoN
++4IJiSTW8vQH/21B6zhQEj75gb5vy3uvJuEDLuA/C4iLZ1z0fU3m8TIgceIoy8kA
+bg9md4LeRXnSyVg8zE9HEOOLtEm1envaH7vTzxAzNVLRm5nHp9e7M51OwwQzlM6X
+fQyrx85sfFAwq94psynSXc1CLQopyltup1ziD8SOvSO4MEtqxFGb7fjmnwmrU/Po
+lM36g+pLudKhJgaHAa094i3Cn9jK5WOHXndya0/Sa2089Rc0Em11UP1a2mzJ7SUQ
++cZJ/2LiopAbF611AHww890RRACugQqqm6SMvSe2TrNtSQLc2McYYT/Eb0jek5a4
+1K3CSQP5n9N9CYSBYH901gILiJ140DmRG/S5AQ0EYDJcngEIANOE/aKPPqp9KaF8
+fP/Ofg37BxM9sEgjs3nExWNAGGwyQGurVPQ6MDf6ibM5BCh0hgPJCaqvniXYmJ8m
+zki9gqcvlJCSk0471SEmyfe8Z3Llzyq1gw60/MVCe+x0hCblQfVwhJ9U9fFYm+sr
+/R2x9PErVsRxO0DMpqjvBn7lkrRPmWAZLHVqcYM1uSBMLIDZy2laprIPg+/3U8Pw
+XRmRGETaUWQZ6qEpgu4eS5BLNrMvoYf96/eacs59WT0pYruMLnfZJkq5fM2QFfj1
+AcVF43rgoNyxEhoUIlHt/5WLX2bXx/k6n3q9WsvUY4Fbhk/SHdy1Ysu2ukrper67
+CBdIDiMAEQEAAYkBPAQYAQoAJhYhBOS0Dho+DiMeaEG7cuoN+4IJiSTWBQJgMlye
+AhsMBQkB4TOAAAoJEOoN+4IJiSTWbE0IALHuMVxzzA33PAemqYrdeOpi+OIlQVK3
+3yHkQoOjaqEhdH6om5f5migtGcHuZ2X6We5LRrFnZgdMspx/ja9+zmBHh/wywNns
+4dOd34PetHKhAGSTzyGnV73GKqpTySFAMSK6471k42EQi4G7TcdB4TF3Gatx+8yd
+iBQ8zEI+q9vm6Uxzz0o6obrH2rnuK5ds0eNHq6SxljeAG4XXyxthVq4w4iyQd3rL
+mTGTQQ/YNjT6Q95LflGtzz7yXxJ+VeAdLviOkcp7hmTyaBiFe+r1vQ//dQlf/wa5
+ScyCvImMQTFJcVn9NIOWfRzhxj3UrdTXnMpm8ADpZAtIb0igX/855L8=
+=VjN7
+-----END PGP PUBLIC KEY BLOCK-----
+</pre>

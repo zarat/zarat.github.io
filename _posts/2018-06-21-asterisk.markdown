@@ -1,0 +1,140 @@
+---
+layout: post
+title: Eine VoIP Anlage mit Asterisk
+author: Manuel Zarat
+category: tutorials
+tags: test
+permalink: /post/asterisk
+---
+
+Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstandards aufgebaut sind. Dabei werden für Telefonie typische Informationen, mithin Sprache und Steuerinformationen beispielsweise für den Aufbau einer Verbindung, über ein Datennetz übertragen. Bei den Gesprächsteilnehmern können Computer, auf IP-Telefonie spezialisierte Telefonendgeräte oder klassische Telefone, die über spezielle Adapter angeschlossen sind, die Verbindung herstellen.
+
+<!--excerpt_separator-->
+
+- Voice over IP ist bedeutend günstiger. Sowohl innerhalb Österreichs, als auch im Ausland. Intern und zwischen Ihren Niederlassungen telefonieren Sie ohnehin umsonst.
+- Bei neuen Nebenstellen sind keine aufwendigen Erweiterungen der Ports oder IC nötig. Auch die aufwendige Verkabelung fällt oft weg.
+- Bei vielen PBX sind Videotelefonie, Chat, Voicemail, Anrufgruppen, Rufumlegung, Reporting-Tools und vieles mehr bereits enthalten.
+- VoIP Endgeräte, also Softwaretelefone sind für so gut wie jede Plattform – oft kostenlos – verfügbar.
+
+Bestimmt gibt es noch viele gute Gründe, die für einen Umstieg auf IP Telefonie sprechen.
+Installation
+
+Zuerst installieren wir Asterisk als APT Package
+
+<pre>root@ubuntu:~$ apt-get install build-essential wget libssl-dev libncurses5-dev libnewt-dev libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev git subversion</pre>
+
+und wechseln danach in das Verzeichnis
+
+<pre>root@ubuntu:~$ cd /usr/src</pre>
+
+wo wir nun die aktuelle Asterisk Software mit wget herunterladen
+
+<pre>root@ubuntu:/usr/src# wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz</pre>
+
+und entpacken diese mit
+
+<pre>root@ubuntu:/usr/src# tar zxvf asterisk-14-current.tar.gz</pre>
+
+Jetzt wechseln wir in den entpackten Unterordner (bei euch heißt er evtl. anders)
+
+<pre>root@ubuntu:/usr/src# cd asterisk-14.6.1</pre>
+
+und beginnen damit, einige Scripte auszuführen
+
+<pre>root@ubuntu:/usr/src/asterisk-14.6.1# contrib/scripts/get_mp3_source.sh
+root@ubuntu:/usr/src/asterisk-14.6.1# contrib/scripts/install_prereq install</pre>
+
+Wir werden danach nach einem „ITU-T telephone code“ gefragt, für Österreich ist es 43. Weitere Ländercodes finden Sie im Internet. Jetzt beginnen wir, den eigentlichen Asterisk Server zu konfigurieren, wozu es ein configure script gibt. Im Asterisk Ordner geben wir ein
+
+<pre>root@ubuntu:/usr/src/asterisk-14.6.1# ./configure
+root@ubuntu:/usr/src/asterisk-14.6.1# make menuselect (hier können wir alles lassen wie es ist)
+root@ubuntu:/usr/src/asterisk-14.6.1# make
+root@ubuntu:/usr/src/asterisk-14.6.1# make install
+root@ubuntu:/usr/src/asterisk-14.6.1# make samples
+root@ubuntu:/usr/src/asterisk-14.6.1# make config
+root@ubuntu:/usr/src/asterisk-14.6.1# ldconfig</pre>
+
+Die grundinstallation wäre damit geglückt, nun werden wir noch einige Sicherheitsvorkehrungen treffen. Wir erzeugen eine Benutzergruppe asterisk und einen Benutzer asterisk, der sein Heimverzeichnis unter /var/lib/asterisk hat und fügen ihn noch der Benutzergruppe asterisk hinzu.
+
+<pre>groupadd asterisk
+useradd -d /var/lib/asterisk -g asterisk asterisk</pre>
+
+Um Asterist auch unter dem neuen Benutzer und der Grupe zu starten müssen wir noch folgende Befehle ausführen
+
+<pre>sed -i 's/#AST_USER="asterisk"/AST_USER="asterisk"/g' /etc/default/asterisk
+sed -i 's/#AST_GROUP="asterisk"/AST_GROUP="asterisk"/g' /etc/default/asterisk
+sed -i 's/;runuser = asterisk/runuser = asterisk/g' /etc/asterisk/asterisk.conf</pre>
+
+Außerdem müssen wir noch die Rechte an einigen Verzeichnissen bearbeiten.
+
+<pre>chown -R asterisk:asterisk /etc/asterisk /var/{run,lib,log,spool}/asterisk /usr/lib/asterisk</pre>
+
+Jetzt können wir den Dienst starten und er sollte unter dem Benutzer asterisk ausgeführt werden.
+
+<pre>systemctl start asterisk</pre>
+
+Um in das CLI (Command line interface) zu gelangen geben Sie ein
+
+<pre>root@ubuntu:/usr/src/asterisk-14.6.1# asterisk -rvv</pre>
+
+Je mehr „v“ Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
+
+Die Erstkonfiguration
+
+Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Der Dialplan – also der Ablaufplan für Anrufe – wird in verschiedene Abschnitte unterteilt. Diese Abschnitte heißen „Contexte“. Am Anfang eines Dialplans muss es immer einen [general] Context für allgemeinen Konfigurationen geben, die danach folgenden Contexte können beliebig genannt werden. Die Contexte bilden das Verbindungsstück zwischen der Definition eines Telefons (z. B. SIP oder ISDN) und dem Dialplan. Für ein Telefon oder auch mehrere wird immer ein Context definiert. Ein Context selbst wird durch Text in eckigen Klammern eingeleitet. „Text“ ist hierbei ein sinnvoller Name, der den Context benennt und als spätere Referenz für denselben verwendet wird. Alle Zeilen nach einer solchen Einleitung bis zum nächsten Context werden als Bestandteil (Regeln, Anweisungen) dieses Contextes behandelt. Hier sehen Sie ein Beispiel aus einer sip.conf:
+
+<pre># Der "general" context gilt global, Änderungen können im jeweiligen Sub Context vorgenommen werden.
+[general]
+context = intern
+bindaddr = 0.0.0.0
+bindport = 5060
+dtmfmode = rfc2833
+disallow = all
+t38pt_udptl = yes
+
+# Im Falle eines VoIP Trunks ins ISDN Netz
+[external-trunk]
+type = friend
+host = 1.1.1.1
+context = extern
+disallow = all
+allow = ulaw
+allow = alaw
+dtmfmode = rfc2833
+canreinvite = yes;
+qualify = yes
+#sendrpid = yes
+#trustrpid = yes
+
+[internal-phones]
+context = internal
+qualify = yes
+nat = yes
+
+[101]
+type = friend
+context = intern
+secret = 1234
+host = dynamic</pre>
+
+Das SIP-Telefon mit der Nummer 101 ruft in dieser Konfiguration immer den Context intern auf. Wenn also ein Benutzer mit dem Telefon 101 eine bestimmte Nummer wählt, dann sucht Asterisk im Context intern nach der entsprechenden Extension (also der dazu passenden Regel). Ist diese Extension nicht vorhanden, passiert auch nichts.
+Dialplan
+
+In der Datei /etc/asterisk/extensions.ael kann das Rufverhalten der einzelnen Peers definiert werden. Angenommen die Basisanschlussnummer ist eine Wiener Nummer 01-1234567 – alles was danach eingegeben wurde, soll unsere Nebenstellen abbilden.  Dabei wird in der 2. Zeile des externen Context die Nummer extrahiert, die der Basisanschlussnummer angehängt wurde um den Anruf entsprechend zu leiten und wird in der Variable DURCHWAHL gespeichert. Nun kann anhand der DURCHWAHL definiert werden, wie sich die Telefone zu verhalten haben.
+
+<pre>content extern {
+        _11234567. => {
+                Set(DURCHWAHL=${EXTEN:8});
+                if($(DURCHWAHL) = 100) {
+                        Dial(SIP/101&SIP/102&SIP/103,30,trg);
+                }
+        }
+}</pre>
+
+Sollen interne Nebenstellen nach außen umleiten, muss die Nummer dementsprechend bearbeitet und auf unseren externen VoIP Trunk gelegt werden. Das kann z.B eine Hotline im Notfall sein, die den Chef aus dem Bett ruft.
+
+<pre>context intern {
+        hint(SIP/100) 100 => {
+                Dial(SIP/08001234567@external-trunk, 30,trg);
+        }
+}</pre>

@@ -1,0 +1,15 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>zarat.ml {% if page.title %}- {{ page.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/menu.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+</head>
+
+{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}

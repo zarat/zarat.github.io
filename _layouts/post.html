@@ -1,0 +1,20 @@
+---
+layout: default
+---
+  
+  <div class="sp-content-item">
+
+    <div class="sp-content-item-head">{{ page.title }}</div>
+
+    <div class="sp-content-item-head-secondary">
+      abgelegt unter: {% for category in site.categories %}
+  {{ category | first }},   
+  {% endfor %} am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
+
+    </div>
+
+    <div class="sp-content-item-body">
+      {{ content }}
+    </div>
+
+  </div>

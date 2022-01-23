@@ -1,0 +1,10 @@
+---
+layout: null
+---
+[
+  {% for post in site.tags %}
+    {
+      "title"    : "{{ post.title | escape }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

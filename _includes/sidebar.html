@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  var postsURL = [{% for post in site.posts %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+  var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+</script>
+
+<script type="text/javascript">
+  var randomIndexUsed = [];
+  var counter = 0;
+  var numberOfPosts = 5;
+  while (counter < numberOfPosts) {
+    var randomIndex;
+    var postURL;
+    var postTitle;
+    randomIndex = Math.floor(Math.random() * postsURL.length);
+    if (randomIndexUsed.indexOf(randomIndex) == "-1") {
+      postURL = postsURL[randomIndex];
+      postTitle = postsTitle[randomIndex];
+      document.write('<div class="sp-sidebar-item-head"><a href="' + postURL + '">' + postTitle + '</a></div>');
+      randomIndexUsed.push(randomIndex);
+      counter++;
+    }
+  }
+</script>
+
+<!-- HTML elements for search -->
+    <div id="search-demo-container">
+      <input type="text" id="search-input" placeholder="search...">
+      <ul id="results-container"></ul>
+    </div>
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+  <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '../search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>

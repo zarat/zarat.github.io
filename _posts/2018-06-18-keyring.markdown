@@ -1,0 +1,150 @@
+---
+layout: post
+title: Einen GPG Schlüsselbund erstellen
+author: Manuel Zarat
+tags: protokoll
+permalink: /post/keyring
+---
+
+GnuPG (GNU Privacy Guard) verwendet ein asymmetrisches Verfahren, was bedeutet jeder Teilnehmer hat 2 Schlüssel – einen öffentlichen und einen privaten. Wenn Sie OpenPGP noch nie verwendet und noch kein Schlüsselpaar erzeugt haben, wird Ihr Schlüsselbund noch vollkommen leer sein.
+
+<!--excerpt_separator-->
+
+Besonders wichtig ist es, folgende Sachen zu wissen
+
+- Ihr öffentlicher Schlüssel kann nach Upload auf einen Keyserver nicht mehr aus dem öffentlichen Keyring gelöscht – nur für ungültig erklärt werden!
+- Zum Widerrufen (für ungültig erklären) des Schlüssels benötigen Sie ein Widerrufszertifikat
+- Um ein Widerrufszertifikat zu generieren benötigen Sie wiederum Ihren privaten Schlüssel
+
+Nach Generierung der Schlüssel sollte man also gleich ein Widerrufszertifikat erstellen – für den Fall das Sie Ihren privaten Schlüssel verlieren oder das Passwort vergessen. Das werden wir im Anschluss an die Generierung der Schlüssel erledigen. Wie Sie Ihren Schlüsselbund verwalten, werde ich in einem eigenen Artikel zeigen.
+
+<h2>Schlüsselpaar generieren</h2>
+
+<pre>user@machine:~# gpg --gen-key</pre> 
+
+Dieser Befehl generiert ein neues Schlüsselpaar. Sie werden gefragt, wozu der Schlüssel verwendet werden soll siehe Flags. Standardeinstellung ist 1 für RSA. Wenn sich noch keine Schlüssel in Ihrem lokalen Schlüsselbund befinden, wird beim Ersten Aufruf eine Initialmeldung erscheinen, die Sie darüber informiert, das GnuPG eingerichtet wurde. In diesem Fall rufen Sie den Befehl einfach nocheinmal auf.
+
+<pre>gpg (GnuPG) 1.4.16; Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+ 
+Bitte wählen Sie, welche Art von Schlüssel Sie möchten:
+   (1) RSA und RSA (voreingestellt)
+   (2) DSA und Elgamal
+   (3) DSA (nur unterschreiben/beglaubigen)
+   (4) RSA (nur signieren/beglaubigen)
+Ihre Auswahl?</pre>
+
+Sie werden gefragt, wie lange (in Bits) der Schlüssel sein soll. 2048 ist allgemeiner Standard.
+
+<pre>RSA-Schlüssel können zwischen 1024 und 4096 Bit lang sein.
+Welche Schlüssellänge wünschen Sie? (2048)</pre>
+
+Nun müssen Sie noch angeben, wie lange der Schlüssel gültig sein soll.
+
+<pre>Bitte wählen Sie, wie lange der Schlüssel gültig bleiben soll.
+         0 = Schlüssel verfällt nie
+       1-n = Schlüssel verfällt nach n Tagen
+      w = Schlüssel verfällt nach n Wochen
+      m = Schlüssel verfällt nach n Monaten
+      y = Schlüssel verfällt nach n Jahren
+Wie lange bleibt der Schlüssel gültig? (0)</pre>
+
+Diese Angaben müssen Sie jetzt noch bestätigen
+
+<pre>Ist dies richtig? (j/N)</pre>
+
+Wenn alles korrekt ist kann es weitergehen.
+
+<pre>Sie benötigen eine User-ID, um Ihren Schlüssel eindeutig zu machen; das
+Programm baut diese User-ID aus Ihrem echten Namen, einem Kommentar und
+Ihrer Email-Adresse in dieser Form auf:
+    "Heinrich Heine (Der Dichter) "
+ 
+Ihr Name ("Vorname Nachname"): Manuel Zarat
+Email-Adresse: manuel@zarat.ml
+Kommentar: Testkey 1
+Sie haben diese User-ID gewählt:
+    "Manuel Zarat (Testkey 1) "
+ 
+Ändern: (N)ame, (K)ommentar, (E)-Mail oder (F)ertig/(B)eenden?</pre>
+
+Wenn Sie diese Angaben bestätigen, wird ein Passwort von Ihnen verlangt. Dieses Passwort ist das Wichtigste Passwort in Ihrem aktuellen Schlüsselbund. Es ist das Passwort für Ihren privaten Schlüssel.
+
+Wenn Sie Ihr Passwort 2 mal bestätigt haben, wird damit begonnen, den Schlüssel zu generieren.
+
+<pre>Wir müssen eine ganze Menge Zufallswerte erzeugen.  Sie können dies
+unterstützen, indem Sie z.B. in einem anderen Fenster/Konsole irgendetwas
+tippen, die Maus verwenden oder irgendwelche anderen Programme benutzen.
+ 
+Es sind nicht genügend Zufallswerte vorhanden.  Bitte führen Sie andere
+Arbeiten durch, damit das Betriebssystem weitere Entropie sammeln kann!
+(Es werden noch 219 Byte benötigt.)
+ 
+........+++++</pre>
+
+Das generieren eines Schlüssels kann lange dauern, besonders in virtuellen Maschinen. Lassen Sie sich Ihren Schlüsselbund jetzt ausgeben
+
+<pre>user@machine:~# gpg --list-keys</pre>
+
+ist Ihr eigener Schlüssel bereits darin enthalten
+
+<pre>pub   2048R/71E3EEFA 2018-03-12 [verfällt: 2018-03-19]
+      Schl.-Fingerabdruck = ACFD 7B34 598E E80D C631  E212 D789 9D2A 71E3 EEFA
+uid                  Manuel Zarat (Testkey 1) 
+sub   2048R/3F3714BD 2018-03-12 [verfällt: 2018-03-19]</pre>
+
+Die Zeile, die mit sub beginnt ist ein Subkey des eben erstellten privaten Schlüssel. Dieser wird automatisch mit generiert. Damit haben Sie Ihren Schlüsselbund erfolgreich erstellt.
+
+<h2>Schlüssel ID</h2>
+
+Diese kann auf verschiedene Weise dargestellt werden. Um die KeyID Ihres Schlüssels zu erfahren können Sie den Befehl –list-keys mit der assoziierten Email als Parameter aufrufen.
+
+<pre>pub   2048R/71E3EEFA 2018-03-12 [verfällt: 2018-03-19]
+      Schl.-Fingerabdruck = ACFD 7B34 598E E80D C631  E212 D789 9D2A 71E3 EEFA
+uid                  Manuel Zarat (Testkey 1) 
+sub   2048R/3F3714BD 2018-03-12 [verfällt: 2018-03-19]</pre>
+
+Der lange hexadezimale String in Zeile 2 ist der sogenannte Fingerabdruck des Schlüssels. Die letzten 8 Zeichen des Fingerabdrucks sind die KeyID. In meinem Fall ist die KeyID
+
+<pre>71E3EEFA</pre>
+
+<h2>Schlüssel exportieren</h2>
+
+Mit dem Befehl
+
+<pre>
+gpg --armor --export KeyID > dateiname.asc
+gpg --armor --export-secret-key KeyID >> dateiname.asc
+</pre>
+
+können Sie Ihren öffentlichen und Ihren privaten Schlüssel in eine Datei exportieren. Achten Sie auf die doppelten Pfeile beim 2. Aufruf! Der Parameter –armor bewirkt die Ausgabe im bekannten ASCII Format. Mit diesen exportierten Sicherungen können Sie Ihren Schlüsselbund auf weitere Systeme portieren.
+
+<h2>Schlüssel importieren</h2>
+
+Um einen exportierten privaten Schlüssel auf einem anderen System zu importieren rufen Sie
+
+<pre>
+gpg --allow-secret-key-import --import dateiname.asc
+</pre>
+
+und importieren so die Datei. Auf diese Weise können Sie auch öffentliche Schlüssel Ihrer Kontakte importieren.
+
+<h2>Widerrufszertifikat erstellen</h2>
+
+Nun erstellen wir das zu Beginn erwähnte Widerrufszertifikat. Dazu benötigen wir wieder die KeyID des betreffenden Schlüssels.
+
+<pre>
+gpg --gen-revoke KeyID > KeyID.rev.asc
+</pre>
+
+Heben Sie dieses Widerrufszertifikat so sorgsam wie Ihren privaten Schlüssel – aber an einem anderen Ort – auf. Ihr Schlüsselbund ist damit fertig. Ihren öffentlichen Schlüssel können Sie auf verschiedene verteilen wie Sie möchten.
+Schlüssel veröffentlichen.
+
+<h2>Schlüssel veröffentlichen</h2>
+
+Keyserver sind für jeden frei zugängliche Server, auf denen öffentliche Schlüssel abgelegt werden können. Außerdem kann dort jede Person nach öffentlichen Schlüsseln von anderen Personen suchen und diese in den eigenen Schlüsselbund importieren. Das erleichtert die Suche nach öffentlichen Schlüsseln enorm. Diese weltweit verteilten Keyserver synchronisieren sich untereinander und werden von einer großen Zahl von Institutionen und Privatpersonen auf der ganzen Welt betrieben.Um Ihren Public key zu veröffentlichen, senden Sie ihn an einem Keyserver.
+
+<pre>
+gpg --keyserver keyserver.ubuntu.com --send-key KeyID
+</pre>

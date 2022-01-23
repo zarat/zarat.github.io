@@ -1,0 +1,124 @@
+/* Extra small devices (phones) */
+
+#site-header {
+
+  height: 100%;
+  position: static;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.14);
+
+  #avatar-container {
+
+    min-height: 215px;
+    padding: 22px;
+    background-color: @primary-700;
+
+    #author-picture {
+
+      width: 100px;
+      border-radius: 50px;
+    }
+
+    #author-name {
+
+      color: @grey-100;
+      font-size: 24px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-family: Oswald;
+      font-weight: 300;
+    }
+
+    nav {
+
+      font-size: 14px;
+
+      a {
+
+        color: @grey-550;
+        text-decoration: none;
+        
+        &:hover {
+          color: @grey-100;
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+
+@media ( min-width: @screen-md-min ) {
+
+  #site-header {
+
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: @header-size;
+    color: @secondary-text;
+    background-color: @primary-500;
+    border-right: 1px solid rgba(0,0,0,0.14);
+
+    #author-intro {
+      font-size: ( 12px / @font-size-base ) * 1em;
+      margin-bottom: 12px;
+    }
+
+    #nav-container {
+
+      padding: 24px 0;
+
+      nav {
+
+        li {
+
+          line-height: 40px;
+          height: 40px;
+
+          a {
+
+            color: @grey-550;
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+            font-size: ( 16px / @font-size-base ) * 1em;
+
+            &:hover {
+              color: @grey-100;
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+
+      bottom: 0;
+      font-size: ( 12px / @font-size-base ) * 1em;
+      padding: 28px 22px 22px 22px;
+      position: absolute;
+      width: 100%;
+      border-top: 1px solid rgba(0,0,0,0.14);
+
+      a {
+        color: @grey-550;
+        text-decoration: none;
+      }
+
+      .fa-heart {
+        color: @accent-200;
+        transition: all .2s ease-in-out;
+      }
+      .fa-heart:hover { transform: scale(1.2); }
+
+      ul {
+
+        display: none;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# your informations
+author:
+  name: Manuel Zarat
+  description: Mein auf Github gehosteter Blog
+  picture: /assets/images/avatar.jpg
+  favicon: /assets/images/favicon.png
+
+# site description
+description: 
+
+# site url
+url: https://zarat.github.io
+
+# site title
+title: blog.zarat.ml
+
+# site version
+version: 1.0
+
+# number of posts per page
+paginate: 10
+
+# your github username
+github_username: zarat
+
+# set true to include or false to exclude share option
+share:
+  facebook: false
+  twitter: false
+  google_plus: false
+  linkedin: false
+
+markdown: kramdown
+highlighter: rouge
+exclude: [ 'README.md', 'src/', 'node_modules', 'package.json', 'Gruntfile.js' ]
+excerpt_separator: <!--excerpt_separator-->
+
+# Gems
+gems: [jekyll-paginate]

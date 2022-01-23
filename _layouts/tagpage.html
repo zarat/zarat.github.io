@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="sp-content-item">
+
+    <div class="sp-content-item-head">Tag: {{ page.tag }}</div>
+
+    <div class="sp-content-item-body">
+      {{ content }}
+        
+<p>mehr zu {{ page.tag }}</p>  
+<ul>
+{% for post in site.tags[page.tag] %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+    {{ post.description }}
+  </li>
+{% endfor %}
+</ul>   
+        
+    </div>
+
+</div>
