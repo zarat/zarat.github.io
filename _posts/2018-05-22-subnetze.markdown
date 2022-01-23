@@ -3,6 +3,7 @@ layout: post
 title: Subnetze unter IPv4
 author: Manuel Zarat
 categories: tutorials
+tags: sicherheit
 permalink: /post/ip-subnetze
 ---
 
