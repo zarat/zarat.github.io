@@ -7,10 +7,16 @@ layout: default
     <div class="sp-content-item-head">{{ page.title }}</div>
 
     <div class="sp-content-item-head-secondary">
-      abgelegt unter: {% for category in site.categories %}
+      {% for category in site.categories %}
       <a href="../category/{{ category | first }}">{{ category | first }}</a>,   
-  {% endfor %} am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
+      {% endfor %} 
+      
+      am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
 
+      {% for tag in site.tags %}
+      <a href="../tag/{{ tag | first }}">{{ tag | first }}</a>,   
+      {% endfor %}
+      
     </div>
 
     <div class="sp-content-item-body">
