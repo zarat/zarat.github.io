@@ -3,7 +3,7 @@ layout: post
 title: Eine VoIP Anlage mit Asterisk
 author: Manuel Zarat
 categories: tutorials
-permalink: /post/asterisk-voip-server-installation
+permalink: /post/asterisk-voip-server
 ---
 
 Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstandards aufgebaut sind. Dabei werden für Telefonie typische Informationen, mithin Sprache und Steuerinformationen beispielsweise für den Aufbau einer Verbindung, über ein Datennetz übertragen. Bei den Gesprächsteilnehmern können Computer, auf IP-Telefonie spezialisierte Telefonendgeräte oder klassische Telefone, die über spezielle Adapter angeschlossen sind, die Verbindung herstellen.
