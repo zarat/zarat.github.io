@@ -6,7 +6,11 @@ permalink: /iptv/
 
 Eine Liste freier IPTV Sender.
 
-<div>
+<select>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+</select>
 <video width="100%" id="player" controls></video>
 
 <script src="{{ site.url }}/assets/hls.js" type="text/javascript"></script>
