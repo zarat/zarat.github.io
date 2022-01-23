@@ -3,7 +3,8 @@ layout: post
 title: Einen Nameserver mit bind erstellen
 author: Manuel Zarat
 categories: tutorials
-permalink: /post/bind-nameserver
+tags: protokoll
+permalink: /post/bind9-nameserver
 ---
 
 Nameserver (DNS Server) verwalten die Informationen, welche IP-Adresse zu welchem Domain-Namen gehört. Jedesmal, wenn eine Seite im Internet angewählt wird, muss ein Nameserver die entsprechende IP-Adresse des Servers auf dem die Homepage liegt (techn. "gehostet wird") zurückliefern und auflösen, damit der Computer eine direkte Verbindung zum Server aufbauen kann. Internetprovider oder firmeneigene Intranet Umgebungen haben ebenfalls eigene Nameserver.
