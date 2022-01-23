@@ -3,7 +3,7 @@ layout: post
 title: SQL Injections und wie sie entstehen
 author: Manuel Zarat
 category: tutorials
-tags: protokoll
+tags: sicherheit
 permalink: /post/sqlinjections
 ---
 
