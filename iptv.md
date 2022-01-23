@@ -8,7 +8,7 @@ Eine Liste freier IPTV Sender.
 
 <video id="player" controls></video>
 
-<script src="http://trabador.lima-city.at/hls.js" type="text/javascript"></script>
+<script src="hls.js" type="text/javascript"></script>
 <script>
 function loadVideo() {
       var video = document.getElementById('player');
