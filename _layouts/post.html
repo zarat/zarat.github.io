@@ -10,14 +10,14 @@ layout: default
          
       {{ page.date | date: "%B" }}
       {{ page.date | date: "%d" }},
-      {{ page.date | date: "%Y" }}
+      {{ page.date | date: "%Y" }} |
       
-      filed under: {% for category in page.categories %}
+      {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
-      {% endfor %}
+      {% endfor %} |
 
-      flagged with: {% for tag in page.tags %}
+      tags: {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
       {% endfor %}
