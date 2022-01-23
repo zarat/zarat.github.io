@@ -2,9 +2,9 @@
 layout: post
 title: Einen DHCP Server einrichten
 author: Manuel Zarat
-category: tutorials
-tags: protokoll dhcp
-permalink: /post/dhcp-server
+categories: tutorials
+tags: protokoll
+permalink: /post/isc-dhcp-server
 ---
 
 <p>DHCP erleichtert die Vergabe von IP Adressen im Netzwerk. Ist ein DHCP Server im Netzwerk vorhanden, kann dieser neben der IP Adresse auch das Gateway, einen Namensserver usw. bekanntgeben. Dieser Dienst ist in Windows Server integriert. Der ISC-DHCP Server, der unter Aufsicht des Internet-Systems-Consortiums steht, ist eine kostenlose Alternative und die inoffizielle Referenzimplementierung. Man kann ihn über das APT Tool installieren.</p>
