@@ -8,7 +8,7 @@ layout: default
 
     <div class="sp-content-item-head-secondary">
       {% for category in page.categories %}
-      {% capture category_name %}{{ tag }}{% endcapture %}
+      {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
       {% endfor %} 
       
