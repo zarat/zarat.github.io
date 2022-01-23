@@ -15,8 +15,8 @@ layout: default
       {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
-      {% endfor %} |
-
+      {% endfor %}
+      <br>
       tags: {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
