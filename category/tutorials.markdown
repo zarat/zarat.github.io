@@ -4,4 +4,4 @@ title: "Category: Tutorials"
 category: tutorials
 ---
 
-Ein paar Tutorials und Anleitungen.
+Tutorials, Anleitungen und so Zeug.
