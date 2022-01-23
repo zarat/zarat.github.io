@@ -18,6 +18,8 @@ Eine Liste freier IPTV Sender.
       <option value="https://orf2.mdn.ors.at/out/u/orf2/qxb/manifest.m3u8">ORF 2</option>
       <option value="https://orf3.mdn.ors.at/out/u/orf3/qxb/manifest.m3u8">ORF 3</option>
       <option value="https://orfs.mdn.ors.at/out/u/orfs/qxb/manifest.m3u8">ORF Sport+</option>
+      <option value="https://rbmn-live.akamaized.net/hls/live/2002825/geoSTVATweb/master_6692.m3u8">Servus TV</option>
+      <option value="http://apasfoe24l.sf.apa.at/ipad/oe24-live1/oe24.sdp/playlist.m3u8">OE24</option>
 </select>
 <video width="100%" id="player" controls></video>
 
