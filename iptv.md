@@ -21,6 +21,8 @@ Eine Liste freier IPTV Sender.
       <option value="https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/veryhigh/master.m3u8">3Sat</option>
       <option value="https://rbmn-live.akamaized.net/hls/live/2002825/geoSTVATweb/master_6692.m3u8">Servus TV</option>
       <option value="http://apasfoe24l.sf.apa.at/ipad/oe24-live1/oe24.sdp/playlist.m3u8">OE24</option>
+      <option value="https://ms01.w24.at/W24/smil:liveevent.smil/playlist.m3u8">W24</option>
+      <option value="https://stream1.primetv.at/rtvlive/smil:rtvlive.smil/playlist.m3u8">RTV</option>
 </select>
 <video width="100%" id="player" controls></video>
 
