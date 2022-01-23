@@ -3,7 +3,7 @@ layout: post
 title: Einen SKS Schlüsselserver installieren
 author: Manuel Zarat
 category: tutorials
-tags: protokoll sicherheit
+tags: sicherheit
 permalink: /post/sks-keyserver
 ---
 
