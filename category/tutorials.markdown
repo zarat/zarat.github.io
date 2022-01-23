@@ -3,4 +3,5 @@ layout: category
 title: "Category: Tutorials"
 category: tutorials
 ---
-Mehr zu Tutorials
+
+Ein paar Tutorials und Anleitungen.
