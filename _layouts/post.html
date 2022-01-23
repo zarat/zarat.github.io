@@ -17,6 +17,8 @@ layout: default
       <a href="../tag/{{ tag | first }}">{{ tag | first }}</a>,   
       {% endfor %}
       
+      {% include collecttags.html %}
+      
     </div>
 
     <div class="sp-content-item-body">
