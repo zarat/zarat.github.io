@@ -13,7 +13,7 @@ layout: default
       
       am {{ page.date | date: "%d" }} {{ page.date | date: "%B" }} {{ page.date | date: "%Y" }}
 
-      {% for tag in site.tags %}
+      {% for tag in tags %}
       <a href="../tag/{{ tag | first }}">{{ tag | first }}</a>,   
       {% endfor %}
       
