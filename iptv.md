@@ -11,8 +11,8 @@ Eine Liste freier IPTV Sender.
 
 <script src="{{ site.url }}/assets/hls.js" type="text/javascript"></script>
 <script>
-var videourl = 'https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8';
-function loadVideo() {
+var vurl = 'https://vs-live-exxpress.sf.apa.at/exxpress-live1/exxpress.smil/playlist.m3u8';
+function loadVideo(videourl) {
       var video = document.getElementById('player');
       if (Hls.isSupported()) {
         var hls = new Hls({
@@ -36,5 +36,6 @@ function loadVideo() {
       }
 }
 
-setTimeout(loadVideo, 1000);
+//setTimeout(loadVideo, 1000);
+loadVideo(vurl);
     </script>
