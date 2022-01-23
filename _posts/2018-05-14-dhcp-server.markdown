@@ -3,7 +3,6 @@ layout: post
 title: Einen DHCP Server einrichten
 author: Manuel Zarat
 categories: tutorials
-tags: protokoll
 permalink: /post/isc-dhcp-server
 ---
 
