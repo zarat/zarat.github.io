@@ -8,7 +8,7 @@ Eine Liste freier IPTV Sender.
 
 <script>
       function changeChannel(v) {
-            console.log(v);
+            console.log(v.value);
       }
 </script>
 
