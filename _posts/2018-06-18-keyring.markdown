@@ -3,7 +3,7 @@ layout: post
 title: Einen GPG Schlüsselbund erstellen
 author: Manuel Zarat
 tags: protokoll
-categories: tutorial
+categories: tutorials
 permalink: /post/gpg-keyring
 ---
 
