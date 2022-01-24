@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Eigener Mailserver mit Postfix und Dovecot
+title: Einen Mailserver mit Postfix und Dovecot erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/postfix-dovecot-mailserver
