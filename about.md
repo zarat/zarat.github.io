@@ -10,6 +10,7 @@ var user = 'manuel.zarat', domain = 'gmail.com',
     element = document.getElementById('no-spam');
 
     element.href = 'mailto:' + user + '@' + domain;
+    element.innerHTML = user + '@' + domain;
 </script>
 
 <pre>
