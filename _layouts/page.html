@@ -1,14 +1,28 @@
+<!DOCTYPE html>
+<html>
 
-  
-  <div class="sp-content-item">
+  {% include head.html %}
 
-    <div class="sp-content-item-head">{{ page.title }}</div>
+  <body>
+    
+  <div class="sp-main-wrapper">
 
-    <div class="sp-content-item-head-secondary">
-    </div>
+    {% include header.html %}
 
-    <div class="sp-content-item-body">
+    <div class="sp-content" style="width: 100%">
       {{ content }}
     </div>
+        
+    </div>  
 
-</div>
+    <div style="clear: both"></div>
+    
+    <div class="sp-footer" style="padding:10px;">
+      Powered by Github with <3 | <a href="/feed.xml">RSS</a>
+    </div>
+    
+  </div>
+
+  </body>
+
+</html>
