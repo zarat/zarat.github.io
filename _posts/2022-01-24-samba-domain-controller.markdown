@@ -20,7 +20,7 @@ dns-nameservers 8.8.8.8
 Um den Hostnamen festzulegen bearbeite ich die Dateien <code>/etc/hosts</code> und <code>/etc/hostname</code>. In die Datei <code>/etc/hostname</code> schreibe ich den FQDN, den kompletten Servernamen inklusive Domain.
 
 <pre>
-samba.example.com<
+samba.example.com
 </pre>
 
 und in der Datei <code>/etc/hosts</code> füge ich einen Eintrag zu der eben eingestellten IP Adresse, dem FQDN und dem Hostnamen hinzu.
