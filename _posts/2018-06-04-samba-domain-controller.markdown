@@ -66,8 +66,15 @@ systemctl unmask samba-ad-dc.service
 systemctl enable --now samba-ad-dc.service
 </pre>
 
-Zum Schluss kann man prüfen ob alles funktioniert hat. Der Level sollte dem eines Windows Server 2008 entsprechen.
+Zum Schluss kann man prüfen ob alles funktioniert hat. Der Level sollte dem eines Windows Server 2008 entsprechen. Den Server starte ich neu.
 
 <pre>
 samba-tool domain level show
+reboot
+</pre>
+
+Jetztlege ich noch einen Testbenutzer mit dem Namen <code>user1</code> an.
+
+<pre>
+samba-tool user create user1
 </pre>
