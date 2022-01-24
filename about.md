@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: manuel (at) zarat (dot) ml.
+Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: manuel (dot) zarat (at) gmail (dot) com.
 
 <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
