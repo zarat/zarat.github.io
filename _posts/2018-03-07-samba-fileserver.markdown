@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen Fileserver mit Samba estellen
+title: Einen Linux Fileserver mit Samba estellen
 author: Manuel Zarat
 category: tutorials
 permalink: /post/samba-fileserver
