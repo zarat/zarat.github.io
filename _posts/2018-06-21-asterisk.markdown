@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Eine VoIP Anlage mit Asterisk
+title: Eine VoIP Anlage mit Asterisk erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/asterisk-voip-server
