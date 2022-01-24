@@ -1,9 +1,10 @@
 ---
 layout: page
-title: About
+title: Willkommen zu meinem Github Blog
 permalink: /about/
 ---
-Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: <a href="mailto:jane.doe@badmail.com" id="no-spam">jane.doe@badmail.com</a>. <noscript>**Hinweis**: Um Spam zu vermeiden wird die korrekte Email Adresse nur bei aktiviertem Javascript angezeigt!</noscript>
+
+Mittlerweile muss man ja fast schon im Internet vertreten sein, deshalb habe ich hier auch einen Blog aufgesetzt. Ich hoffe, die ein oder andere Information ist vielleicht sogar jemandem hilfreich, jedenfalls lassen die Beiträge das ganze nicht so leer und gezwungen aussehen :P Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: <a href="mailto:jane.doe@badmail.com" id="no-spam">jane.doe@badmail.com</a>. <noscript>**Hinweis**: Um Spam zu vermeiden wird die korrekte Email Adresse nur bei aktiviertem Javascript angezeigt!</noscript>
 
 <script>
 var user = 'manuel.zarat', domain = 'gmail.com', element = document.getElementById('no-spam');
