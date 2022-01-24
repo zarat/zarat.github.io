@@ -6,7 +6,7 @@ category: tutorials
 permalink: /post/samba-domain-controller
 ---
 
-Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code>.
+Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code> und füge folgendes ein.
 
 <pre>
 auto eth0
