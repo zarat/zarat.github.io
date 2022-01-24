@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen SKS Schlüsselserver installieren
+title: Einen SKS Schlüsselserver erstellen
 author: Manuel Zarat
 category: tutorials
 tags: sicherheit
