@@ -49,3 +49,25 @@ Bevor ich jetzt die Domain provisioniere lösche ich die voreingestellte Sambako
 
 <pre>
 samba-tool domain provision
+</pre>
+
+Nun lösche ich die bestehende Kerberos Konfiguration unter <code>/etc/krb5.conf</code> und ersetze sie mit einem Softlink auf <code>/var/lib/samba/private/krb5.conf</code>.
+
+<pre>
+rm /etc/krb5.conf
+ln -s /var/lib/samba/private/krb5.conf /etc/
+</pre>
+
+Zuletzt beende ich die laufenden Samba Dienste und DNS Resolver um das Service zu demaskieren und starte es erneut.
+
+<pre>
+systemctl disable --now smbd nmbd winbind systemd-resolved
+systemctl unmask samba-ad-dc.service
+systemctl enable --now samba-ad-dc.service
+</pre>
+
+Zum Schluss kann man prüfen ob alles funktioniert hat. Der Level sollte dem eines Windows Server 2008 entsprechen.
+
+<pre>
+samba-tool domain level show
+</pre>
