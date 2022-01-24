@@ -3,18 +3,60 @@
   <div class='sp-content-item-body'>
     <div id="search-demo-container">
       <input type="text" id="search-input" placeholder="search...">
-      <ul id="results-container"></ul>
+      <div id="autocomplete_result" style="display: none;"></div>
     </div>
   </div>
 </div>
+
+<style>
+* {
+  font-family: Segoe UI;
+  font-size: 12px;
+}
+
+#autocomplete {
+  border: 1px solid silver;
+  outline: none;
+  margin: 0;
+  background: #fff;
+}
+
+#autocomplete_result {
+  border: 1px solid silver;
+  border-top: 0;
+  position: absolute;
+  overflow: auto;
+  max-height: 93px;
+  background: #fff;
+}
+
+#autocomplete, #autocomplete_result {
+  width: 200px;
+  box-sizing: border-box;
+}
+
+#autocomplete, #autocomplete_result p {
+  padding: 4px;
+  margin: 0;
+  color: #000;
+}
+
+#autocomplete_result p:nth-child(2n+1) {
+  background: #f6f6f6;
+}
+
+#autocomplete_result p:hover {
+  background: #e5e5e5;
+}
+</style>
 
 <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
   <script type="text/javascript">
       SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
+        resultsContainer: document.getElementById('autocomplete_result'),
         json: '../search.json',
-        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        searchResultTemplate: '<a href="{url}" title="{desc}">{title}</a> ',
         noResultsText: 'No results found',
         limit: 10,
         fuzzy: false,
