@@ -1,3 +1,8 @@
+<div class="sp-sidebar-item">
+  <div class='sp-sidebar-item-head'>Mehr</div>
+  <div class='sp-sidebar-item-body'>Blablabla</div>
+</div>
+
 <script type="text/javascript">
   var postsURL = [{% for post in site.posts %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
   var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
