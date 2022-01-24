@@ -1,4 +1,7 @@
-<script type="text/javascript">
+<div class="sp-content-item">
+  <div class="sp-content-item-head">Weiterlesen</div>
+  <div class="sp-content-item-body">
+  <script type="text/javascript">
   var postsURL = [{% for post in site.posts %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
   var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 
@@ -18,4 +21,6 @@
       counter++;
     }
   }
-</script>
+  </script>
+  </div>
+</div>
