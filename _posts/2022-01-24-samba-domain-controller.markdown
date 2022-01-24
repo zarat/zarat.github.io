@@ -8,6 +8,8 @@ permalink: /post/samba-domain-controller
 
 Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code> und füge folgendes ein.
 
+<!--excerpt_separator-->
+
 <pre>
 auto eth0
 iface eth0 inet static
