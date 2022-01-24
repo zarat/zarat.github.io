@@ -3,7 +3,14 @@ layout: page
 title: About
 permalink: /about/
 ---
-Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: manuel (dot) zarat (at) gmail (dot) com.
+Willkommen zu meinem Github Blog. Mein Profil finden Sie unter [github.com/zarat](https://github.com/zarat). Nachrichten bitte an: <a id="no-spam">jane.doe@badmail.com</a>.
+
+<script>
+var user = 'manuel.zarat', domain = 'gmail.com',
+    element = document.getElementById('no-spam');
+
+    element.href = 'mailto:' + user + '@' + domain;
+</script>
 
 <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
