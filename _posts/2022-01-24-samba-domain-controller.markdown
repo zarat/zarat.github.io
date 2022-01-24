@@ -28,3 +28,22 @@ und in der Datei <code>/etc/hosts</code> füge ich einen Eintrag zu der eben ein
 <pre>
 192.168.0.2    samba.example.com    samba
 </pre>
+
+Jetzt installiere ich die erforderlichen Pakete:
+
+<pre>
+apt install -y samba krb5-user krb5-config winbind smbclient
+</pre>
+
+Während der Installation werde ich zu Informationen für den Kerberos Dienst gefragt
+
+<pre>
+Kerberos Realm: example.com
+Kerberos servers for your realm: samba.example.com
+Administrative server for your kerberos realm: samba.example.com
+</pre>
+
+Bevor ich jetzt die Domain provisioniere lösche ich die voreingestellte Sambakonfiguration unter <code>/etc/samba/smb.conf</code>, ausserdem die Datei <code>/etc/resolv.conf</code> und starte anschliessend die Provisionierung.
+
+<pre>
+samba-tool domain provision
