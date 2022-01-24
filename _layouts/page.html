@@ -10,8 +10,11 @@
     {% include header.html %}
 
     <div class="sp-content" style="width: 100%;">
-      {{ page.title }}
-      {{ content }}
+      
+      <div class="sp-content-item-head">{{ page.title }}</div>
+      
+      <div class="sp-content-item-body">{{ content }}</div>
+      
     </div>
     
     <div style="clear:both;"></div>
