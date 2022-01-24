@@ -63,8 +63,16 @@ blockquote {
     padding-left: 15px;
     border-left: 0.5em solid #ccc;
 }
-pre,code {
+pre {
      padding:10px;
+     overflow-x:auto;
+     background:ghostwhite;
+     //font-family: "Courier 10 Pitch", Courier, monospace;
+     //font-size: 95%;
+     //line-height: 140%;
+}
+code {
+     //padding:10px;
      overflow-x:auto;
      background:ghostwhite;
      //font-family: "Courier 10 Pitch", Courier, monospace;
