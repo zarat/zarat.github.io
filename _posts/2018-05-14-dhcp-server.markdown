@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen DHCP Server einrichten
+title: Einen Linux DHCP Server erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/isc-dhcp-server
