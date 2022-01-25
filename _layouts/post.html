@@ -35,7 +35,7 @@ layout: default
       <!-- <img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;"> -->
     </div>
     <script>
-    window.onload = function loadFeaturedImage() {
+    window.onload = function() {
       var placeholder = document.getElementById("featured-image");
       placeholder.innerHTML = '<img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;">';
     };
