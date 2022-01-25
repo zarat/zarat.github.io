@@ -119,7 +119,7 @@ div{
         margin:0px auto;
         margin-top:20px;
         margin-bottom:20px;
-        box-shadow: 0 0 2px 2px silver;
+        //box-shadow: 0 0 2px 2px silver;
     }
     .sp-main-header{
     }
@@ -210,7 +210,7 @@ div{
          margin:0px auto;
          margin-top:10px;
          margin-bottom:10px;
-        box-shadow: 0 0 2px 2px silver;
+        //box-shadow: 0 0 2px 2px silver;
     }
     .sp-main-header{
     }
