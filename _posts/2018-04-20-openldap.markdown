@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen OpenLDAP Verzeichnisdienst erstellen
+title: Einen Linux Verzeichnisdienst mit OpenLDAP erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/openldap-verzeichnisdienst
