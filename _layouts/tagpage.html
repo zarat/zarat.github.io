@@ -2,20 +2,40 @@
 layout: default
 ---
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 <div class="sp-content-item">
 
-    <div class="sp-content-item-head">Tag: {{ page.tag }}</div>
+    <div class="sp-content-item-head">Schlagwort: {{ page.tag }}</div>
 
     <div class="sp-content-item-body">
       {{ content }}
+    </div>
+    
+    <div class="sp-content-item-body">
         
-<ul>
+<table id="example" class="display" style="width:100%">
+    <thead><td>Titel</td><td>Datum</td></thead>
+    <tbody>
 {% for post in site.tags[page.tag] %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
-    {{ post.description }}
-  </li>
+  <tr>
+      <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+      <td>{{ post.date | date: "%Y %m %d" }}</td>
+  </tr>
 {% endfor %}
-</ul>   
+    </tbody>
+    <tfoot><td>Titel</td><td>Datum</td></tfoot>
+</table>   
+        
+ <script>
+$(document).ready(function() {
+$('#example').DataTable({
+        "order": [[ 1, "desc" ]]
+    });
+});
+</script>
         
     </div>
 
