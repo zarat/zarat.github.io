@@ -7,6 +7,8 @@ permalink: /post/nagios-monitoring
 image: https://mbcdn.lima-city.de/lib/tpl/dokuwiki/images/logo.png
 ---
 
+Image: {% post.image %}
+
 Als eines der erfolgreichsten Open-Source-Projekte überhaupt, bietet der Platzhirsch kostenfreies IT-Monitoring auf dem Niveau der besten kommerziellen Werkzeuge und ein umfangreiches Ökosystem an Erweiterungen und Zusatztools.
 
 <!--excerpt_separator-->
