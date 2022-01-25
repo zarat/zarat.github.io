@@ -4,4 +4,4 @@ title: "Thema: Sicherheit"
 tag: sicherheit
 ---
 
-Hier habe ich alles abgelegt was auch nur entfernt mit Sicherheit zu tun hat.
+Alles was mit Sicherheit zu tun hat.
