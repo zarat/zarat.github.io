@@ -20,7 +20,7 @@ window.onload = function randomPosts() {
       postTitle = postsTitle[randomIndex];
       
       var newItem = document.createElement("div");
-      newItem.style.classname = "sp-sidebar-item-head";
+      newItem.classList.add("sp-sidebar-item-head");
       var newLink = document.createElement("a");
       var textnode = document.createTextNode(postTitle);
       newLink.appendChild(textnode);
