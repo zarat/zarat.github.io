@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen Linux DHCP Server mit bind erstellen
+title: Einen Linux DHCP Server erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/linux-dhcp-server
