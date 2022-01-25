@@ -4,7 +4,7 @@ title: Einen Linux Monitoring Server mit Nagios erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/nagios-monitoring
-image: https://mbcdn.lima-city.de/lib/tpl/dokuwiki/images/logo.png
+image: https://www.nagios.com/wp-content/uploads/2017/02/Slider-Darker-1920x1368.jpg
 ---
 
 Als eines der erfolgreichsten Open-Source-Projekte überhaupt, bietet der Platzhirsch kostenfreies IT-Monitoring auf dem Niveau der besten kommerziellen Werkzeuge und ein umfangreiches Ökosystem an Erweiterungen und Zusatztools.
