@@ -35,10 +35,11 @@ layout: default
       <!-- <img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;"> -->
     </div>
     <script>
-    window.onload = function() {
+    function loadFeaturedImage() {
       var placeholder = document.getElementById("featured-image");
       placeholder.innerHTML = '<img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;">';
     };
+    window.setTimeout(loadFeaturedImage, 1000);
     </script>
     {% endif %}
 
