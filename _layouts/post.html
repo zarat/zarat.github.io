@@ -13,10 +13,18 @@ layout: default
       {{ page.date | date: "%Y" }} 
       
       {% if page.categories %}
-      kategorisiert unter: 
+      , abgelegt unter: 
       {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
+      {% endfor %} 
+      {% endif %}
+      
+      {% if page.tags %}
+      , versehen mit:
+      {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
       {% endfor %} 
       {% endif %}
 
@@ -27,12 +35,5 @@ layout: default
     <div class="sp-content-item-body">
       {{ content }}
     </div>
-    
-    <div class="sp-content-item-body">
-      {% for tag in page.tags %}
-      {% capture tag_name %}{{ tag }}{% endcapture %}
-      <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
-      {% endfor %} 
-    </div>
-    
+
   </div>
