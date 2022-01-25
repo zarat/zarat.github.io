@@ -1,27 +1,22 @@
 ---
 layout: default
 ---
-  
-  <ul>
+
+<div class="sp-content-item">
+
+    <div class="sp-content-item-head">Category: {{ page.category }}</div>
+
+    <div class="sp-content-item-body">
+      {{ content }}
+        
+<ul>
 {% for post in site.categories[page.category] %}
   <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
     {{ post.description }}
   </li>
 {% endfor %}
-</ul>
+</ul>   
+        
+    </div>
 
-  {% if paginator.total_pages > 1 %}
-  <div class="sp-content-item-body">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" role="button" class="btn btn-primary" style="float:right">neuere Artikel</a>
-    {% else %}
-    <button type="button" class="btn btn-primary" disabled="disabled" style="float:right">neuere Artikel</button>
-    {% endif %}
-    <!-- <span class="page_number">{{ paginator.page }} of {{ paginator.total_pages }}</span> -->
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" role="button" class="btn btn-primary" style="float:left">ältere Artikel</a>
-    {% else %}
-    <button type="button" class="btn btn-primary" disabled="disabled" style="float:left">ältere Artikel</button>
-    {% endif %}
-  </div>
-  {% endif %}
+</div>
