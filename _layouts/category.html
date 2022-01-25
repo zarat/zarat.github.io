@@ -2,7 +2,7 @@
 layout: default
 ---
   
-  {% for post in category.posts %}
+  {% for post in site.categories[page.category] %}
 
      {{ post.title }}
 
