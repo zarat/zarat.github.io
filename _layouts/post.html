@@ -12,10 +12,13 @@ layout: default
       {{ page.date | date: "%d" }},
       {{ page.date | date: "%Y" }} 
       
+      {% if page.categories %}
+      kategorisiert unter: 
       {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
       {% endfor %} 
+      {% endif %}
 
     </div>
     
