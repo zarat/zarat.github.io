@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: Sicherheit"
+title: "Thema: Sicherheit"
 tag: sicherheit
 ---
 
