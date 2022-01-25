@@ -6,9 +6,11 @@ categories: tutorials
 permalink: /post/script-interpreter
 ---
 
-Ein Interpreter liest in der Regel keinen binären Code sondern reinen Quelltext und um diesen zu verarbeiten sind im wesentlichen 3 Schritte nötig.
+Ein Interpreter liest in der Regel keinen binären Code sondern reinen Quelltext.
 
 <!--excerpt_separator-->
+
+Um diesen zu verarbeiten sind im wesentlichen 3 Schritte nötig.
 
   * Ein Lexer wandelt eine Folge von Zeichen (Klartext) in eine Folge von Tokens um.
   * Ein Parser nimmt die Folge von Tokens und erzeugt einen abstrakten Syntaxbaum (AST) nach den Regeln einer zuvor definierten Grammatik.
