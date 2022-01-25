@@ -5,8 +5,6 @@ layout: default
   <div class="sp-content-item">
 
     <div class="sp-content-item-head">{{ page.title }}</div>
-    
-    Image: {{ page.image }}
 
     <div class="sp-content-item-head-secondary">
 
@@ -20,6 +18,8 @@ layout: default
       {% endfor %} 
 
     </div>
+    
+    {% if page.image %}<img src="{{ page.image }}" style="width: 100%; max-height: 300px; object-fit: cover;">{% endif %}
 
     <div class="sp-content-item-body">
       {{ content }}
