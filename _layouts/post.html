@@ -30,7 +30,18 @@ layout: default
 
     </div>
     
-    {% if page.featured-image %}<img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;">{% endif %}
+    {% if page.featured-image %}
+    <div id="featured-image">
+      <! -- <img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;"> -->
+    </div>
+    <script>
+    function loadFeaturedImage() {
+      var placeholder = document.getElementById("featured-image");
+      placeholder.innerHTML = '<img src="{{ page.featured-image }}" style="width: 100%; max-height: 300px; object-fit: cover;">';
+    }
+      loadFeaturedImage();
+    </script>
+    {% endif %}
 
     <div class="sp-content-item-body">
       {{ content }}
