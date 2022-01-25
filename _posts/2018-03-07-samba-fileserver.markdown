@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einen Linux Fileserver mit Samba estellen
+title: Einen Linux Fileserver mit Samba erstellen
 author: Manuel Zarat
 category: tutorials
 permalink: /post/samba-fileserver
