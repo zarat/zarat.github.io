@@ -12,8 +12,6 @@ Ein Interpreter liest in der Regel keinen binären Code sondern reinen Quelltext
 
 Um diesen Quelltext verarbeiten zu können muss dieser zuerst in eine für den Interpreter verständliche Form gebracht werden. Diese spezielle Form nennt man AST (Abstract syntax tree) und um diesen zu erstellen sind im Vorfeld 2 Schritte nötig.
 
-<img src="https://i.morioh.com/210414/2e8b5792.webp" style="width:100%;">
-
 <ul>
  <li>Ein Lexer wandelt eine Folge von Zeichen (Klartext) in eine Folge von Tokens um.</li>
  <li>Ein Parser nimmt die Folge von Tokens und erzeugt einen AST.</li>
