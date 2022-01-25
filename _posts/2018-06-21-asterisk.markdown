@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Eine Linux VoIP Anlage mit Asterisk erstellen
+title: Einen Linux VoIP Server mit Asterisk erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/asterisk-voip-server
