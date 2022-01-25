@@ -31,7 +31,9 @@ layout: default
         
  <script>
 $(document).ready(function() {
-$('#example').DataTable();
+$('#example').DataTable({
+        "order": [[ 2, "desc" ]]
+    });
 });
 </script>
         
