@@ -73,3 +73,29 @@ Nun kann nagios zum ersten mal gestartet werden.
 <pre>
 service nagios start
 </pre>
+
+<h3>Plugins</h3>
+
+Auch hier werden einige Pakete benötigt.
+
+<pre>
+sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
+</pre>
+
+Den Quellcode herunterladen und entpacken.
+
+<pre>
+cd /tmp
+wget --no-check-certificate -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.3.3.tar.gz
+tar zxf nagios-plugins.tar.gz
+cd nagios-plugins-release-2.3.3/
+</pre>
+
+und installieren.
+
+<pre>
+sudo ./tools/setup
+sudo ./configure
+sudo make
+sudo make install
+</pre>
