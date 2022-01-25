@@ -14,7 +14,7 @@ Um diesen zu verarbeiten wird ein sogenannter AST (Abstract syntax tree) benöti
 
 <ul>
  <li>Ein Lexer wandelt eine Folge von Zeichen (Klartext) in eine Folge von Tokens um.</li>
- <li>Ein Parser nimmt die Folge von Tokens und erzeugt einen abstrakten Syntaxbaum (AST) nach den Regeln einer zuvor definierten Grammatik.</li>
+ <li>Ein Parser nimmt die Folge von Tokens und erzeugt einen AST.</li>
 </ul>
 
 <img src="https://zarat.ml/assets/images/interpreter_chain.png" style="width:100%;">
