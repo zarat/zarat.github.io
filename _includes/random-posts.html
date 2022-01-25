@@ -19,14 +19,19 @@ window.onload = function randomPosts() {
       postURL = postsURL[randomIndex];
       postTitle = postsTitle[randomIndex];
       
-      var newItem = document.createElement("a");
-  var textnode = document.createTextNode(postTitle);
-  newItem.appendChild(textnode);
-  newItem.href = postURL;
+      var newItem = document.createElement("div");
+      newItem.style.classname = "sp-sidebar-item-head";
+      var newLink = document.createElement("a");
+      var textnode = document.createTextNode(postTitle);
+      newLink.appendChild(textnode);
+      newLink.href = postURL;
+      newItem.appendChild(newLink);
 
-  var list = document.getElementById("randomPosts");
-  list.insertBefore(newItem, list.childNodes[0]);
+      var list = document.getElementById("randomPosts");
+      list.insertBefore(newItem, list.childNodes[0]);
+      
       //document.write('<div class="sp-sidebar-item-head"><a href="' + postURL + '">' + postTitle + '</a></div>');
+      
       randomIndexUsed.push(randomIndex);
       counter++;
     }
