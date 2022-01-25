@@ -14,16 +14,16 @@ layout: default
       {{ content }}
         
 <table id="example" class="display" style="width:100%">
-    <thead><td>Titel</td><td>Beschreibung</td></thead>
+    <thead><td>Titel</td><td>Veröffentlichung</td></thead>
     <tbody>
 {% for post in site.categories[page.category] %}
   <tr>
-      <td><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})</td>
-      <td>{{ post.description }}</td>
+      <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+      <td>{{ post.date | date_to_string }}</td>
   </tr>
 {% endfor %}
     </tbody>
-    <tfoot><td>Titel</td><td>Beschreibung</td></tfoot>
+    <tfoot><td>Titel</td><td>Veröffentlichung</td></tfoot>
 </table>   
         
  <script>
