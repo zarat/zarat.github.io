@@ -13,7 +13,7 @@ layout: default
       {{ page.date | date: "%Y" }} 
       
       {% if page.categories %}
-      , abgelegt unter: 
+      | Kategorie: 
       {% for category in page.categories %}
       {% capture category_name %}{{ category }}{% endcapture %}
       <a href="../category/{{ category_name }}">{{ category_name }}</a>   
@@ -21,7 +21,7 @@ layout: default
       {% endif %}
       
       {% if page.tags %}
-      , versehen mit:
+      | Thema:
       {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
