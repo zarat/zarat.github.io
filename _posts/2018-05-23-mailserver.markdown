@@ -4,7 +4,6 @@ title: Einen Linux Mailserver mit Postfix und Dovecot erstellen
 author: Manuel Zarat
 categories: tutorials
 permalink: /post/postfix-dovecot-mailserver
-featured-image: https://tipps.jobs.de/wp-content/uploads/2018/07/email_411710392.jpg
 ---
 
 Ein Mailserver ist kein einzelner Dienst, sondern setzt sich üblicherweise aus mehreren Komponenten zusammen. Das sind im Wesentlichen ein Mail transfer agent (MTA) für das Senden und Empfangen sowie ein Message delivery agent (MDA) für den Zugriff auf Mails durch die jeweiligen Benutzer. 
