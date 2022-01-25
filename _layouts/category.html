@@ -17,6 +17,12 @@ layout: default
 {% endfor %}
 </ul>   
         
+        <hr>
+        
+        {% for post in paginator.posts %}
+          {{ post.title }}
+        {% endfor %}
+        
     </div>
 
 </div>
