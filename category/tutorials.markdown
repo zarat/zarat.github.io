@@ -1,6 +1,6 @@
 ---
 layout: category
-title: "Category: Tutorials"
+title: "Kategorie Tutorials"
 category: tutorials
 ---
 
