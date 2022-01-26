@@ -163,6 +163,7 @@ div{
     }
     .stick {
         position:fixed;
+        float:right;
         background:green;
         top: 20px;
     }
