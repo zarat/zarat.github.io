@@ -162,7 +162,11 @@ div{
          padding:10px;
     }
     .stick {
-        position:fixed;
+        position: sticky;
+        position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
         float:right;
         background:purple;
         top: 20px;
