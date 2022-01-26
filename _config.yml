@@ -1,12 +1,9 @@
 # your informations
 author:
   name: Manuel Zarat
-  description: Mein auf Github gehosteter Blog
-  picture: /assets/images/avatar.jpg
-  favicon: /assets/images/favicon.png
 
 # site description
-description: 
+description: IT Techniker, Programmierer und Enthusiast
 
 # site url
 url: https://zarat.ml
@@ -26,9 +23,6 @@ github_username: zarat
 # set true to include or false to exclude share option
 share:
   facebook: false
-  twitter: false
-  google_plus: false
-  linkedin: false
 
 markdown: kramdown
 highlighter: rouge
