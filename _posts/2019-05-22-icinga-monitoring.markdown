@@ -3,6 +3,7 @@ layout: post
 title: Einen Linux Monitoring Server mit Icinga erstellen
 author: Manuel Zarat
 categories: tutorials
+tags: monitoring
 permalink: /post/icinga-monitoring
 ---
 
