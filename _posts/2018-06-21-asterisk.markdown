@@ -6,9 +6,11 @@ categories: tutorials
 permalink: /post/asterisk-voip-server
 ---
 
-Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstandards aufgebaut sind. Dabei werden für Telefonie typische Informationen, mithin Sprache und Steuerinformationen beispielsweise für den Aufbau einer Verbindung, über ein Datennetz übertragen. Bei den Gesprächsteilnehmern können Computer, auf IP-Telefonie spezialisierte Telefonendgeräte oder klassische Telefone, die über spezielle Adapter angeschlossen sind, die Verbindung herstellen.
+Kostenlose Voice over IP Lösung auf Linux Basis zum Betrieb der eigenen Telefonanlage. 
 
 <!--excerpt_separator-->
+
+Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstandards aufgebaut sind. Dabei werden für Telefonie typische Informationen, mithin Sprache und Steuerinformationen beispielsweise für den Aufbau einer Verbindung, über ein Datennetz übertragen. Bei den Gesprächsteilnehmern können Computer, auf IP-Telefonie spezialisierte Telefonendgeräte oder klassische Telefone, die über spezielle Adapter angeschlossen sind, die Verbindung herstellen.
 
 - Voice over IP ist bedeutend günstiger. Sowohl innerhalb Österreichs, als auch im Ausland. Intern und zwischen Ihren Niederlassungen telefonieren Sie ohnehin umsonst.
 - Bei neuen Nebenstellen sind keine aufwendigen Erweiterungen der Ports oder IC nötig. Auch die aufwendige Verkabelung fällt oft weg.
