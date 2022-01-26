@@ -7,7 +7,7 @@ tags: monitoring
 permalink: /post/nagios-monitoring
 ---
 
-Als eines der erfolgreichsten Open-Source-Projekte überhaupt, bietet der Platzhirsch kostenfreies IT-Monitoring auf dem Niveau der besten kommerziellen Werkzeuge und ein umfangreiches Ökosystem an Erweiterungen und Zusatztools.
+Kostenloses IT Monitoring auf dem Niveau der besten kommerziellen Werkzeuge mit einem umfangreichen Ökosystem an Erweiterungen und Zusatztools.
 
 <!--excerpt_separator-->
 
