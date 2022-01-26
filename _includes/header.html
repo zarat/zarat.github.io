@@ -51,10 +51,10 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
-	  document.getElementsByClassName("sp-sidebar")[0].style = "position:fixed; top:10;";
+	  document.getElementsByClassName("sp-sidebar")[0].classList.add("stick");
   } else {
     mybutton.style.display = "none";
-	  document.getElementsByClassName("sp-sidebar")[0].style.position = "";
+	  document.getElementsByClassName("sp-sidebar")[0].classList.remove("stick");
   }
 }
 
