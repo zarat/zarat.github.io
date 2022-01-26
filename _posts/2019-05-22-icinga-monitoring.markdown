@@ -8,7 +8,7 @@ permalink: /post/icinga-monitoring
 
 Icinga ist ein weiteres Tool zur professionellen Überwachung Ihrer IT Infrastruktur.
 
-<!--excerpt-separator-->
+<!--excerpt_separator-->
 
 Die erforderlichen Pakete installiert man mit
 
