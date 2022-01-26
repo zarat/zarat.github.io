@@ -161,6 +161,10 @@ div{
          float:right;
          padding:10px;
     }
+    .sp-sidebar .stick {
+        position:fixed;
+        top: 20px;
+    }
     .sp-sidebar-item{
          margin-bottom:10px;
     }
