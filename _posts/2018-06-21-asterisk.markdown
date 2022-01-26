@@ -22,63 +22,87 @@ Installation
 
 Zuerst installieren wir Asterisk als APT Package
 
-<pre>root@ubuntu:~$ apt-get install build-essential wget libssl-dev libncurses5-dev libnewt-dev libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev git subversion</pre>
+<pre>
+apt-get install build-essential wget libssl-dev libncurses5-dev libnewt-dev libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev git subversion
+</pre>
 
 und wechseln danach in das Verzeichnis
 
-<pre>root@ubuntu:~$ cd /usr/src</pre>
+<pre>
+cd /usr/src
+</pre>
 
 wo wir nun die aktuelle Asterisk Software mit wget herunterladen
 
-<pre>root@ubuntu:/usr/src# wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz</pre>
+<pre>
+wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
+</pre>
 
 und entpacken diese mit
 
-<pre>root@ubuntu:/usr/src# tar zxvf asterisk-14-current.tar.gz</pre>
+<pre>
+tar zxvf asterisk-14-current.tar.gz
+</pre>
 
 Jetzt wechseln wir in den entpackten Unterordner (bei euch heißt er evtl. anders)
 
-<pre>root@ubuntu:/usr/src# cd asterisk-14.6.1</pre>
+<pre>
+cd asterisk-14.6.1
+</pre>
 
 und beginnen damit, einige Scripte auszuführen
 
-<pre>root@ubuntu:/usr/src/asterisk-14.6.1# contrib/scripts/get_mp3_source.sh
-root@ubuntu:/usr/src/asterisk-14.6.1# contrib/scripts/install_prereq install</pre>
+<pre>
+contrib/scripts/get_mp3_source.sh
+contrib/scripts/install_prereq install
+</pre>
 
 Wir werden danach nach einem „ITU-T telephone code“ gefragt, für Österreich ist es 43. Weitere Ländercodes finden Sie im Internet. Jetzt beginnen wir, den eigentlichen Asterisk Server zu konfigurieren, wozu es ein configure script gibt. Im Asterisk Ordner geben wir ein
 
-<pre>root@ubuntu:/usr/src/asterisk-14.6.1# ./configure
-root@ubuntu:/usr/src/asterisk-14.6.1# make menuselect (hier können wir alles lassen wie es ist)
-root@ubuntu:/usr/src/asterisk-14.6.1# make
-root@ubuntu:/usr/src/asterisk-14.6.1# make install
-root@ubuntu:/usr/src/asterisk-14.6.1# make samples
-root@ubuntu:/usr/src/asterisk-14.6.1# make config
-root@ubuntu:/usr/src/asterisk-14.6.1# ldconfig</pre>
+<pre>
+./configure
+make menuselect (hier können wir alles lassen wie es ist)
+make
+make install
+make samples
+make config
+ldconfig
+</pre>
 
 Die grundinstallation wäre damit geglückt, nun werden wir noch einige Sicherheitsvorkehrungen treffen. Wir erzeugen eine Benutzergruppe asterisk und einen Benutzer asterisk, der sein Heimverzeichnis unter /var/lib/asterisk hat und fügen ihn noch der Benutzergruppe asterisk hinzu.
 
-<pre>groupadd asterisk
-useradd -d /var/lib/asterisk -g asterisk asterisk</pre>
+<pre>
+groupadd asterisk
+useradd -d /var/lib/asterisk -g asterisk asterisk
+</pre>
 
 Um Asterist auch unter dem neuen Benutzer und der Grupe zu starten müssen wir noch folgende Befehle ausführen
 
-<pre>sed -i 's/#AST_USER="asterisk"/AST_USER="asterisk"/g' /etc/default/asterisk
+<pre>
+sed -i 's/#AST_USER="asterisk"/AST_USER="asterisk"/g' /etc/default/asterisk
 sed -i 's/#AST_GROUP="asterisk"/AST_GROUP="asterisk"/g' /etc/default/asterisk
-sed -i 's/;runuser = asterisk/runuser = asterisk/g' /etc/asterisk/asterisk.conf</pre>
+sed -i 's/;runuser = asterisk/runuser = asterisk/g' /etc/asterisk/asterisk.conf
+</pre>
 
 Außerdem müssen wir noch die Rechte an einigen Verzeichnissen bearbeiten.
 
-<pre>chown -R asterisk:asterisk /etc/asterisk /var/{run,lib,log,spool}/asterisk /usr/lib/asterisk</pre>
+<pre>
+chown -R asterisk:asterisk /etc/asterisk /var/{run,lib,log,spool}/asterisk /usr/lib/asterisk
+</pre>
 
 Jetzt können wir den Dienst starten und er sollte unter dem Benutzer asterisk ausgeführt werden.
 
-<pre>systemctl start asterisk</pre>
+<pre>
+systemctl start asterisk
+</pre>
 
 Um in das CLI (Command line interface) zu gelangen geben Sie ein
 
-<pre>root@ubuntu:/usr/src/asterisk-14.6.1# asterisk -rvv</pre>
+<pre>
+asterisk -rvv
+</pre>
 
-Je mehr „v“ Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
+Je mehr "v" Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
 
 Die Erstkonfiguration
 
