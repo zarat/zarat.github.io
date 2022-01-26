@@ -21,21 +21,21 @@ html, body {
 h1,h2,h3,.h1,.h2,.h3{
     font-family:inherit;
     font-weight:500;
-    line-height:2;
+    line-height:1.5;
     color:inherit
 }
 h1{
-    font-size:36px;
+    font-size:2em;
     margin-top:20px;
     margin-bottom:10px;
 }
 h2{
-    font-size:30x;
+    font-size:1.5em;
     margin-top:20px;
     margin-bottom:10px;
 }
 h3{
-    font-size:24px;
+    font-size:1.17em;
     margin-top:10px;
     margin-bottom:10px;
 }
