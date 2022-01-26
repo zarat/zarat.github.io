@@ -163,6 +163,7 @@ div{
     }
     .sp-sidebar .stick {
         position:fixed;
+        background:green;
         top: 20px;
     }
     .sp-sidebar-item{
