@@ -10,7 +10,7 @@ permalink: /post/openldap-verzeichnisdienst
 
 <!--excerpt_separator-->
 
-<h3>Installation</h3>
+<h2>Installation</h2>
 
 <p>Zuerst installiere ich LDAP und die dazugehörigen Programme</p>
 
@@ -24,7 +24,7 @@ permalink: /post/openldap-verzeichnisdienst
 
 <pre>ldap­se­arch -Y EXTERNAL -H ldapi:/// -b "cn=config"</pre>
 
-<h3>Eine erste OU anlegen</h3>
+<h2>Eine erste OU anlegen</h2>
 
 <p>Um eine OU anzulegen, muss man eine ldif Datei anlegen. Ich erstelle zu Beginn eine OU für alle Benutzer und eine für Benutzergruppen. Beispiel: ou.ldif</p>
 
@@ -40,7 +40,7 @@ ou: Groups</pre>
 
 <pre>ldapadd -x -D "cn=admin,dc=example,dc=com" -w &lt;password&gt; -H ldap:// -f ou.ldif</pre>
 
-<h3>Eine Gruppe anlegen</h3>
+<h2>Eine Gruppe anlegen</h2>
 
 <p>Mit Gruppen von Objekten fällt es leichter, diese zu verwalten und einheitlich zu konfigurieren. Beispiel: group.ldif</p>
 
@@ -49,7 +49,7 @@ objectClass: posixGroup
 cn: employees
 gidNumber: 5000</pre>
 
-<h3>Benutzer hinzufügen</h3>
+<h2>Benutzer hinzufügen</h2>
 
 <p>Möchte man einen Benutzer zu einer bestehenden OU hinzufügen, erstellt man auch eine ldif Datei. Beispiel user.ldif</p>
 
@@ -66,7 +66,7 @@ gidNumber: 5000</pre>
 
 <pre>ldapadd -x -D "cn=admin,dc=example,dc=com" -w password -H ldap:// -f user.ldif</pre>
 
-<h3>Benutzer verschieben</h3>
+<h2>Benutzer verschieben</h2>
 
 <p>Möchte man einen Benutzer verschieben, muss man wieder eine eigene ldif Datei anlegen. moveuser.ldif</p>
 
@@ -80,7 +80,7 @@ newsuperior: ou=Customers,dc=example,dc=com</pre>
 
 <pre>ldapadd -x -D "cn=admin,dc=example,dc=com" -w password -H ldap:// -f moveuser.ldif</pre>
 
-<h3>Eine OU löschen</h3>
+<h2>Eine OU löschen</h2>
 
 <p>Auch zum Löschen einer OU muss eine ldif Datei erstellt werden. Beispiel: delete_ou.ldif</p>
 
