@@ -161,7 +161,7 @@ div{
          float:right;
          padding:10px;
     }
-    .sp-sidebar .stick {
+    .stick {
         position:fixed;
         background:green;
         top: 20px;
