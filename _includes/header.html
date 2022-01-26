@@ -51,7 +51,7 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
-	  document.getElementsByClassName("sp-sidebar")[0].style = "position:sticky; top:10; float:right;";
+	  document.getElementsByClassName("sp-sidebar")[0].style = "position:fixed; top:10;";
   } else {
     mybutton.style.display = "none";
 	  document.getElementsByClassName("sp-sidebar")[0].style.position = "";
