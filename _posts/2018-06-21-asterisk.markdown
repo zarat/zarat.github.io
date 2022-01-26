@@ -104,7 +104,7 @@ asterisk -rvv
 
 Je mehr "v" Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
 
-Die Erstkonfiguration
+<h3>Die Erstkonfiguration</h3>
 
 Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Der Dialplan – also der Ablaufplan für Anrufe – wird in verschiedene Abschnitte unterteilt. Diese Abschnitte heißen „Contexte“. Am Anfang eines Dialplans muss es immer einen [general] Context für allgemeinen Konfigurationen geben, die danach folgenden Contexte können beliebig genannt werden. Die Contexte bilden das Verbindungsstück zwischen der Definition eines Telefons (z. B. SIP oder ISDN) und dem Dialplan. Für ein Telefon oder auch mehrere wird immer ein Context definiert. Ein Context selbst wird durch Text in eckigen Klammern eingeleitet. „Text“ ist hierbei ein sinnvoller Name, der den Context benennt und als spätere Referenz für denselben verwendet wird. Alle Zeilen nach einer solchen Einleitung bis zum nächsten Context werden als Bestandteil (Regeln, Anweisungen) dieses Contextes behandelt. Hier sehen Sie ein Beispiel aus einer sip.conf:
 
