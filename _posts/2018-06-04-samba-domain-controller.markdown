@@ -6,7 +6,7 @@ category: tutorials
 permalink: /post/samba-domain-controller
 ---
 
-Samba ist ein kostenloser Domain Controller zum Betrieb Ihrer eigenen Domäne.
+Samba ist ein kostenloser Domain Controller zum Betrieb Ihrer eigenen Domäne oder ein einfacher Fileserver.
 
 <!--excerpt_separator-->
 
