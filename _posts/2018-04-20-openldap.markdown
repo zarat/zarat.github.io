@@ -6,7 +6,7 @@ categories: tutorials
 permalink: /post/openldap-verzeichnisdienst
 ---
 
-<p>OpenLDAP ist ein Datenbank Backend zum Verwalten von Organisationseinheiten wie Benutzern, Rechnern u.ä in größeren Organisationen. In Verbindung mit Samba ist es ein vollwertiger Ersatz für einen Domain Controller **der Ebene 2003**.</p>
+<p>OpenLDAP ist ein Datenbank Backend zum Verwalten von Organisationseinheiten wie Benutzern, Rechnern u.ä in größeren Organisationen. In Verbindung mit Samba ist es ein vollwertiger Ersatz für einen Domain Controller <b>der Ebene 2003</b>.</p>
 
 <!--excerpt_separator-->
 
