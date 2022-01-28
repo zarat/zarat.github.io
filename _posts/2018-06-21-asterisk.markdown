@@ -6,7 +6,7 @@ categories: tutorials
 permalink: /post/asterisk-voip-server
 ---
 
-Asterisk ist ein kostenloser VoIP Server zum erstellen Ihrer eigenen Telefonanlage.
+Kostenlose Voice over IP Lösung zum Betrieb Ihrer eigenen Telefonanlage.
 
 <!--excerpt_separator-->
 
