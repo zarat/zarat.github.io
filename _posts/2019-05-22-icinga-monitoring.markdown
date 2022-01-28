@@ -18,10 +18,6 @@ apt install net-tools
 apt install lamp-server^
 </pre>
 
-```Javascript
-var el = document.getElementById("test");
-```
-
 Man wird nach einem Password für den MySQL Administrator gefragt. Wählen Sie ein starkes Passwort! Nun kann Icinga und das Icinga MySQL Modul installiert werden.
 
 <pre>
