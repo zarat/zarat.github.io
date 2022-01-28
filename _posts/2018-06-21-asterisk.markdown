@@ -6,7 +6,7 @@ categories: tutorials
 permalink: /post/asterisk-voip-server
 ---
 
-Kostenlose Voice over IP Lösung auf Linux Basis zum Betrieb der eigenen Telefonanlage. 
+Asterisk ist ein kostenloser VoIP Server zum erstellen Ihrer eigenen Telefonanlage.
 
 <!--excerpt_separator-->
 
