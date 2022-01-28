@@ -7,7 +7,7 @@ tags: monitoring
 permalink: /post/nagios-monitoring
 ---
 
-Kostenloses IT Monitoring auf dem Niveau der besten kommerziellen Werkzeuge mit einem umfangreichen Ökosystem an Erweiterungen und Zusatztools.
+Nagios ist ein kostenloses Monitoring Tool zur Überwachung Ihrer IT Infrastruktur.
 
 <!--excerpt_separator-->
 
