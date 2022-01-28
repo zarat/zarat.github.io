@@ -6,9 +6,11 @@ category: tutorials
 permalink: /post/samba-domain-controller
 ---
 
-Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code> und füge folgendes ein.
+Kostenloser Domain Controller zum Betrieb Ihrer eigenen Domäne.
 
 <!--excerpt_separator-->
+
+Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code> und füge folgendes ein.
 
 <pre>
 auto eth0
