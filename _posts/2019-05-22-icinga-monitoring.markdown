@@ -7,7 +7,7 @@ tags: monitoring
 permalink: /post/icinga-monitoring
 ---
 
-Icinga ist ein Monitoring Tool zur Überwachung Ihrer IT Infrastruktur.
+Icinga ist ein kostenloses Monitoring Tool zur Überwachung Ihrer IT Infrastruktur.
 
 <!--excerpt_separator-->
 
