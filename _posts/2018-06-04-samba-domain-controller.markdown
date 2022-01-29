@@ -10,6 +10,8 @@ Samba ist ein kostenloser Domain Controller zum Betrieb Ihrer eigenen Domäne od
 
 <!--excerpt_separator-->
 
+Admins sollen den Einsatz von "server schannel = no" und "server schannel= auto" auf allen Samba Domain Controllern wegen der Lücke möglichst vermeiden. Details liefert das <a href="https://www.samba.org/samba/security/CVE-2020-1472.html" target="_blank">CVE-2020-1472</a>.
+
 Der Server muss eine statische IP Adresse haben. Dazu bearbeite ich die Datei <code>/etc/network/interfaces</code> und füge folgendes ein.
 
 <pre>
