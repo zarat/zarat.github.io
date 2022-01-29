@@ -10,7 +10,7 @@ Ein Mailserver ist kein einzelner Dienst, sondern setzt sich üblicherweise aus 
 <!--excerpt_separator-->
 Der MTA sendet und empfängt über SMTP. Der MDA liefert Emails aus, erstellt, ändert und löscht Ordner auf dem Server und setzt Dateiattribute mit Hilfe von IMAP und POP. Beide gibt es auch in verschlüsselter Form. Einen Mailserver im Internet zu betreiben ist eine verantwortungsvolle Aufgabe. Arbeitet man nicht sorgfältig, schafft man leicht ein sogenanntes Open Relay, welches sehr schnell als Spamschleuder missbraucht werden wird. Ich möchte zeigen wie man mit Hilfe von Postfix, Dovecot und Ende-zu-Ende Verschlüsselung einen Emailserver installiert um die private oder firmeninterne Kommunikation wieder unter die eigene und alleinige Kontrolle zu bringen.
 
-<h3>Postfix installieren</h3>
+<h2>Postfix installieren</h2>
 
 Nachdem das frisch installierte System auf den neuesten Stand gebracht wurde kann man Postfix bequem über das APT Tool installieren.
 
@@ -61,7 +61,7 @@ local_recipient_maps = proxy:unix:passwd.byname $alias_maps
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases</pre>
 
-<h3>Dovecot installieren</h3>
+<h2>Dovecot installieren</h2>
 
 Dovecot ist der MDA, der Mails an die jeweiligen Mailboxen verteilt und ausliefert. Auch Dovecot kann über das APT Tool installiert werden.
 
