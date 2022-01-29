@@ -12,7 +12,7 @@ permalink: /post/linux-dhcp-server
 
 <pre>apt-get install isc-dhcp-server</pre>
 
-<h3>Globale Konfiguration</h3>
+<h2>Globale Konfiguration</h2>
 
 <p>Die Konfiguration des DHCP-Servers geschieht in der Datei /etc/dhcp/dhcp.conf.</p>
 
@@ -35,7 +35,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 
 <p>DHCP Server sollten IMMER das Statement authoritative innerhalb der globalen Konfigurationsdatei stehen haben, um keine unbekannten DHCP Server im Netz zu dulden. Die Lease Time besagt, wie lange ein durch DHCP vergebene Konfiguration gültig sein soll. Danach wird diese automatisch erneuert.</p>
 
-<h3>Host Blöcke</h3>
+<h2>Host Blöcke</h2>
 
 <p>Möchte man bestimmte IP Adressen für bestimmte Hosts reservieren, kann man die betreffenden Hosts in eigenen Blöcken definieren.</p>
 
