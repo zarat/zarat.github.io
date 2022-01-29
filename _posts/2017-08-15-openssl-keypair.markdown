@@ -6,6 +6,10 @@ categories: tutorials
 permalink: /post/openssl-keys
 ---
 
+Gesicherte Kommunikation kann oft essentiell sein. Mit OpenSSL lassen sich Schlüssel dazu erzeugen.
+
+<!--excerpt_separator-->
+
 Einen privaten Schlüssel erstellt man mit
 
 <pre>
