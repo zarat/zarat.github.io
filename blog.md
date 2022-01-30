@@ -3,7 +3,7 @@ layout: default
 permalink: /blog/
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.posts %}
 
   <div class="sp-content-item" data-nosnippet>
     
