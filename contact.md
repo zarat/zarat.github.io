@@ -6,13 +6,10 @@ permalink: /contact/
 ---
 
 <div class="sp-content-item">
-  <div class="sp-content-item-head">
-    Manuel Zarat
-  </div>
-  <div class="sp-content-item-head-secondary">
-    Das ist eine private Homepage
-  </div>
+
   <div class="sp-content-item-body">
+    
+    <h1>Impressum und Kontakt</h1>
     
 Nachrichten senden Sie bitte an: <a href="mailto:jane.doe@badmail.com" id="no-spam">jane.doe@badmail.com</a> <noscript>**Hinweis**: Um Spam zu vermeiden wird die korrekte Email Adresse nur bei aktiviertem Javascript angezeigt!</noscript>
 Bei Bedarf können Sie diese mit meinem öffentlichen PGP Schlüssel verschlüsseln.
