@@ -74,11 +74,10 @@ Zum Schluss kann man prüfen ob alles funktioniert hat. Der Level sollte dem ein
 
 <pre>
 samba-tool domain level show
-reboot
 </pre>
 
-Jetztlege ich noch einen Testbenutzer mit dem Namen <code>user1</code> an.
+Die Samba Dateifreigaben zeige ich mit dem tool <code>smbclient</code> an. 
 
 <pre>
-samba-tool user create user1
+smbclient -L localhost -U administrator
 </pre>
