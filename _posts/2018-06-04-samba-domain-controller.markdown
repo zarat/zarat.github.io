@@ -53,6 +53,9 @@ Bevor ich jetzt die Domain provisioniere lösche ich die voreingestellte Sambako
 
 <pre>
 samba-tool domain provision --interactive --use-rfc2307 --use-ntvfs
+
+// non interactive
+samba-tool domain provision --server-role=dc --use-rfc2307 --dns-backend=SAMBA_INTERNAL --realm=EXAMPLE.COM --domain=EXAMPLE --adminpass=Passw0rd
 </pre>
 
 Während der Provisionierung werde ich zu Informationen für die Domain gefragt
