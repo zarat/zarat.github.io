@@ -6,7 +6,8 @@ permalink: /contact/
 ---
 
 <div class="sp-content-item">
-  
+  <div class="sp-content-item-body">
+    
 Nachrichten senden Sie bitte an: <a href="mailto:jane.doe@badmail.com" id="no-spam">jane.doe@badmail.com</a> <noscript>**Hinweis**: Um Spam zu vermeiden wird die korrekte Email Adresse nur bei aktiviertem Javascript angezeigt!</noscript>
 Bei Bedarf können Sie diese mit meinem öffentlichen PGP Schlüssel verschlüsseln.
 
@@ -60,4 +61,5 @@ HxQUsfA2dJP0x+IIMfxysrr/6eAo+lGi
 -----END PGP PUBLIC KEY BLOCK-----
 </pre>
 
+  </div>
 </div>
