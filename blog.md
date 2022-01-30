@@ -2,13 +2,39 @@
 layout: default
 permalink: /blog/
 ---
-  
-{% for post in site.posts %}
-<div class="post">
- <h3 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
- <p class="meta">Date: {{ post.date }}</p>
- <div class="entry">
-  {{ post.content | strip_html | truncatewords: 100 }}
- </div>
-</div>
+
+{% for post in paginator.posts %}
+
+  <div class="sp-content-item" data-nosnippet>
+    
+    <div class="sp-content-item-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
+    
+    <div class="sp-content-item-head-secondary">
+{{ post.date | date: "%B" }}
+{{ post.date | date: "%d" }},
+{{ post.date | date: "%Y" }}
+    </div>
+    
+    <div class="sp-content-item-body">
+{{ post.excerpt | remove: '.</p>' | append: '...</p>' }}
+    </div>
+
+  </div>
+
 {% endfor %}
+
+{% if paginator.total_pages > 1 %}
+  <div class="sp-content-item-body">
+{% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" role="button" class="btn btn-primary" style="float:right">neuere Artikel</a>
+    {% else %}
+    <button type="button" class="btn btn-primary" disabled="disabled" style="float:right">neuere Artikel</button>
+{% endif %}
+    <!-- <span class="page_number">{{ paginator.page }} of {{ paginator.total_pages }}</span> -->
+{% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" role="button" class="btn btn-primary" style="float:left">ältere Artikel</a>
+{% else %}
+    <button type="button" class="btn btn-primary" disabled="disabled" style="float:left">ältere Artikel</button>
+    {% endif %}
+  </div>
+{% endif %}
