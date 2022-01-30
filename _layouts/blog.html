@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    
+  <div class="sp-main-wrapper">
+
+    {% include header.html %}
+
+    <div class="sp-content">
+      
+      {{ content }}
+      
+    </div>
+    
+    
+    <div class="sp-sidebar" data-nosnippet>
+        
+      <!-- <div class='sp-sidebar-item'> -->
+
+        {% include sidebar-blog.html %}
+        
+      <!-- </div> -->
+        
+    </div>  
+
+    <div style="clear: both"></div>
+    
+    <div class="sp-footer" style="padding:10px;" data-nosnippet>
+      Powered by Github with <3 | <a href="/feed.xml">RSS</a>
+    </div>
+    
+  </div>
+
+  </body>
+
+</html>
