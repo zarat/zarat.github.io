@@ -55,6 +55,16 @@ Bevor ich jetzt die Domain provisioniere lösche ich die voreingestellte Sambako
 samba-tool domain provision
 </pre>
 
+Während der Provisionierung werde ich zu Informationen für die Domain gefragt
+
+<pre>
+Realm: example.com
+Domain: example
+Server role: dc
+DNS Backend: SAMBA_INTERNAL
+DNS Forwarder: gateway ip
+</pre>
+
 Nun lösche ich die bestehende Kerberos Konfiguration unter <code>/etc/krb5.conf</code> und ersetze sie mit einem Softlink auf <code>/var/lib/samba/private/krb5.conf</code>.
 
 <pre>
