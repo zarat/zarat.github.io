@@ -8,7 +8,7 @@ Nachrichten senden Sie bitte an: <a href="mailto:jane.doe@badmail.com" id="no-sp
 Bei Bedarf können Sie diese mit meinem öffentlichen PGP Schlüssel verschlüsseln.
 
 <script>
-var user = 'manuel', domain = 'zarat.ml', element = document.getElementById('no-spam');
+var user = 'manuel.zarat', domain = 'gmail.com', element = document.getElementById('no-spam');
 element.innerHTML = user + '@' + domain;
   element.href = 'mailto:' + user + '@' + domain;
 </script>
