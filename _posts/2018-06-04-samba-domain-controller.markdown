@@ -52,7 +52,7 @@ Administrative server for your kerberos realm: samba.example.com
 Bevor ich jetzt die Domain provisioniere lösche ich die voreingestellte Sambakonfiguration unter <code>/etc/samba/smb.conf</code>, ausserdem die Datei <code>/etc/resolv.conf</code> und starte anschliessend die Provisionierung.
 
 <pre>
-samba-tool domain provision
+samba-tool domain provision --interactive --use-rfc2307 --use-ntvfs
 </pre>
 
 Während der Provisionierung werde ich zu Informationen für die Domain gefragt
