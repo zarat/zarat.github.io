@@ -81,6 +81,8 @@ Zuletzt beende ich die laufenden Samba Dienste und DNS Resolver um das Service z
 systemctl disable --now smbd nmbd winbind systemd-resolved
 systemctl unmask samba-ad-dc.service
 systemctl enable --now samba-ad-dc.service
+systemctl enable smbd
+systemctl enable nmbd
 </pre>
 
 Zum Schluss kann man prüfen ob alles funktioniert hat. Der Level sollte dem eines Windows Server 2008 entsprechen. Den Server starte ich neu.
