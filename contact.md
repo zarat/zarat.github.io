@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Manuel Zarat
-description: IT Techniker, Systemadministrator und Programmierer aus Wien.
+title: Kontakt
+description: Manuel Zarat - IT Techniker, Systemadministrator und Programmierer aus Wien.
 permalink: /contact/
 ---
 
