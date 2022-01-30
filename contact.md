@@ -14,7 +14,8 @@ permalink: /contact/
     <p>Name: Manuel Zarat</p>
     <p>Email: <a href="mailto:jane.doe@badmail.com" id="no-spam">jane.doe@badmail.com</a> <noscript>**Hinweis**: Um Spam zu vermeiden wird die korrekte Email Adresse nur bei aktiviertem Javascript angezeigt!</noscript>
       
-Bei Bedarf können Sie diese mit meinem öffentlichen PGP Schlüssel verschlüsseln.
+<br>
+      Bei Bedarf können Sie diese mit meinem öffentlichen PGP Schlüssel verschlüsseln.
 
 <script>
 var user = 'manuel.zarat', domain = 'gmail.com', element = document.getElementById('no-spam');
