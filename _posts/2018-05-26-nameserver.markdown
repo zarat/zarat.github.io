@@ -32,7 +32,7 @@ Es müssen mindestens zwei neue db.-Dateien erstellt werden. Eine Datei mit dem 
 
 <h2>Globale Kofiguration</h2>
 
-In die Datei named.conf wird die globale (systemweite) Konfiguration geschrieben.
+In die Datei named.conf wird die globale (systemweite) Konfiguration geschrieben. Fürs erste muss hier nichts geändert werden.
 
 <pre>options {
     directory "/var/named";
@@ -54,23 +54,9 @@ In die Datei named.conf wird die globale (systemweite) Konfiguration geschrieben
     server-id none;
 };</pre>
 
-Zusätzlich muss noch jede von dieser Zone verwaltete IP/Domain mit der zugehörigen Konfigurationsdatei eingetragen werden
-
-<pre>zone "zarat.ml" {
-    type master;
-    file "/etc/bind/db.zarat.ml";
-};
-
-zone "0.248.216.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.248.216.91";
-};</pre>
-
-Die hier eingetragenen Zonendateien gibt es aber noch nicht und werden jetzt unter /etc/bind angelegt.
-
 <h2>Forward Lookup Zone</h2>
 
-Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln.
+Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln. Eine Forward lookup zone legt man an indem man eine Datei nach dem Muster <code>db.domainname</code> anlegt welche z.B so aussieht. 
 
 <pre>$TTL 2D
 @       IN      SOA     zarat.ml. (
@@ -81,14 +67,14 @@ Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln.
                                 3H )    ; NX (TTL Negativ Cache)
 
 @	3600	IN	NS	ns.zarat.ml.
-@	3600	IN	A	91.216.248.12
+@	3600	IN	A	11.22.33.44
 
-ns      3600    IN      A       91.216.248.12
-wiki    3600    IN      A       91.216.248.12
+ns      3600    IN      A       11.22.33.44
+www     3600    IN      A       11.22.33.55
 
 </pre>
 
-Besonders wichtig an dieser Stelle ist eine Leerzeile am Ende der Datei!
+<b>ACHTUNG: Besonders wichtig an dieser Stelle ist eine Leerzeile am Ende der Datei!</b>
 
 <h2>Reverse Lookup Zone</h2>
 
