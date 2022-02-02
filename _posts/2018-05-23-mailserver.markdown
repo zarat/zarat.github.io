@@ -16,33 +16,14 @@ Nachdem das frisch installierte System auf den neuesten Stand gebracht wurde kan
 
 <pre>root@server:~# apt-get install postfix</pre>
 
-Danach bearbeite ich gleich die Datei
+Zuerst öffnen Sie die Datei <code>>/etc/postfix/main.cf</code> und ersetzen den Inhalt mit
 
-<pre>/etc/postfix/master.cf</pre>
-
-um darin die Parameter für den vordefinierten Submission Block auszukommentieren. Submission stellt Verschlüsselung via STARTTLS bereit.
-
-<pre>submission inet n       -       -       -       -       smtpd
-  -o syslog_name=postfix/submission
-  -o smtpd_tls_wrappermode=no
-  -o smtpd_tls_security_level=encrypt
-  -o smtpd_sasl_auth_enable=yes
-  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject
-  -o milter_macro_daemon_name=ORIGINATING
-  -o smtpd_sasl_type=dovecot
-  -o smtpd_sasl_path=private/auth</pre>
-
-Nun öffne ich die Datei
-
-<pre>/etc/postfix/main.cf</pre>
-
-und ersetze den Inhalt mit
-
-<pre>#Default settings
-myhostname = zarat.ml # ersetzen
+<pre>
+#Default settings
+myhostname = zarat.ml
 myorigin = /etc/mailname
-mydestination = zarat.ml, localhost, localhost.localdomain # ersetzen
-mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 # Gegebenenfalls ersetzen
+mydestination = zarat.ml, localhost, localhost.localdomain 
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
@@ -50,7 +31,26 @@ inet_interfaces = all
 #Optional settings
 local_recipient_maps = proxy:unix:passwd.byname $alias_maps
 alias_maps = hash:/etc/aliases
-alias_database = hash:/etc/aliases</pre>
+alias_database = hash:/etc/aliases
+</pre>
+
+<b>Hostname und IP Adresse ersetzen Sie Ihrem Setup dementsprechend.
+  
+<h2>StartTLS aktivieren</h2>
+
+Submission stellt Verschlüsselung via STARTTLS bereit. Wenn Sie bereits ein Zertifikat besitzen bearbeiten Sie gleich die Datei <code>/etc/postfix/master.cf</code> um darin die Parameter für den vordefinierten Submission Block auszukommentieren.
+
+<pre>
+submission inet n       -       -       -       -       smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_wrappermode=no
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+</pre>
 
 <h2>Dovecot installieren</h2>
 
