@@ -16,7 +16,7 @@ Nachdem das frisch installierte System auf den neuesten Stand gebracht wurde kan
 
 <pre>apt install postfix</pre>
 
-Zuerst öffnen Sie die Datei <code>>/etc/postfix/main.cf</code> und ersetzen den Inhalt mit
+Zuerst öffnen Sie die Datei <code>/etc/postfix/main.cf</code> und ersetzen den Inhalt mit
 
 <pre>
 #Default settings
