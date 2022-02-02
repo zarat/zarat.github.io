@@ -121,6 +121,8 @@ service auth {
     user = postfix
   }
 }
+
+# optional
 ssl=required
 ssl_cert = </etc/ssl/certs/mailcert.pem
 ssl_key = </etc/ssl/private/mail.key</pre>
