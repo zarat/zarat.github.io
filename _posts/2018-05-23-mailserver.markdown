@@ -32,6 +32,17 @@ inet_interfaces = all
 local_recipient_maps = proxy:unix:passwd.byname $alias_maps
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
+
+# restrict domains
+transport_maps = hash:/etc/postfix/transport
+</pre>
+
+Beispiel einer <code>/etc/postfix/transport</code>
+
+<pre>
+.zarat.ml   :
+zarat.ml    :
+*    discard:
 </pre>
 
 <b>Hostname und IP Adresse ersetzen Sie Ihrem Setup dementsprechend.
