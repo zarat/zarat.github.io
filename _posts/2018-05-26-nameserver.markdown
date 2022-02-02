@@ -81,17 +81,9 @@ www     3600    IN      A       11.22.33.55
 Die Reverse Lookup Zone ist hingegen dazu da, IP Adressen in Domainnamen umzuwandeln. Diese wird allerdings
 
     rückwärts gelesen
-    und nur die ersten 3 Oktette
+    und nur die ersten n Oktette wobei n die Anzahl der Oktette im Netzanteil entspricht. Bei einer /24 IP wären das 3.
 
-Bei einer IP
-
-91.216.248.12
-
-wäre der Dateiname also
-
-db.248.216.91
-
-und der entsprechende Inhalt
+Bei einer IP <code>91.216.248.12</code> wäre der Dateiname bei einem /24 Netz also <code>db.248.216.91</code> und der entsprechende Inhalt
 
 <pre>$TTL 2D
 @       IN      SOA     zarat.ml. (
