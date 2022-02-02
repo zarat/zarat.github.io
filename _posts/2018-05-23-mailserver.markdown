@@ -87,6 +87,7 @@ passdb {
 }
 protocols = "imap"
 namespace inbox {
+  type = private
   inbox = yes
   mailbox Trash {
     auto = subscribe
