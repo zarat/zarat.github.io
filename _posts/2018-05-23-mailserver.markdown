@@ -14,7 +14,7 @@ Der MTA sendet und empfängt über SMTP. Der MDA liefert Emails aus, erstellt, �
 
 Nachdem das frisch installierte System auf den neuesten Stand gebracht wurde kann man Postfix bequem über das APT Tool installieren.
 
-<pre>root@server:~# apt-get install postfix</pre>
+<pre>apt install postfix</pre>
 
 Zuerst öffnen Sie die Datei <code>>/etc/postfix/main.cf</code> und ersetzen den Inhalt mit
 
@@ -56,7 +56,7 @@ submission inet n       -       -       -       -       smtpd
 
 Dovecot ist der MDA, der Mails an die jeweiligen Mailboxen verteilt und ausliefert. Auch Dovecot kann über das APT Tool installiert werden.
 
-<pre>apt-get install dovecot-core dovecot-imapd</pre>
+<pre>apt install dovecot-core dovecot-imapd</pre>
 
 Ich bearbeite auch hier wieder zuerst die Datei
 
