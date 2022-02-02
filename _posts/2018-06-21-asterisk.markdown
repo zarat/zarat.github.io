@@ -60,18 +60,8 @@ contrib/scripts/install_prereq install
 Wir werden danach nach einem „ITU-T telephone code“ gefragt, für Österreich ist es 43. Weitere Ländercodes finden Sie im Internet. Jetzt beginnen wir, den eigentlichen Asterisk Server zu konfigurieren, wozu es ein configure script gibt. Im Asterisk Ordner geben wir ein
 
 <pre>
-./configure
+./configure --with-jansson-bundled
 </pre>
-
-Sollte hier ein Fehler auftauchen, das das Paket <code>libjansson</code> benötigt wird, installieren Sie es über das apt tool.
-
-<pre>
-apt install libjansson*
-</pre>
-
-<b>EDIT</b> Oder das configure script mit dem zusätzlichen Parameter <code>./configure --with-libjansson</code>.
-
-Nun sollte das <code>./configure</code> keinen Fehler mehr ausgeben.
 
 <pre>
 make
