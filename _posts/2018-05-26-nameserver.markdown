@@ -65,10 +65,10 @@ Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln. Ein
                                 3H )    ; NX (TTL Negativ Cache)
 
 @	3600	IN	NS	ns.zarat.ml.
-@	3600	IN	A	11.22.33.44
+@	3600	IN	A	91.216.248.12
 
-ns      3600    IN      A       11.22.33.44
-www     3600    IN      A       11.22.33.55
+ns      3600    IN      A       91.216.248.12
+www     3600    IN      A       91.216.248.12
 
 </pre>
 
