@@ -26,9 +26,7 @@ db.255    db.empty    named.conf.options</pre>
 
 In den Dateien, die mit named. beginnen, wird die allgemeine Funktion des Servers konfiguriert. Die db.-Dateien sind dagegen die Zonendateien, in denen die eigentlichen DNS Daten abgelegt werden.
 
-Wenn nur IPv4 verwendet wird, sollte der Paramter „-4″ in /etc/default/bind9 unter OPTIONS=“…“ hinzugefügt werden. Dies steigert die Performance drastisch.
-
-Es müssen mindestens zwei neue db.-Dateien erstellt werden. Eine Datei mit dem Namen db.domainname für die Forwardlookup-Zone und eine Datei db.z.y.x für die Reverselookup-Zone. Das Wort „domainname“ im Dateinamen ist gegen die entsprechende Domäne zu ersetzen, „z.y.x“ durch die ersten 3 Oktette der IP adresse in umgekehrter Reihenfolge.
+Wenn nur IPv4 verwendet wird, sollte der Paramter <code>-4</code> in <code>/etc/default/bind9</code> unter <code>OPTIONS="..."</code> hinzugefügt werden.
 
 <h2>Globale Kofiguration</h2>
 
