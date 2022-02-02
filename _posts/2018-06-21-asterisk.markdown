@@ -61,7 +61,19 @@ Wir werden danach nach einem „ITU-T telephone code“ gefragt, für Österreic
 
 <pre>
 ./configure
-make menuselect (hier können wir alles lassen wie es ist)
+</pre>
+
+Sollte hier ein Fehler auftauchen, das das Paket <code>libjansson</code> benötigt wird, installieren Sie es über das apt tool.
+
+<pre>
+apt install libjansson*
+</pre>
+
+<b>EDIT</b> Oder das configure script mit dem zusätzlichen Parameter <code>./configure --with-libjansson</code>.
+
+Nun sollte das <code>./configure</code> keinen Fehler mehr ausgeben.
+
+<pre>
 make
 make install
 make samples
