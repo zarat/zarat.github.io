@@ -10,19 +10,19 @@ Kostenloser Nameserver zum Betrieb Ihres eigenen DNS Server.
 
 <!--excerpt_separator-->
 
-Nameserver (DNS Server) verwalten die Informationen, welche IP-Adresse zu welchem Domain-Namen gehört. Jedesmal, wenn eine Seite im Internet angewählt wird, muss ein Nameserver die entsprechende IP-Adresse des Servers auf dem die Homepage liegt (techn. "gehostet wird") zurückliefern und auflösen, damit der Computer eine direkte Verbindung zum Server aufbauen kann. Internetprovider oder firmeneigene Intranet Umgebungen haben ebenfalls eigene Nameserver.
+Nameserver (DNS Server) verwalten die Informationen, welche IP-Adresse zu welchem Domain-Namen gehört. Jedesmal, wenn eine Seite im Internet angewählt wird, muss ein Nameserver die entsprechende IP-Adresse des Servers auf dem die Homepage liegt (techn. "gehostet wird") zurückliefern und auflösen, damit der Computer eine direkte Verbindung zum Server aufbauen kann. Internetprovider oder firmeneigene Intranet Umgebungen haben ebenfalls eigene Nameserver. BIND ist ein von der Universität Berkeley (USA) entwickelter (Open Source) DNS Server und wurde auf fast jedes Betriebssystem portiert. Bis heute gilt BIND als „die Referenz“ unter den DNS Servern und bildet den Grundstock des heutigen Internets. Inzwischen wurde die Entwicklung des BIND Servers vom herstellerunabhängigen Internet Systems Consortium (ISC) übernommen. 
 
-BIND ist ein von der Universität Berkeley (USA) entwickelter (Open Source) DNS Server und wurde auf fast jedes Betriebssystem portiert. Bis heute gilt BIND als „die Referenz“ unter den DNS Servern und bildet den Grundstock des heutigen Internets.
-
-Inzwischen wurde die Entwicklung des BIND Servers vom herstellerunabhängigen Internet Systems Consortium (ISC) übernommen. Bind (aktuell Bind9) läßt sich mit APT installieren. Bringen Sie Ihr System davor auf den neuesten Stand um Konflikte zu vermeiden.
+Bind (aktuell Bind9) läßt sich mit dem apt tool installieren. Bringen Sie Ihr System davor auf den neuesten Stand.
 
 <pre>apt-get install bind9</pre>
 
-Der Dienst wird zunächst gestopt. Die Konfiguration erfolgt über das Verzeichnis /etc/bind worin sich jetzt folgende Dateien befinden sollten:
+Die Konfiguration erfolgt über das Verzeichnis <code>/etc/bind</code> worin sich jetzt folgende Dateien befinden sollten:
 
-<pre>db.0      db.local    named.conf          zones.rfc1918
+<pre>
+db.0      db.local    named.conf          zones.rfc1918
 db.127    db.root     named.conf.local    rndc.key   
-db.255    db.empty    named.conf.options</pre>
+db.255    db.empty    named.conf.options
+</pre>
 
 In den Dateien, die mit named. beginnen, wird die allgemeine Funktion des Servers konfiguriert. Die db.-Dateien sind dagegen die Zonendateien, in denen die eigentlichen DNS Daten abgelegt werden.
 
