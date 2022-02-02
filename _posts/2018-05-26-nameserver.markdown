@@ -97,6 +97,3 @@ Bei einer IP <code>91.216.248.12</code> wäre der Dateiname bei einem /24 Netz a
 12      IN      PTR     wiki.zarat.ml.
 
 </pre>
-
- 
-Mehr zu DNS finden Sie in meinem WIKI.
