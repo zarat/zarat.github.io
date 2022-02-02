@@ -35,19 +35,19 @@ cd /usr/src
 wo wir nun die aktuelle Asterisk Software mit wget herunterladen
 
 <pre>
-wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
+wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
 </pre>
 
 und entpacken diese mit
 
 <pre>
-tar zxvf asterisk-14-current.tar.gz
+tar zxvf asterisk-16-current.tar.gz
 </pre>
 
 Jetzt wechseln wir in den entpackten Unterordner (bei euch heißt er evtl. anders)
 
 <pre>
-cd asterisk-14.6.1
+cd asterisk-16*
 </pre>
 
 und beginnen damit, einige Scripte auszuführen
