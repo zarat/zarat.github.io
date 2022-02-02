@@ -47,15 +47,6 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 
-#TLS settings
-smtpd_tls_cert_file=/etc/ssl/certs/mail.crt
-smtpd_tls_key_file=/etc/ssl/private/mail.key
-smtpd_use_tls=yes
-smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
-smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
-smtpd_tls_security_level=may
-smtpd_tls_protocols = !SSLv2, !SSLv3
-
 #Optional settings
 local_recipient_maps = proxy:unix:passwd.byname $alias_maps
 alias_maps = hash:/etc/aliases
