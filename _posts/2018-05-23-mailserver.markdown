@@ -79,27 +79,27 @@ namespace inbox {
   inbox = yes
   mailbox Trash {
     auto = subscribe
-    special_use = Trash
+    special_use = \Trash
   }
   mailbox Drafts {
     auto = subscribe
-    special_use = Drafts
+    special_use = \Drafts
   }
   mailbox Sent {
     auto = subscribe # autocreate and autosubscribe the Sent mailbox
-    special_use = Sent
+    special_use = \Sent
   }
   mailbox "Sent Messages" {
     auto = no
-    special_use = Sent
+    special_use = \Sent
   }
   mailbox Junk {
     auto = create # autocreate Spam, but don't autosubscribe
-    special_use = Junk
+    special_use = \Junk
   }
   mailbox virtual/All { # if you have a virtual "All messages" mailbox 
     auto = no
-    special_use = All
+    special_use = \All
   }
 }
 service auth {
