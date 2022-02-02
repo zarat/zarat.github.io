@@ -29,7 +29,8 @@ In den Dateien, die mit named. beginnen, wird die allgemeine Funktion des Server
 Wenn nur IPv4 verwendet wird, sollte der Paramter „-4″ in /etc/default/bind9 unter OPTIONS=“…“ hinzugefügt werden. Dies steigert die Performance drastisch.
 
 Es müssen mindestens zwei neue db.-Dateien erstellt werden. Eine Datei mit dem Namen db.domainname für die Forwardlookup-Zone und eine Datei db.z.y.x für die Reverselookup-Zone. Das Wort „domainname“ im Dateinamen ist gegen die entsprechende Domäne zu ersetzen, „z.y.x“ durch die ersten 3 Oktette der IP adresse in umgekehrter Reihenfolge.
-Globale Kofiguration
+
+<h2>Globale Kofiguration</h2>
 
 In die Datei named.conf wird die globale (systemweite) Konfiguration geschrieben.
 
@@ -66,7 +67,8 @@ zone "0.248.216.in-addr.arpa" {
 };</pre>
 
 Die hier eingetragenen Zonendateien gibt es aber noch nicht und werden jetzt unter /etc/bind angelegt.
-Forward Lookup Zone
+
+<h2>Forward Lookup Zone</h2>
 
 Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln.
 
@@ -87,7 +89,8 @@ wiki    3600    IN      A       91.216.248.12
 </pre>
 
 Besonders wichtig an dieser Stelle ist eine Leerzeile am Ende der Datei!
-Reverse Lookup Zone
+
+<h2>Reverse Lookup Zone</h2>
 
 Die Reverse Lookup Zone ist hingegen dazu da, IP Adressen in Domainnamen umzuwandeln. Diese wird allerdings
 
