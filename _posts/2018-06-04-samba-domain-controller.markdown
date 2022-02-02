@@ -78,9 +78,9 @@ ln -s /var/lib/samba/private/krb5.conf /etc/
 Zuletzt beende ich die laufenden Samba Dienste und DNS Resolver um das Service zu demaskieren und starte es erneut.
 
 <pre>
-systemctl disable --now smbd nmbd winbind systemd-resolved
-systemctl unmask samba-ad-dc.service
-systemctl enable --now samba-ad-dc.service
+systemctl disable smbd nmbd winbind systemd-resolved
+systemctl unmask samba-ad-dc
+systemctl enable samba-ad-dc
 systemctl enable smbd
 systemctl enable nmbd
 </pre>
