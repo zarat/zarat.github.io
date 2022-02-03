@@ -99,3 +99,12 @@ Bei einer IP <code>91.216.248.12</code> wäre der Dateiname bei einem /24 Netz a
 12      IN      PTR     wiki.zarat.ml.
 
 </pre>
+
+Zuletzt gibt man die neuen Zonen noch in der Hauptkonfiguration <code>/etc/bind/named.conf</code> bzw in einer eingebundenen Datei bekannt.
+
+<pre>
+zone "zarat.ml" {
+    type master;
+    file "/etc/bind/db.zarat.ml";
+}
+</pre>
