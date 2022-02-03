@@ -107,6 +107,7 @@ zone "zarat.ml" {
     type master;
     file "/etc/bind/db.zarat.ml";
 }
+
 zone "248.216.91.in-addr.arpa" {
     type master
     file "/etc/bind/db.248.216.91";
