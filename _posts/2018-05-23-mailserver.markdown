@@ -45,11 +45,9 @@ zarat.ml    :
 *    discard:
 </pre>
 
-<b>Hostname und IP Adresse ersetzen Sie Ihrem Setup dementsprechend.
+<b>Hostname und IP Adresse ersetzen Sie Ihrem Setup dementsprechend.</b>
   
-<h2>StartTLS aktivieren</h2>
-
-Submission stellt Verschlüsselung via STARTTLS bereit. Wenn Sie bereits ein Zertifikat besitzen bearbeiten Sie gleich die Datei <code>/etc/postfix/master.cf</code> um darin die Parameter für den vordefinierten Submission Block auszukommentieren.
+Danach bearbeiten Sie gleich die Datei <code>/etc/postfix/master.cf</code> um darin die Parameter für den vordefinierten Submission Block auszukommentieren.
 
 <pre>
 submission inet n       -       -       -       -       smtpd
