@@ -47,7 +47,7 @@ tar zxvf asterisk-16-current.tar.gz
 Jetzt wechseln wir in den entpackten Unterordner (bei euch heißt er evtl. anders)
 
 <pre>
-cd asterisk-16*
+cd asterisk-16.*
 </pre>
 
 und beginnen damit, einige Scripte auszuführen
