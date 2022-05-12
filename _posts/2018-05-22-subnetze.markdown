@@ -38,7 +38,7 @@ Binär: 11111111.11111111.11111111.00000000
 An der binären Schreibweise wird deutlich, wie Subnetze gebildet werden. Die Bits zum Netzanteil werden nacheinander – von links nach rechts – entlehnt.
 Prinzip
 
-Durch Verschieben der Grenze zwischen Netz- und Hostanteil – in diesem Bild als weiß-gelbe Grenze dargestellt – kann ermittelt werden, wieviele Subnetze und Hosts pro Subnetz untergebracht werden können. Das Verhältnis dieser beiden Größen ist indirekt und linear.
+Durch Verschieben der Grenze zwischen Netz- und Hostanteil kann ermittelt werden, wieviele Subnetze und Hosts pro Subnetz untergebracht werden können. Das Verhältnis dieser beiden Größen ist indirekt und linear.
 
 Im Internet findet man massenhaft Kalkulatoren, Tabellen und Anleitungen dazu. Stellen wir uns als Beispiel eine Schule mit drei Computerräumen vor. Jeder Raum verfügt über 30 Hosts.
 
