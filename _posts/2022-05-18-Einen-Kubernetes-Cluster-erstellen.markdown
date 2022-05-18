@@ -33,7 +33,7 @@ apt update && apt install -y kubelet kubeadm kubectl docker.io
 Nun kann der Cluster initialisiert werden.
 
 <pre>
-sudo kubeadm init --apiserver-advertise-address <master-node-ip> --pod-network-cidr=<internal pod network cidr>
+sudo kubeadm init --apiserver-advertise-address [master-node-ip] --pod-network-cidr=[internal pod network cidr]
 </pre>
 
 Am Ende der Ausgabe des letzte Befehls werden weitere Schritte zum Anlegen der Konfiguration und die API Token zum Hinzufügen weiterer Worker-Nodes ausgegeben.
