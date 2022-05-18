@@ -36,26 +36,34 @@ Nun kann der Cluster initialisiert werden.
 sudo kubeadm init --apiserver-advertise-address <master-node-ip> --pod-network-cidr=<internal pod network cidr>
 </pre>
 
-Am Ende der Ausgabe des letzte Befehls werden weitere Schritte und die API Token zum Hinzufügen weiterer Worker-Nodes ausgegeben.
+Am Ende der Ausgabe des letzte Befehls werden weitere Schritte zum Anlegen der Konfiguration und die API Token zum Hinzufügen weiterer Worker-Nodes ausgegeben.
+
+Man erstellt als regulärer Benutzer eine Konfiguration für kubectl.
 
 <pre>
-Your Kubernetes control-plane has initialized successfully!
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</pre>
 
-To start using your cluster, you need to run the following as a regular user:
+Der Befehl zum Hinzufügen von Worker-Nodes wird im Format
 
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+<pre>
+kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+</pre>
 
-You should now deploy a Pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  /docs/concepts/cluster-administration/addons/
+ausgegeben.
 
-You can now join any number of machines by running the following on each node
-as root:
+Zuletzt fügen wir noch eine Networking API zu unserem Cluster hinzu.
 
-  kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+<pre>
+sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </pre>
 
 <h3>Folgende Schritte auf allen Worker Nodes ausführen</h3>
 
+Den Befehl zum Hinzufügen der Worker-Nodes welcher bei der Initialisierung des Clusters ausgegeben wurde wird nun auf jedem außer auf dem Master-Node ausgeführt.
+
+<pre>
+kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+</pre>
