@@ -49,7 +49,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 Der Befehl zum Hinzufügen von Worker-Nodes wird im Format
 
 <pre>
-kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+kubeadm join [control-plane-host]:[control-plane-port] --token <token> --discovery-token-ca-cert-hash sha256:[hash]
 </pre>
 
 ausgegeben.
@@ -65,5 +65,5 @@ sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Do
 Den Befehl zum Hinzufügen der Worker-Nodes welcher bei der Initialisierung des Clusters ausgegeben wurde wird nun auf jedem außer auf dem Master-Node ausgeführt.
 
 <pre>
-kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+kubeadm join [control-plane-host]:[control-plane-port] --token <token> --discovery-token-ca-cert-hash sha256:[hash]
 </pre>
