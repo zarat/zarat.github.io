@@ -49,7 +49,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 Der Befehl zum Hinzufügen von Worker-Nodes wird im Format
 
 <pre>
-kubeadm join [control-plane-host]:[control-plane-port] --token <token> --discovery-token-ca-cert-hash sha256:[hash]
+kubeadm join [control-plane-host]:[control-plane-port] --token [token] --discovery-token-ca-cert-hash sha256:[hash]
 </pre>
 
 ausgegeben.
