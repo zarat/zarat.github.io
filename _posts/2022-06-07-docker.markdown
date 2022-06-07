@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Container mit Docker
+title: Anwendungen mit Docker in Containern erstellen
 author: Manuel Zarat
 categories: tutorials
 tags: cloud
