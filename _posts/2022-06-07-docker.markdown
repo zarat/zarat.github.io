@@ -1,0 +1,14 @@
+---
+layout: post
+title: Container mit Docker
+author: Manuel Zarat
+categories: tutorials
+tags: cloud
+permalink: /post/docker-container
+---
+
+Docker ist eine kostenlose Software zum Containerisieren von hochverfügbaren Anwendungen.
+
+<!--excerpt_separator-->
+
+Mehr Informationen folgen.
