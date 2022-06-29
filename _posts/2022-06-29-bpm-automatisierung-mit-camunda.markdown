@@ -13,15 +13,15 @@ Camunda ist ein kostenloses BPM Automatisierungstool auf Enterprise Niveau.
 
 Zuerst lade ich Camunda von der Website herunter. Ich wähle dabei "Other distributions" und den Tomcat Download (~120MB). Die Ordnerstruktur ist im Wurzelverzeichnis des Paketes deshalb erstelle ich einen neuen Ordner und entpacke das zip Paket darin.
 
-<code>
+<pre>
   unzip tomcat-9.0.0.zip
-</code>
+</pre>
 
 Ausserdem installiere ich das benötigte Java JDK und die JRE gleich mit.
 
-<code>
+<pre>
   apt install openjdk-8-jdk openjdk-8-jre
-</code>
+</pre>
 
 Im Prinzip ist eine lauffähige Demo jetzt einsatzbereit. Für das Production environment sollte man allerdings davor einige Einstellungen vornehmen.
 
