@@ -3,7 +3,7 @@ layout: post
 title: Automatisierung mit Camunda BPM
 author: Manuel Zarat
 category: tutorials
-tags: programm
+tags: 
 permalink: /blog/camunda-bpm
 ---
 
