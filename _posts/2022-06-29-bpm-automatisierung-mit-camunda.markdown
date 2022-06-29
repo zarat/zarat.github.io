@@ -68,7 +68,7 @@ Den Block Resource name "jdbc/ProcessEngine"
 
 ersetze ich durch 
                           
-                          <pre>
+<pre>
 <Resource name="jdbc/ProcessEngine"
               auth="Container"
               type="javax.sql.DataSource"
@@ -80,5 +80,5 @@ ersetze ich durch
               username="camunda"
               password="lunikoff"
               maxActive="20"
-              minIdle="5"
+              minIdle="5" />
 </pre>
