@@ -7,6 +7,8 @@ tags: cloud
 permalink: /post/docker-container
 ---
 
+THIS POST IS DEACTIVATED CHANGE FILENAME TO ACTIVATE
+
 Docker ist eine kostenlose Software zum Containerisieren von hochverfügbaren Anwendungen.
 
 <!--excerpt_separator-->
