@@ -39,4 +39,11 @@ GRANT ALL ON camunda.* TO camunda@'127.0.0.1' IDENTIFIED BY 's3cr3t';
 
 und melde mich wieder ab.
 
-Im Ordner <code>$CAMUNDA/sql/create</code>
+Im Ordner <code>$CAMUNDA_HOME/sql/create</code> liegen SQL Dateien, darunter 2 die mit dem Namen <code>mysql</code> beginnen. Diese importiere ich in die angelegte Datenbank.
+
+<pre>
+mysql camunda -u camunda -ps3cr3t <  mysql_engine_7.0.0.sql
+mysql camunda -u camunda -ps3cr3t <  mysql_identity_7.0.0.sql
+</pre>
+
+Jetzt lade ich mir die neueste Version des MySQL Java Connectors von https://mvnrepository.com/artifact/mysql/mysql-connector-java herunter.
