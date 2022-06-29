@@ -46,4 +46,39 @@ mysql camunda -u camunda -ps3cr3t <  mysql_engine_7.0.0.sql
 mysql camunda -u camunda -ps3cr3t <  mysql_identity_7.0.0.sql
 </pre>
 
-Jetzt lade ich mir die neueste Version des MySQL Java Connectors von https://mvnrepository.com/artifact/mysql/mysql-connector-java herunter.
+Jetzt lade ich mir die neueste Version des MySQL Java Connectors von https://mvnrepository.com/artifact/mysql/mysql-connector-java herunter und kopiere die jar Datei in das Verzeichnis <code>$CAMUNDA_HOME/server/apache-tomcat-7.0.33/lib</code>. Im Ordner <code>$CAMUNDA_HOME/server/apache-tomcat-9.0.58/conf</code> bearbeite ich die Datei <code>server.xml</code>.
+
+Den Block Resource name "jdbc/ProcessEngine"
+
+<pre>
+<Resource name="jdbc/ProcessEngine"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              uniqueResourceName="process-engine"
+              driverClassName="org.h2.Driver"
+              url="jdbc:h2:./camunda-h2-dbs/process-engine;TRACE_LEVEL_FILE=0;D$
+              defaultTransactionIsolation="READ_COMMITTED"
+              username="sa"
+              password="sa"
+              maxActive="20"
+              minIdle="5"
+              maxIdle="20" />
+</pre>
+
+ersetze ich durch 
+                          
+                          <pre>
+<Resource name="jdbc/ProcessEngine"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              uniqueResourceName="process-engine"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/camunda?autoReconnect=true"
+              defaultTransactionIsolation="READ_COMMITTED"
+              username="camunda"
+              password="lunikoff"
+              maxActive="20"
+              minIdle="5"
+</pre>
