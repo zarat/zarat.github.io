@@ -78,7 +78,7 @@ ersetze ich durch
               url="jdbc:mysql://localhost:3306/camunda?autoReconnect=true"
               defaultTransactionIsolation="READ_COMMITTED"
               username="camunda"
-              password="lunikoff"
+              password="s3cr3t"
               maxActive="20"
               minIdle="5" />
 ```
