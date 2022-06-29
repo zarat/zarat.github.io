@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prozessautomatisierung mit Camunda BPM
+title: Automatisierung mit Camunda BPM
 author: Manuel Zarat
 category: tutorials
 tags: programm
