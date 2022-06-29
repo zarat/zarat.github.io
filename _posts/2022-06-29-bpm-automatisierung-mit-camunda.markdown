@@ -19,7 +19,7 @@ Zuerst lade ich Camunda von der Website herunter. Ich wähle dabei "Other distri
 
 Im Prinzip ist eine lauffähige Demo jetzt einsatzbereit. Für das Production environment sollte man allerdings davor einige Einstellungen vornehmen.
 
-<h3>Datenbank</h3>
+<h2>Datenbank</h2>
 
 Von Haus aus arbeitet Camunda mit einer h2 Datenbank. Das ist eine In-Memory Datenbank welche keine Persistenz bietet. Deshalb konfiguriere ich eine Anbindung an MySQL. 
 
@@ -82,3 +82,7 @@ ersetze ich durch
               maxActive="20"
               minIdle="5" />
 ```
+
+<h2>Authorization</h2>
+
+Coming soon.
