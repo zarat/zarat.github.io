@@ -50,7 +50,7 @@ Jetzt lade ich mir die neueste Version des MySQL Java Connectors von https://mvn
 
 Den Block Resource name "jdbc/ProcessEngine"
 
-<pre>
+```
 <Resource name="jdbc/ProcessEngine"
               auth="Container"
               type="javax.sql.DataSource"
@@ -64,11 +64,11 @@ Den Block Resource name "jdbc/ProcessEngine"
               maxActive="20"
               minIdle="5"
               maxIdle="20" />
-</pre>
+```
 
 ersetze ich durch 
                           
-<pre>
+```
 <Resource name="jdbc/ProcessEngine"
               auth="Container"
               type="javax.sql.DataSource"
@@ -81,4 +81,4 @@ ersetze ich durch
               password="lunikoff"
               maxActive="20"
               minIdle="5" />
-</pre>
+```
