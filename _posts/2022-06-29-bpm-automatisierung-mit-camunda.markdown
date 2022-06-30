@@ -83,6 +83,6 @@ ersetze ich durch
               minIdle="5" />
 ```
 
-<h2>Authorization</h2>
+<h2>Authentication</h2>
 
-Coming soon.
+Um Basic authentication für die REST API zu aktivieren kommentiere ich in der Datei <code>$CAMUNDA_HOME/server/apache-tomcat/webapps/engine-rest/WEB-INF/web.xml</code> den entsprechenden Block aus.
