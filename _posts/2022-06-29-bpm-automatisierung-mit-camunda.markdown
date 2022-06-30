@@ -46,7 +46,7 @@ mysql camunda -u camunda -ps3cr3t <  mysql_engine_7.0.0.sql
 mysql camunda -u camunda -ps3cr3t <  mysql_identity_7.0.0.sql
 </pre>
 
-Jetzt lade ich mir die neueste Version des MySQL Java Connectors von https://mvnrepository.com/artifact/mysql/mysql-connector-java herunter und kopiere die jar Datei in das Verzeichnis <code>$CAMUNDA_HOME/server/apache-tomcat-7.0.33/lib</code>. Im Ordner <code>$CAMUNDA_HOME/server/apache-tomcat-9.0.58/conf</code> bearbeite ich die Datei <code>server.xml</code>.
+Jetzt lade ich mir die neueste Version des MySQL Java Connectors von <a target="_blank" href="https://mvnrepository.com/artifact/mysql/mysql-connector-java">hier</a> herunter und kopiere die jar Datei in das Verzeichnis <code>$CAMUNDA_HOME/server/apache-tomcat-7.0.33/lib</code>. Im Ordner <code>$CAMUNDA_HOME/server/apache-tomcat-9.0.58/conf</code> bearbeite ich die Datei <code>server.xml</code>.
 
 Den Block Resource name "jdbc/ProcessEngine"
 
