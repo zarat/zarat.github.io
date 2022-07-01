@@ -83,6 +83,10 @@ ersetze ich durch
               minIdle="5" />
 ```
 
-<h2>Authentication</h2>
+<h2>REST Authentication</h2>
 
 Um Basic authentication für die REST API zu aktivieren kommentiere ich in der Datei <code>$CAMUNDA_HOME/server/apache-tomcat/webapps/engine-rest/WEB-INF/web.xml</code> den entsprechenden Block aus.
+
+<h2>LDAP Anbindung</h2>
+
+I nder Datei <code>$CAMUNDA_HOME/server/apache-tomcat/conf/bpm-platform.xml</code> den entsprechenden Block auskommentieren und bearbeiten.
