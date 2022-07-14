@@ -31,7 +31,7 @@ mysql_secure_installatoin
 Nach der Anmeldung führe ich folgende Befehle aus
 
 <pre>
-CREATE DATABASE IF NOT EXISTS camundabpm;
+CREATE DATABASE IF NOT EXISTS camunda;
 GRANT ALL ON camunda.* TO camunda@'localhost' IDENTIFIED BY 's3cr3t';
 GRANT ALL ON camunda.* TO camunda@'%' IDENTIFIED BY 's3cr3t';
 GRANT ALL ON camunda.* TO camunda@'127.0.0.1' IDENTIFIED BY 's3cr3t';
