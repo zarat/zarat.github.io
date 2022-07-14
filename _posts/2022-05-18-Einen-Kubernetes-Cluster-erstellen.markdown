@@ -21,6 +21,8 @@ Zuerst das Swap deaktivieren
 swapoff -a
 </pre>
 
+<b>TODO:</b> Swap dauerhaft deaktivieren.
+
 Der Befehl <code>free -m</code> sollte nun keinen verwendeten Auslagerungsspeicher mehr zeigen.
 
 <pre>
