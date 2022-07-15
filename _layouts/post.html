@@ -12,6 +12,8 @@ layout: blog
       {{ page.date | date: "%d" }}, 
       {{ page.date | date: "%Y" }}
       
+      | <a href="{{site.github.repository_url}}/{{page.path}}">Edit this page</a>
+      
       {% if page.categories %}
       | Kategorie: 
       {% for category in page.categories %}
