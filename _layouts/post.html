@@ -11,9 +11,7 @@ layout: blog
       {{ page.date | date: "%B" }} 
       {{ page.date | date: "%d" }}, 
       {{ page.date | date: "%Y" }}
-      
-      | <a href="{{site.github.repository_url}}/blob/main/{{page.path}}">Edit this page</a>
-      
+
       {% if page.categories %}
       | Kategorie: 
       {% for category in page.categories %}
@@ -45,6 +43,8 @@ layout: blog
 
     <div class="sp-content-item-body">
       {{ content }}
+      
+      <a href="{{site.github.repository_url}}/blob/main/{{page.path}}">Edit this page</a>
     </div>
 
   </div>
