@@ -43,4 +43,4 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 host ma1 { hardware ethernet 00:00:0e:d2:da:b3; fixed-address 192.168.0.3; option host-name "ma1"; }
 host ma2 { hardware ethernet 00:00:0e:d2:da:a1; fixed-address 192.168.0.4; option host-name "ma2"; }</pre>
 
-<p>Aufgrund der Tatsache, das man Hardware Adressen fälschen kann ist DHCP keine sichere Methode, ein Gerät zu authentifizieren. Server sollten immer eine feste, statische IP Adresse eingetragen haben.</p>
+<p>Aufgrund der Tatsache, das man Hardware Adressen fälschen kann ist DHCP keine sichere Methode, ein Gerät zu authentifizieren. Server sollten immer eine feste, statische IP Adresse eingetragen mit Reverse-DNS eingetragen haben.</p>
