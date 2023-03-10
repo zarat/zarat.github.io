@@ -11,6 +11,7 @@ Wie man mit OpenSSL seine eigene Root CA erstellen kann.
 
 <!--excerpt_separator-->
 
+<pre>
 ## CA key und ca erstellen
 openssl req -newkey rsa:2048 -nodes -keyform PEM -keyout apitest01-ca.key -x509 -days 3650 -outform PEM -out apitest01-ca.crt 
 
@@ -37,3 +38,4 @@ cp apitest01-ca.crt /etc/pki/tls/apitest01-ca.crt
 
 ## bundle client cert and key into .p12 file
 openssl pkcs12 -export -inkey apitest01-client.key -in apitest01-client.crt -out apitest01-client.p12
+</pre>
