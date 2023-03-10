@@ -9,7 +9,7 @@ permalink: /blog/openssl-root-ca
 
 Wie man mit OpenSSL seine eigene Root CA erstellen kann.
 
-<!--excerpt-separator-->
+<!--excerpt_separator-->
 
 ## CA key und ca erstellen
 openssl req -newkey rsa:2048 -nodes -keyform PEM -keyout apitest01-ca.key -x509 -days 3650 -outform PEM -out apitest01-ca.crt 
