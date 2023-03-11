@@ -58,19 +58,22 @@ In die Datei named.conf wird die globale (systemweite) Konfiguration geschrieben
 
 Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln. Eine Forward lookup zone legt man an indem man eine Datei nach dem Muster <code>db.domainname</code> anlegt welche z.B so aussieht. 
 
-<pre>$TTL 2D
-@       IN      SOA     zarat.ml. (
-                        1234567890      ; Serial
-                                8H      ; Refresh
-                                2H      ; Retry
-                                4W      ; Expire
-                                3H )    ; NX (TTL Negativ Cache)
+<pre>
+$TTL 38400
+zarat.local.       IN      SOA     zarat.local. (
+                        1234567890 ; serial number
+                        604800     ; refresh
+                        86400      ; update retry
+                        2419200    ; expiry
+                        604800     ; negative cache ttl
+                        38400      ;
+                        )
 
-@	3600	IN	NS	ns.zarat.ml.
-@	3600	IN	A	91.216.248.12
+zarat.local.     IN      NS      ns.zarat.local.
 
-ns      3600    IN      A       91.216.248.12
-www     3600    IN      A       91.216.248.12
+ns.zarat.local.  IN      A       192.168.0.80
+
+www     IN      A       192.168.0.81
 
 </pre>
 
@@ -100,7 +103,7 @@ Bei einer IP <code>91.216.248.12</code> wäre der Dateiname bei einem /24 Netz a
 
 </pre>
 
-Zuletzt gibt man die neuen Zonen noch in der Hauptkonfiguration <code>/etc/bind/named.conf</code> bzw in einer eingebundenen Datei bekannt.
+Zuletzt gibt man die neuen Zonen noch in der Hauptkonfiguration <code>/etc/bind/named.conf</code> bzw in einer eingebundenen Datei <code>named.conf.default-zones</code> bekannt.
 
 <pre>
 zone "zarat.ml" {
