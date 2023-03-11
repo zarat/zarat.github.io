@@ -103,6 +103,8 @@ Bei einer IP <code>91.216.248.12</code> wäre der Dateiname bei einem /24 Netz a
 
 </pre>
 
+<h2>Zonen Datei</h2>
+
 Zuletzt gibt man die neuen Zonen noch in der Hauptkonfiguration <code>/etc/bind/named.conf</code> bzw in einer eingebundenen Datei <code>named.conf.default-zones</code> bekannt.
 
 <pre>
