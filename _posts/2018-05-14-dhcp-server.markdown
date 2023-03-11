@@ -21,7 +21,7 @@ permalink: /post/linux-dhcp-server
 subnet 192.168.1.0 netmask 255.255.255.0 {
         range 192.168.1.10 192.168.1.20;
         # Interface
-        interface eth0
+        interface eth0;
         # Lease-Time (in Sekunden)
         default-lease-time 600;
         max-lease-time 7200;
