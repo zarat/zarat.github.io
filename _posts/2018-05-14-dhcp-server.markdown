@@ -47,4 +47,4 @@ host ma2 { hardware ethernet 00:00:0e:d2:da:a1; fixed-address 192.168.0.4; optio
 
 <h2>Debugging</h2>
 
-<p>Aktive Leases kann man in der Datei <code>/var/lib/dhcp/dhcpd.leases</code> einsehen.</p>
+<p>Aktive Leases kann man in der Datei <code>/var/lib/dhcp/dhcpd.leases</code> einsehen. Um den Cache (die geleasten IPs) zu löschen leert man die Dateien <code>/var/lib/dhcp/dhcpd.leases</code> und <code>/var/lib/dhcp/dhcpd.leases~</code> und startet den Server neu.</p>
