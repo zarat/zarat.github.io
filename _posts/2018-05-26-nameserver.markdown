@@ -116,3 +116,9 @@ zone "248.216.91.in-addr.arpa" {
     file "/etc/bind/db.248.216.91";
 };
 </pre>
+
+<h2>Debugging</h2>
+
+Ob eine Zonendatei korrekt angelegt wurde kann man mit
+
+<code>named-checkzone example.com /etc/bind/db.example.com</code> prüfen.
