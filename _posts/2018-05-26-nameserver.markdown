@@ -60,20 +60,18 @@ Die Forward Lookup Zone ist dazu da, Domainnamen in IP Adressen umzuwandeln. Ein
 
 <pre>
 $TTL 38400
-zarat.local.       IN      SOA     zarat.local. (
-                        1234567890 ; serial number
+@       IN      SOA     zarat.local. ns.zarat.local. (
+                        12345 ; serial number
                         604800     ; refresh
                         86400      ; update retry
                         2419200    ; expiry
                         604800     ; negative cache ttl
-                        38400      ;
                         )
 
-zarat.local.     IN      NS      ns.zarat.local.
+@       IN      NS      ns.zarat.local.
+ns      IN      A       192.168.0.80
 
-ns.zarat.local.  IN      A       192.168.0.80
-
-www     IN      A       192.168.0.81
+www     IN      A       192.168.0.80
 
 </pre>
 
