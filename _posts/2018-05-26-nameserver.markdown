@@ -121,4 +121,4 @@ zone "248.216.91.in-addr.arpa" {
 
 Ob eine Zonendatei korrekt angelegt wurde kann man mit
 
-<code>named-checkzone example.com /etc/bind/db.example.com</code> prüfen.
+<pre>named-checkzone example.com /etc/bind/db.example.com</pre> prüfen.
