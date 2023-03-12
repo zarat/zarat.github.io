@@ -36,17 +36,6 @@ directory mask = 0775
 force directory mode = 0775
 public = yes
 writeable = yes
-
-[Protected Files]
-path = /share/protected_files
-force user = smbuser
-force group = smbgroup
-create mask = 0664
-force create mode = 0664
-directory mask = 0775
-force directory mode = 0775
-public = yes
-writeable = no
 </pre>
 
 Der Benutzer <code>smbuser</code> und die Gruppe <code>smbgroup</code> werden als Systembenutzer bzw. Systemgruppe angelegt. Und der Benutzer bekommt keine Shell zugewiesen da kein Grund für ein Login besteht und alles im Hintergrund läuft.
@@ -60,4 +49,29 @@ useradd --system smbuser --no-create-home --group smbgroup -s /bin/false
 
 chown -R smbuser:smbgroup /share
 chmod -R g+w /share
+</pre>
+
+Jeder Benutzer, der Zugriff auf die Shares haben soll, braucht noch ein Passwort für das Einbinden.
+
+<pre>
+//hinzufügen
+smbpasswd -a <username>
+//entfernen
+smbpasswd -x <user>
+</pre>
+
+Nun kann man einen Share für spezielle Benutzer anlegen.
+
+<pre>
+[Protected Files]
+path = /share/protected_files
+force user = smbuser
+force group = smbgroup
+create mask = 0664
+force create mode = 0664
+directory mask = 0775
+force directory mode = 0775
+public = no
+writeable = yes
+valid users = @user1 @user2
 </pre>
