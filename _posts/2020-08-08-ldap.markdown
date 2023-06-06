@@ -9,6 +9,8 @@ permalink: /post/ldap
 
 Das Lightweight Directory Access Protocol (LDAP) ist ein Netzwerkprotokoll, das zur Verwaltung und Abfrage von Informationen in einem Verzeichnisdienst verwendet wird. LDAP ist besonders weit verbreitet in Unternehmensumgebungen, in denen es zur zentralen Speicherung und Bereitstellung von Benutzerdaten, Authentifizierungsinformationen und anderen Verzeichnisinformationen eingesetzt wird. Dieser Artikel bietet einen technischen Überblick über LDAP und seine Funktionsweise.
 
+<!--excerpt_separator-->
+
 ## Verzeichnisstruktur
 
 LDAP organisiert Informationen in einer hierarchischen Verzeichnisstruktur, die als "Directory Information Tree" (DIT) bezeichnet wird. Die DIT besteht aus Einträgen, die wiederum Attribute enthalten. Einträge repräsentieren Objekte wie Benutzer, Gruppen oder Geräte, während Attribute Eigenschaften dieser Objekte darstellen, z.B. den Benutzernamen oder die E-Mail-Adresse.
