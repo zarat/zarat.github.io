@@ -115,21 +115,21 @@ Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Hier sehen
 [general]
 bindaddr = 0.0.0.0
 bindport = 5060
-dtmfmode = rfc2833
-disallow = all
-allow=ulaw
-allow=alaw
 
 # Im Falle eines VoIP Trunks ins PSTN
 [extern]
 type = friend
 host = 1.1.1.1
-disallow = all
-allow = ulaw
-allow = alaw
 dtmfmode = rfc2833
+disallow = all
+allow=ulaw
+allow=alaw
 
 [intern]
+dtmfmode = rfc2833
+disallow = all
+allow=ulaw
+allow=alaw
 
 [101]
 context=intern
