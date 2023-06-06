@@ -18,7 +18,8 @@ Voice over IP ist das Telefonieren über Rechnernetze, welche nach Internetstand
 - VoIP Endgeräte, also Softwaretelefone sind für so gut wie jede Plattform – oft kostenlos – verfügbar.
 
 Bestimmt gibt es noch viele gute Gründe, die für einen Umstieg auf IP Telefonie sprechen.
-Installation
+
+## Installation
 
 Zuerst installieren wir Asterisk als APT Package
 
@@ -106,8 +107,7 @@ asterisk -rvv
 
 Je mehr "v" Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
 
-
-<h2>Die Erstkonfiguration</h2>
+## Die Erstkonfiguration
 
 Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Hier sehen Sie ein Beispiel aus einer sip.conf:
 
@@ -149,7 +149,7 @@ type = friend
 secret = 1234
 host = dynamic</pre>
 
-Dialplan
+## Dialplan
 
 In der Datei /etc/asterisk/extensions.conf kann das Rufverhalten der einzelnen Peers definiert werden. 
 
@@ -175,7 +175,7 @@ exten => _0X.,n,Dial(SIP/${EXTEN:1}@extern)  ; Wähle die externe Nummer über d
 exten => _0X.,n,Hangup()
 </pre>
 
-Voicemail
+## Voicemail
 
 In der Datei voicemail.conf kann man Voicemails konfigurieren.
 
