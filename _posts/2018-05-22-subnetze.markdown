@@ -30,99 +30,60 @@ Oft ist es aus kosten- sicherheits- oder personaltechnischen Gründen erforderli
 <li>Ungenutzte IP Adressen wie bei Klasse A, B oder C Netzen können frei eingeteilt, vermietet oder verkauft werden.</li>
 </ul>
 
-Eine Subnetzmaske besteht wie eine IPv4 Adresse aus 32 Bit. Sie bestimmt, welcher Teil der IP Adresse das Netz und welcher Teil den Host identifiziert. Ein Router führt ein logisches AND aus und maskiert die IP Adresse mit ihrer Netzmaske, um zu erfahren, in welches Netz das Datenpaket weitergeleitet werden muss.
+Subnetting ist ein Konzept bei dem ein großes Netzwerk in kleinere Teilnetze (Subnets) aufgeteilt wird. Dies ermöglicht eine effiziente Nutzung der verfügbaren IP-Adressen, wobei unterschiedliche Methoden für IPv4 und IPv6 verwendet werden.
 
-Dezimal: 255.255.255.0
-Binär: 11111111.11111111.11111111.00000000
+<h1>Subnetting in IPv4</h1>
 
-An der binären Schreibweise wird deutlich, wie Subnetze gebildet werden. Die Bits zum Netzanteil werden nacheinander – von links nach rechts – entlehnt.
-Prinzip
+In IPv4 werden IP-Adressen in vier Oktette aufgeteilt, die jeweils einen Wert zwischen 0 und 255 haben können. Ein Subnetz wird durch das Hinzufügen von Bits zur Netzwerkadresse erstellt. Die Anzahl der hinzugefügten Bits bestimmt die Größe des Subnetzes. Um das Subnetting zu erleichtern, werden in IPv4 oft sogenannte Subnetzmasken verwendet.
 
-Durch Verschieben der Grenze zwischen Netz- und Hostanteil kann ermittelt werden, wieviele Subnetze und Hosts pro Subnetz untergebracht werden können. Das Verhältnis dieser beiden Größen ist indirekt und linear.
+<h2>Subnetzmasken</h2>
 
-Im Internet findet man massenhaft Kalkulatoren, Tabellen und Anleitungen dazu. Stellen wir uns als Beispiel eine Schule mit drei Computerräumen vor. Jeder Raum verfügt über 30 Hosts.
+Eine Subnetzmaske besteht aus 32 Bits, von denen die ersten auf 1 gesetzt sind, gefolgt von einer bestimmten Anzahl von Nullen. Die 1-Bits in der Subnetzmaske repräsentieren das Netzwerk, während die 0-Bits die Hosts im Netzwerk darstellen.
 
-Befänden sich nun alle 90 Hosts in einem Netz, würden Broadcasts an alle Teilnehmer übertragen werden und das kostet Performance. Ein Router begrenzt Broadcasts, da nur er eine Verbindung zu einem anderen Subnetz herstellen kann. Damit kann auch ein Server gemeint sein, der das Routing übernimmt. Die drei Subnetze sind dadurch völlig unabhängig voneinander – nur über ein Gateway kann ein anderes Subnetz erreicht werden.
-Beispiel
+Ein Beispiel für eine Subnetzmaske ist 255.255.255.0. In binärer Form sieht diese Subnetzmaske wie folgt aus: 11111111.11111111.11111111.00000000. Hier sind die ersten 24 Bits 1 (Netzwerk) und die letzten 8 Bits 0 (Hosts).
 
-Gegeben ist das Netz: 192.168.1.0/24 und wir möchten drei Subnetze bilden. Dazu müssen wir Bits aus dem Hostanteil nehmen und zum Subnetzanteil hinzufügen. Zuerst errechnen wir, wie man auf drei Subnetze kommt. Wir haben im Host-Anteil noch acht Bits übrig, die wir entlehnen könnten. Beim Teilen in Subnetze werden immer zwei Adressen des neuen Subnetzes reserviert und damit nicht verwendbar. Die neue Netzadresse selbst und die neue Broadcastadresse. Diese müssen wir abziehen!
+<h2>Subnetting-Schritte</h2>
 
-2^2 = 4 – 2 = 2
+Um ein Netzwerk in Subnetze aufzuteilen, sind die folgenden Schritte erforderlich:
 
-2^3 = 8 – 2 = 6
+1. Bestimme die Anzahl der benötigten Subnetze. 
+2. Wähle eine geeignete Subnetzmaske basierend auf der Anzahl der Subnetze. 
+3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu.
 
-Wir wissen also, dass wir drei Bits entlehnen und zum Hostanteil hinzufügen müssen um 3 Subnetze zu bilden. 3 Bits haben wir entlehnt, also bleiben noch 5 Bit für den Hostanteil. Wieviele Hosts können wir in jedem Netz unterbringen? Dazu beginnen wir von rechts.
+<h2>Beispiel</h2>
 
-2^5 = 32 – 2 = 30
+Angenommen, wir haben das IP-Netzwerk 192.168.0.0 und möchten es in vier Subnetze aufteilen. Hier sind die Schritte, um dies zu erreichen:
 
-Es passen genau 30 Hosts in jedes Subnetz.
-Nun wollen wir noch die neue Subnetzmaske wissen
+1. Bestimme die Anzahl der benötigten Subnetze: 4.
+2. Wähle eine geeignete Subnetzmaske: 255.255.255.192. Diese Subnetzmaske hat 26 1-Bits und 6 0-Bits. Damit können wir 64 (2^6) Subnetze erstellen, von denen wir jedoch nur 4 benötigen.
+3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
 
-Wir haben drei Bits entlehnt. Das bedeutet unser ursprüngliches Klasse C Ausgangsnetz mit der Subnetzmaske /24 wurde zu /27 da die Subnetzmaske in binärer Schreibweise jetzt 27 Bits auf 1 stehen hat.
+    Subnetz 1: 192.168.0.0/26 (Netzwerkadresse: 192.168.0.0)
+    Subnetz 2: 192.168.0.64/26 (Netzwerkadresse: 192.168.0.64)
+    Subnetz 3: 192.168.0.128/26 (Netzwerkadresse: 192.168.0.128)
+    Subnetz 4: 192.168.0.192/26 (Netzwerkadresse: 192.168.0.192)
 
-11111111.11111111.11111111.00000000
+Jedes Subnetz hat 62 (2^6 - 2) verfügbare Hosts, da die Netzwerkadresse und die Broadcast-Adresse ausgeschlossen sind.
 
-11111111.11111111.11111111.11100000
+<h1>Subnetting in IPv6</h1>
 
-Die 3 Bits im letzten Oktett, die auf 1 stehen, bilden in dezimaler Schreibweise die Zahl 224.
+In IPv6 werden IP-Adressen durch 128 Bits repräsentiert und in acht Blöcke zu je 16 Bits aufgeteilt. Subnetting in IPv6 funktioniert ähnlich wie in IPv4, jedoch aufgrund der viel größeren Adressgröße mit einer anderen Notation.
 
-2^7 = 128
-2^6 = 64
-2^5 = 32
+<h2>Präfixlänge</h2>
 
-128+64+32 = 224
+Anstelle von Subnetzmasken verwendet IPv6 Präfixlängen, um den Netzwerkbereich anzugeben. Eine Präfixlänge gibt an, wie viele Bits des Netzwerkteils verwendet werden. Zum Beispiel gibt ein Präfix mit der Länge /64 an, dass die ersten 64 Bits für das Netzwerk verwendet werden.
 
-Unsere neue Subnetzmaske ist somit 255.255.255.224
-Welche Adresse haben die neuen Subnetze?
+<h2>Beispiel</h2>
 
-Dieses Beispiel ist einfach, da sich nur die Zahl im letzten Oktett ändern kann. Das letzte Oktett besteht aus 8 Bits – drei Bits haben wir entlehnt, womit 5 Bits für den Hostanteil bleiben.
+Angenommen, wir haben das IPv6-Netzwerk 2001:0db8:85a3:0000::/64 und möchten es in vier Subnetze aufteilen. Hier sind die Schritte, um dies zu erreichen:
 
-2^5 = 32
+1. Bestimme die Anzahl der benötigten Subnetze: 4.
+2. Verwende eine Präfixlänge von /66, um 4 Subnetze zu ermöglichen.
+3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
 
-Die Subnetzadressen werden jedes mal um 32 weitergezählt, da 32 Adressen in jedem Subnetz vorhanden sind.
+    Subnetz 1: 2001:0db8:85a3:0000::/66
+    Subnetz 2: 2001:0db8:85a3:0001::/66
+    Subnetz 3: 2001:0db8:85a3:0002::/66
+    Subnetz 4: 2001:0db8:85a3:0003::/66
 
-Subnetz 0 – 192.168.1.0
-Subnetz 1 – 192.168.1.32
-Subnetz 2 – 192.168.1.64
-Subnetz 3 – 192.168.1.96
-Subnetz 4 – 192.168.1.128
-Subnetz 5 – 192.168.1.160
-Subnetz 6 – 192.168.1.192
-Subnetz 7 – 192.168.1.224
-
-Subnetz 0 spricht das gesamte Netz an. Subnetz 1 ist das Broadcastnetz.
-
-In jedem Subnetz gibt es wieder jeweils eine Subnetzadresse und eine Broadcastadresse. Daher haben wir nur 30 Hostadressen bei 32 Adressen.
-
-Subnetz 1: 192.168.1.32
-Verwendbare Hostadressen: 192.168.1.33 bis 192.168.1.62
-Broadcast: 192.168.1.63
-Ein einfaches Beispiel
-
-Gegeben ist das Netz 192.168.0.0/24. Gesucht sind Subnetzmaske, Netz- und Broadcastadresse sowie die mögliche Anzahl an Hosts darin. In der CIDR Schreibweise wurden 8 Bit als Hostanteil definiert. Dies bedeutet, dass 28 Adressen vergebbar sind.
-
-Aber Achtung: Die Anzahl der Adressen ist in unserem Beispiel nicht 256, sondern 256 – 2, also 254. Oder anders gesagt – 6 Bits von rechts werden für die Hostadressen verwendet.
-
-Die zwei nicht für Hosts vergebbaren Adressen sind die Netzadresse und die Broadcastadresse welche wir im Anschluss ermitteln werden. Durch Verknüpfen von IP und Subnetzmaske mit einem binären, logischen AND können wir die Netzadresse ermitteln. Alle Hostbits der IP Adresse in binärer Schreibweise werden dabei auf 0 gesetzt.
-
-11000000.10101000.00000000.00000000
-
-11111111.11111111.11111111.00000000
-
-11111111.11111111.11111111.00000000
-
-Beim sogenannten logischen ANDing gehen wir die 2 Binärzahlen Stelle für Stelle durch. Dabei wird überall, wo in einer Spalte oben oder unten zumindest eine 1 vorkommt auch in der Ergebniszeile eine 1 geschrieben. Wenn oben und unten 0 sind, schreiben wir ebenfalls eine 0.
-
-Die neue Netzadresse in der 3. Zeile in dezimaler Schreibweise entspricht 192.168.0.0 und ist die Netzadresse. Die Broadcastadresse ist dem ganzen genau entgegengesetzt und in der Regel die höchste Adresse im Netzbereich des jeweiligen Subnetzes.
-
-Der Hostanteil in binärer Darstellung wird hier auf 1 gesetzt.
-
-11000000.10101000.00000000.11111111
-
-In dezimaler Schreibweise lautet die Broadcastadresse somit 192.168.0.255. Für die Hosts werden 2^6 (64) Adressen benötigt, es ist die nächstmögliche Dimension (2^5 wären zu wenig, 2^7 zu viele Adressen). Für die Netze werden 2^2 (4) Adressen benötigt. Hier müssen keine zusätzlichen Adressen beachtet werden.
-
-Mit diesen Informationen lässt sich nun auch eine Subnetzmaske bilden. Es sind 6 Bits für den Host reserviert, dadurch ergeben sich 26 Restbits für den Netzanteil. In der CIDR – Schreibweise ergibt sich somit /26 (32-6).
-
-11111111.11111111.11111111.11000000
-
-In einer dezimalen Schreibweise ergibt sich somit als Subnetzmaske der Wert 255.255.255.192.
+Jedes Subnetz hat eine enorme Anzahl von verfügbaren IP-Adressen, da die Präfixlänge von /66 verwendet wird.
