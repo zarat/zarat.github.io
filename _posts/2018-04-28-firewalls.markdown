@@ -2,7 +2,7 @@
 layout: post
 title: Firewalls
 author: Manuel Zarat
-categories: tutorials
+categories: articles
 tags: sicherheit
 permalink: /post/firewalls
 ---
