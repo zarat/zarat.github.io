@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Arten von Firewalls
+title: Firewalls
 author: Manuel Zarat
 categories: tutorials
 tags: sicherheit
