@@ -174,3 +174,18 @@ exten => _0X.,1,NoOp(Outbound call from inside) ; 0 als Vorwahl für externe Anr
 exten => _0X.,n,Dial(SIP/${EXTEN:1}@extern)  ; Wähle die externe Nummer über den Trunk "extern" (in sip.conf)
 exten => _0X.,n,Hangup()
 </pre>
+
+Voicemail
+
+In der Datei voicemail.conf kann man Voicemails konfigurieren.
+
+<pre>
+[101]
+101 => password1, Employee 1, user1@mail.local
+
+[102]
+102 => password2, Employee 2, user2@mail.local
+
+[103]
+103 => password3, Employee 3, user3@mail.local
+</pre>
