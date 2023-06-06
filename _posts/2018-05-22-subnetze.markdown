@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Subnetze unter IPv4
+title: IP Teilnetze bilden (Subnetting)
 author: Manuel Zarat
 categories: tutorials
 tags: sicherheit
