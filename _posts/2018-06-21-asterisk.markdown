@@ -166,7 +166,7 @@ exten => _X.,n,Hangup()
 ; Hier konfigurierst du die Einstellungen für ausgehende Anrufe von internen Erweiterungen.
 ; Füge hier beispielsweise Routen hinzu, um Anrufe an externe Nummern oder Trunks weiterzuleiten.
 
-exten => _X.,1,NoOp(Internal call from inside)
+exten => _X.,1,NoOp(Inbound call from inside)
 exten => _X.,n,Dial(SIP/${EXTEN}@intern)  ; Wähle die Nummer über den Trunk "intern" (in sip.conf)
 exten => _X.,n,Hangup()
 
