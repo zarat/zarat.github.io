@@ -109,60 +109,68 @@ Je mehr "v" Sie anhängen, desto mehr Debug-Meldungen werden angezeigt!
 
 <h2>Die Erstkonfiguration</h2>
 
-Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Der Dialplan – also der Ablaufplan für Anrufe – wird in verschiedene Abschnitte unterteilt. Diese Abschnitte heißen „Contexte“. Am Anfang eines Dialplans muss es immer einen [general] Context für allgemeinen Konfigurationen geben, die danach folgenden Contexte können beliebig genannt werden. Die Contexte bilden das Verbindungsstück zwischen der Definition eines Telefons (z. B. SIP oder ISDN) und dem Dialplan. Für ein Telefon oder auch mehrere wird immer ein Context definiert. Ein Context selbst wird durch Text in eckigen Klammern eingeleitet. „Text“ ist hierbei ein sinnvoller Name, der den Context benennt und als spätere Referenz für denselben verwendet wird. Alle Zeilen nach einer solchen Einleitung bis zum nächsten Context werden als Bestandteil (Regeln, Anweisungen) dieses Contextes behandelt. Hier sehen Sie ein Beispiel aus einer sip.conf:
+Die wichtigsten Konfigurationsdateien finden Sie unter /etc/asterisk. Hier sehen Sie ein Beispiel aus einer sip.conf:
 
 <pre># Der "general" context gilt global, Änderungen können im jeweiligen Sub Context vorgenommen werden.
 [general]
-context = intern
 bindaddr = 0.0.0.0
 bindport = 5060
 dtmfmode = rfc2833
 disallow = all
-t38pt_udptl = yes
+allow=ulaw
+allow=alaw
 
-# Im Falle eines VoIP Trunks ins ISDN Netz
-[external-trunk]
+# Im Falle eines VoIP Trunks ins PSTN
+[extern]
 type = friend
 host = 1.1.1.1
-context = extern
 disallow = all
 allow = ulaw
 allow = alaw
 dtmfmode = rfc2833
-canreinvite = yes;
-qualify = yes
-#sendrpid = yes
-#trustrpid = yes
 
-[internal-phones]
-context = internal
-qualify = yes
-nat = yes
+[intern]
 
 [101]
+context=intern
 type = friend
-context = intern
+secret = 1234
+host = dynamic
+
+[102]
+context=intern
+type = friend
+secret = 1234
+host = dynamic
+
+[103]
+context=intern
+type = friend
 secret = 1234
 host = dynamic</pre>
 
-Das SIP-Telefon mit der Nummer 101 ruft in dieser Konfiguration immer den Context intern auf. Wenn also ein Benutzer mit dem Telefon 101 eine bestimmte Nummer wählt, dann sucht Asterisk im Context intern nach der entsprechenden Extension (also der dazu passenden Regel). Ist diese Extension nicht vorhanden, passiert auch nichts.
 Dialplan
 
-In der Datei /etc/asterisk/extensions.ael kann das Rufverhalten der einzelnen Peers definiert werden. Angenommen die Basisanschlussnummer ist eine Wiener Nummer 01-1234567 – alles was danach eingegeben wurde, soll unsere Nebenstellen abbilden.  Dabei wird in der 2. Zeile des externen Context die Nummer extrahiert, die der Basisanschlussnummer angehängt wurde um den Anruf entsprechend zu leiten und wird in der Variable DURCHWAHL gespeichert. Nun kann anhand der DURCHWAHL definiert werden, wie sich die Telefone zu verhalten haben.
+In der Datei /etc/asterisk/extensions.conf kann das Rufverhalten der einzelnen Peers definiert werden. 
 
-<pre>content extern {
-        _11234567. => {
-                Set(DURCHWAHL=${EXTEN:8});
-                if($(DURCHWAHL) = 100) {
-                        Dial(SIP/101&SIP/102&SIP/103,30,trg);
-                }
-        }
-}</pre>
+<pre>
+[from-outside]
+; Hier konfigurierst du die Einstellungen für eingehende Anrufe von einem Trunk oder einer externen Quelle.
+; Füge hier beispielsweise Routen hinzu, um Anrufe an bestimmte interne Erweiterungen weiterzuleiten.
 
-Sollen interne Nebenstellen nach außen umleiten, muss die Nummer dementsprechend bearbeitet und auf unseren externen VoIP Trunk gelegt werden. Das kann z.B eine Hotline im Notfall sein, die den Chef aus dem Bett ruft.
+exten => _X.,1,NoOp(Inbound call from outside)
+exten => _X.,n,Dial(SIP/$(EXTEN)@intern)  ; Leite den Anruf an die interne Erweiterung weiter
+exten => _X.,n,Hangup()
 
-<pre>context intern {
-        hint(SIP/100) 100 => {
-                Dial(SIP/08001234567@external-trunk, 30,trg);
-        }
-}</pre>
+[from-inside]
+; Hier konfigurierst du die Einstellungen für ausgehende Anrufe von internen Erweiterungen.
+; Füge hier beispielsweise Routen hinzu, um Anrufe an externe Nummern oder Trunks weiterzuleiten.
+
+exten => _X.,1,NoOp(Internal call from inside)
+exten => _X.,n,Dial(SIP/${EXTEN}@intern)  ; Wähle die Nummer über den Trunk "intern" (in sip.conf)
+exten => _X.,n,Hangup()
+
+exten => _0X.,1,NoOp(Outbound call from inside) ; 0 als Vorwahl für externe Anrufe
+exten => _0X.,n,Dial(SIP/${EXTEN:1}@extern)  ; Wähle die externe Nummer über den Trunk "extern" (in sip.conf)
+exten => _0X.,n,Hangup()
+</pre>
