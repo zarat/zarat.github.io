@@ -2,7 +2,7 @@
 layout: post
 title: Active Directory
 author: Manuel Zarat
-categories: tutorials
+categories: articles
 tags: sicherheit
 permalink: /post/active-directory
 ---
