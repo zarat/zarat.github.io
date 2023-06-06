@@ -9,6 +9,8 @@ permalink: /post/virtual-private-network
 
 Ein Virtual Private Network (VPN) ist eine Technologie, die eine sichere Verbindung über ein öffentliches Netzwerk herstellt und es Benutzern ermöglicht, Daten vertraulich und verschlüsselt über das Internet zu übertragen. Es fungiert als virtuelles privates Netzwerk, das es Benutzern ermöglicht, auf Ressourcen zuzugreifen, als ob sie physisch mit dem privaten Netzwerk verbunden wären. VPNs bieten eine erhöhte Sicherheit und Privatsphäre, insbesondere beim Zugriff auf das Internet von öffentlichen Netzwerken aus.
 
+<!--excerpt_separator-->
+
 <h1>Arten von VPN</h1>
 
 Es gibt verschiedene Arten von VPNs, die je nach Anforderungen und Anwendungsfällen eingesetzt werden können:
