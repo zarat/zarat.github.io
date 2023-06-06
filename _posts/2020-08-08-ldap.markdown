@@ -2,7 +2,7 @@
 layout: post
 title: Lightweight directory access protocol
 author: Manuel Zarat
-categories: tutorials
+categories: articles
 tags: sicherheit
 permalink: /post/ldap
 ---
