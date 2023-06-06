@@ -2,7 +2,7 @@
 layout: post
 title: IP Teilnetze bilden (Subnetting)
 author: Manuel Zarat
-categories: tutorials
+categories: articles
 tags: sicherheit
 permalink: /post/ip-subnetze
 ---
