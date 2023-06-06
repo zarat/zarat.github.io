@@ -19,7 +19,7 @@ Dieser Artikel beschreibt, wie man einen Mailserver mit Postfix und Dovecot unte
 
 Bevor wir mit der Einrichtung des Mailservers beginnen, stellen wir sicher, dass das System auf dem neuesten Stand ist. Führen Sie dazu die folgenden Befehle aus:
 
-```bash
+```
 sudo apt update
 sudo apt upgrade -y
 ```
@@ -28,7 +28,7 @@ sudo apt upgrade -y
 
 Postfix ist ein weit verbreiteter Mail Transfer Agent (MTA) und wird für den Versand und Empfang von E-Mails verwendet. Installieren Sie Postfix mit dem folgenden Befehl:
 
-```bash
+```
 sudo apt install postfix -y
 ```
 
@@ -38,13 +38,13 @@ Während der Installation wird ein Konfigurationsassistent angezeigt. Wählen Si
 
 Öffnen Sie die Postfix-Konfigurationsdatei mit einem Texteditor:
 
-```bash
+```
 sudo nano /etc/postfix/main.cf
 ```
 
 Fügen Sie die folgenden Zeilen am Ende der Datei hinzu:
 
-```plaintext
+```
 # TLS-Einstellungen
 smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
@@ -73,7 +73,7 @@ Speichern und schließen Sie die Datei.
 
 Dovecot ist ein IMAP- und POP3-Server, der für den Empfang von E-Mails verwendet wird. Installieren Sie Dovecot mit dem folgenden Befehl:
 
-```bash
+```
 sudo apt install dovecot-core dovecot-imapd dovecot-pop3d -y
 ```
 
@@ -81,7 +81,7 @@ sudo apt install dovecot-core dovecot-imapd dovecot-pop3d -y
 
 Öffnen Sie die Dovecot-Konfigurationsdatei:
 
-```bash
+```
 sudo nano /etc/dovecot/dovecot.conf
 ```
 
@@ -89,7 +89,7 @@ sudo nano /etc/dovecot/dovecot.conf
 
 
 
-```plaintext
+```
 protocols = imap pop3
 
 # SSL-Einstellungen
@@ -110,7 +110,7 @@ Speichern und schließen Sie die Datei.
 
 Erstellen Sie für jede Mailbox einen Benutzer. Verwenden Sie den folgenden Befehl, um einen Benutzer mit dem Namen "user" und der E-Mail-Adresse "user@example.com" zu erstellen:
 
-```bash
+```
 sudo useradd -m user -s /usr/sbin/nologin
 sudo passwd user
 sudo mkdir /home/user/Maildir
