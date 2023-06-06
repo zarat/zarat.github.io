@@ -11,7 +11,7 @@ Zum Schutz privater Netzwerke durch Einflüsse von Außen oder auch aus dem eige
 
 <!--excerpt_separator-->
 
-Die Hauptfunktion einer Firewall besteht darin, den Datenverkehr basierend auf vordefinierten Regeln zu kontrollieren. Diese Regeln bestimmen, welche Arten von Verbindungen zugelassen oder blockiert werden. Eine Firewall kann auch Intrusion Detection und Prevention Systeme (IDS/IPS) integrieren, um verdächtige Aktivitäten zu erkennen und zu verhindern.
+Die Hauptfunktion einer Firewall besteht darin, den Datenverkehr basierend auf vordefinierten Regeln zu kontrollieren. Diese Regeln bestimmen, welche Arten von Verbindungen zugelassen oder blockiert werden. Eine Firewall kann auch Intrusion Detection und Prevention Systeme (IDS/IPS) integrieren um verdächtige Aktivitäten zu erkennen und zu verhindern, ein VPN bereitstellen, Surfverhalten analysieren u.v.m.
 
 # Welche Arten von Firewalls gibt es?
 
