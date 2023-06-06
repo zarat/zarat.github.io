@@ -13,7 +13,7 @@ Zum Schutz privater Netzwerke durch Einflüsse von Außen oder auch aus dem eige
 
 Die Hauptfunktion einer Firewall besteht darin, den Datenverkehr basierend auf vordefinierten Regeln zu kontrollieren. Diese Regeln bestimmen, welche Arten von Verbindungen zugelassen oder blockiert werden. Eine Firewall kann auch Intrusion Detection und Prevention Systeme (IDS/IPS) integrieren um verdächtige Aktivitäten zu erkennen und zu verhindern, ein VPN bereitstellen, Surfverhalten analysieren u.v.m.
 
-# Welche Arten von Firewalls gibt es?
+<h1>Welche Arten von Firewalls gibt es?</h1>
 
 Es gibt verschiedene Arten von Firewalls, die je nach ihrem Funktionsumfang und ihrer Implementierung variieren. Hier sind einige der gängigsten Typen von Firewalls:
 
@@ -25,7 +25,7 @@ Es gibt verschiedene Arten von Firewalls, die je nach ihrem Funktionsumfang und 
 
 4. **Next-Generation Firewall (NGFW)**: NGFWs bieten erweiterte Funktionen im Vergleich zu herkömmlichen Firewalls. Sie integrieren Funktionen wie Intrusion Prevention, Anwendungssichtbarkeit, SSL-Entschlüsselung und erweiterte Protokollierung. NGFWs ermöglichen eine tiefere Überwachung des Netzwerkverkehrs und bieten eine präzisere Kontrolle.
 
-# Welche Anschlussmöglichkeiten gibt es?
+<h1>Welche Anschlussmöglichkeiten gibt es?</h1>
 
 Firewalls können in verschiedenen Anschlussmodi oder Clustertypen konfiguriert werden, um die Skalierbarkeit und Hochverfügbarkeit zu verbessern. Hier sind einige gängige Anschlussmöglichkeiten:
 
@@ -37,7 +37,7 @@ Firewalls können in verschiedenen Anschlussmodi oder Clustertypen konfiguriert 
 
 4. **Virtual Router Redundancy Protocol (VRRP)**: VRRP ist ein Protokoll, das die Ausfallsicherheit von Firewalls verbessert, indem mehrere Firewalls als eine logische Einheit betrachtet werden. Die Firewalls teilen sich eine gemeinsame IP-Adresse, und im Falle eines Ausfalls übernimmt eine andere Firewall automatisch die Kontrolle, um die Konnektivität aufrechtzuerhalten.
 
-# Was sind NGFW?
+<h1>Was sind NGFW?</h1>
 
 NGFW steht für Next-Generation Firewall und bezeichnet eine neue Generation von Firewalls mit erweiterten Funktionen. NGFWs integrieren traditionelle Firewall-Funktionen mit zusätzlichen Merkmalen wie Intrusion Prevention, Anwendungssichtbarkeit, SSL-Entschlüsselung und erweiterter Protokollierung.
 
