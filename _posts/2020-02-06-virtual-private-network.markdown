@@ -2,7 +2,7 @@
 layout: post
 title: Virtual private network (VPN)
 author: Manuel Zarat
-categories: tutorials
+categories: articles
 tags: sicherheit
 permalink: /post/virtual-private-network
 ---
