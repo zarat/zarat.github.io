@@ -6,45 +6,102 @@ categories: tutorials
 permalink: /post/linux-dhcp-server
 ---
 
-<p>DHCP erleichtert die Vergabe von IP Adressen im Netzwerk. Ist ein DHCP Server im Netzwerk vorhanden, kann dieser neben der IP Adresse auch das Gateway, einen Namensserver usw. bekanntgeben. Dieser Dienst ist in Windows Server integriert. Der ISC-DHCP Server, der unter Aufsicht des Internet-Systems-Consortiums steht, ist eine kostenlose Alternative und die inoffizielle Referenzimplementierung. Man kann ihn über das APT Tool installieren.</p>
+Ein DHCP-Server (Dynamic Host Configuration Protocol) ermöglicht es, IP-Adressen und andere Netzwerkkonfigurationen automatisch an Clients in einem Netzwerk zu vergeben. In diesem Wiki-Artikel erfahren Sie, wie Sie einen DHCP-Server unter Ubuntu einrichten, IP-Bereiche unterteilen und statische Reservierungen konfigurieren können.
 
 <!--excerpt_separator-->
 
-<pre>apt-get install isc-dhcp-server</pre>
+## Schritt 1: DHCP-Server installieren
 
-<h2>Globale Konfiguration</h2>
+1. Öffnen Sie ein Terminal auf Ihrem Ubuntu-Server.
+2. Geben Sie den folgenden Befehl ein, um den DHCP-Server (ISC-DHCP-Server) zu installieren:
 
-<p>Die Konfiguration des DHCP-Servers geschieht in der Datei /etc/dhcp/dhcp.conf.</p>
+   ```
+   sudo apt-get update
+   sudo apt-get install isc-dhcp-server
+   ```
 
-<pre>authoritative;
-# Definition des Subnetzes
-subnet 192.168.1.0 netmask 255.255.255.0 {
-        range 192.168.1.10 192.168.1.20;
-        # Interface
-        interface eth0;
-        # Lease-Time (in Sekunden)
-        default-lease-time 600;
-        max-lease-time 7200;
-        # Domainname anpassen!
-        option domain-name "domain.local";
-        option domain-name-servers 192.168.0.1;
-        option broadcast-address 192.168.0.255;
-        option subnet-mask 255.255.255.0;
-        option routers 192.168.0.1;
-}</pre>
+## Schritt 2: Konfigurationsdatei bearbeiten
 
-<p>DHCP Server sollten IMMER das Statement authoritative innerhalb der globalen Konfigurationsdatei stehen haben, um keine unbekannten DHCP Server im Netz zu dulden. Die Lease Time besagt, wie lange ein durch DHCP vergebene Konfiguration gültig sein soll. Danach wird diese automatisch erneuert.</p>
+1. Öffnen Sie die Konfigurationsdatei des DHCP-Servers mit einem Texteditor:
 
-<h2>Host Blöcke</h2>
+   ```
+   sudo nano /etc/dhcp/dhcpd.conf
+   ```
 
-<p>Möchte man bestimmte IP Adressen für bestimmte Hosts reservieren, kann man die betreffenden Hosts in eigenen Blöcken definieren.</p>
+2. Die Konfigurationsdatei enthält Beispiele und Kommentare. Sie können den vorhandenen Inhalt löschen und die folgenden Zeilen hinzufügen:
 
-<pre>host chef { hardware ethernet 00:00:0e:d2:da:be; fixed-address 192.168.0.2; option host-name "chef"; }
-host ma1 { hardware ethernet 00:00:0e:d2:da:b3; fixed-address 192.168.0.3; option host-name "ma1"; }
-host ma2 { hardware ethernet 00:00:0e:d2:da:a1; fixed-address 192.168.0.4; option host-name "ma2"; }</pre>
+   ```plaintext
+   authoritative;
+   subnet 192.168.0.0 netmask 255.255.255.0 {
+     range 192.168.0.10 192.168.0.100;
+     option routers 192.168.0.1;
+     option domain-name-servers 8.8.8.8, 8.8.4.4;
+   }
+   ```
 
-<p>Aufgrund der Tatsache, das man Hardware Adressen fälschen kann ist DHCP keine sichere Methode, ein Gerät zu authentifizieren. Server sollten immer eine feste, statische IP Adresse eingetragen mit Reverse-DNS eingetragen haben.</p>
+   - Der `subnet`-Befehl definiert das Subnetz und die Netzmaske.
+   - Der `range`-Befehl legt den IP-Bereich fest, aus dem Adressen an Clients vergeben werden.
+   - Die `option`-Befehle konfigurieren den Standard-Gateway und die DNS-Server.
 
-<h2>Debugging</h2>
+3. Speichern Sie die Datei und schließen Sie den Texteditor.
 
-<p>Aktive Leases kann man in der Datei <code>/var/lib/dhcp/dhcpd.leases</code> einsehen. Um den Cache (die geleasten IPs) zu löschen leert man die Dateien <code>/var/lib/dhcp/dhcpd.leases</code> und <code>/var/lib/dhcp/dhcpd.leases~</code> und startet den Server neu.</p>
+## Schritt 3: Netzwerkinterface konfigurieren
+
+1. Öffnen Sie die Netzwerkkonfigurationsdatei:
+
+   ```
+   sudo nano /etc/default/isc-dhcp-server
+   ```
+
+2. Ändern Sie die Zeile `INTERFACESv4=""` in:
+
+   ```
+   INTERFACESv4="eth0"
+   ```
+
+   Ersetzen Sie `eth0` durch den Namen Ihres Netzwerkinterfaces.
+
+3. Speichern Sie die Datei und schließen Sie den Texteditor.
+
+## Schritt 4: DHCP-Server starten
+
+1. Starten Sie den DHCP-Server mit dem folgenden Befehl:
+
+   ```
+   sudo service isc-dhcp-server start
+   ```
+
+2. Überprüfen Sie den Status des DHCP-Servers, um sicherzustellen, dass er ausgeführt wird:
+
+   ```
+   sudo service isc-dhcp-server status
+   ```
+
+## Schritt 5: Statische Reservierungen konfigurieren (optional)
+
+Wenn Sie bestimmte IP-Adressen für bestimmte Clients reservieren möchten, können Sie statische Reservierungen in der DHCP-Konfigurationsdatei hinzufügen.
+
+1. Öffnen Sie die DHCP-Konfigurationsdatei:
+
+   ```
+   sudo nano /etc/dhcp/dhcpd.conf
+   ```
+
+2. Fügen Sie die folgende Zeile
+
+ für jede statische Reservierung hinzu:
+
+   ```plaintext
+   host clientname {
+     hardware ethernet <MAC-Adresse>;
+     fixed-address <IP-Adresse>;
+   }
+   ```
+
+   Ersetzen Sie `clientname`, `<MAC-Adresse>` und `<IP-Adresse>` durch die entsprechenden Werte.
+
+3. Speichern Sie die Datei und schließen Sie den Texteditor.
+
+## Fazit
+
+Sie haben erfolgreich einen DHCP-Server unter Ubuntu eingerichtet. Clients in Ihrem Netzwerk erhalten nun automatisch IP-Adressen und andere Netzwerkkonfigurationen vom DHCP-Server. Bei Bedarf können Sie auch statische Reservierungen für bestimmte Clients konfigurieren.
