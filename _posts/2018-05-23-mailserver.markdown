@@ -6,123 +6,132 @@ categories: tutorials
 permalink: /post/postfix-dovecot-mailserver
 ---
 
-Ein Mailserver ist kein einzelner Dienst, sondern setzt sich üblicherweise aus mehreren Komponenten zusammen. Das sind im Wesentlichen ein Mail transfer agent (MTA) für das Senden und Empfangen sowie ein Message delivery agent (MDA) für den Zugriff auf Mails durch die jeweiligen Benutzer. 
+Dieser Artikel beschreibt, wie man einen Mailserver mit Postfix und Dovecot unter Ubuntu einrichtet. Der Mailserver wird mit Verschlüsselung, verschiedenen Arten von Mailboxen sowie Sicherheitsvorkehrungen wie Hardening, DKIM, SPF und DMARC konfiguriert. Die folgende Anleitung basiert auf Ubuntu 20.04 LTS.
+
 <!--excerpt_separator-->
-Der MTA sendet und empfängt über SMTP. Der MDA liefert Emails aus, erstellt, ändert und löscht Ordner auf dem Server und setzt Dateiattribute mit Hilfe von IMAP und POP. Beide gibt es auch in verschlüsselter Form. Einen Mailserver im Internet zu betreiben ist eine verantwortungsvolle Aufgabe. Arbeitet man nicht sorgfältig, schafft man leicht ein sogenanntes Open Relay, welches sehr schnell als Spamschleuder missbraucht werden wird. Ich möchte zeigen wie man mit Hilfe von Postfix, Dovecot und Ende-zu-Ende Verschlüsselung einen Emailserver installiert um die private oder firmeninterne Kommunikation wieder unter die eigene und alleinige Kontrolle zu bringen.
 
-<h2>Postfix installieren</h2>
+## Voraussetzungen
 
-Nachdem das frisch installierte System auf den neuesten Stand gebracht wurde kann man Postfix bequem über das APT Tool installieren.
+- Ubuntu 20.04 LTS-Server mit Root-Zugriff
+- Eine gültige Domain, die auf die IP-Adresse des Servers zeigt
 
-<pre>apt install postfix</pre>
+## Schritt 1: Aktualisierung des Systems
 
-Zuerst öffnen Sie die Datei <code>/etc/postfix/main.cf</code> und ersetzen den Inhalt mit
+Bevor wir mit der Einrichtung des Mailservers beginnen, stellen wir sicher, dass das System auf dem neuesten Stand ist. Führen Sie dazu die folgenden Befehle aus:
 
-<pre>
-#Default settings
-myhostname = zarat.ml
-myorigin = /etc/mailname
-mydestination = zarat.ml, localhost, localhost.localdomain 
-mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 
-mailbox_size_limit = 0
-recipient_delimiter = +
-inet_interfaces = all
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
 
-#Optional settings
-local_recipient_maps = proxy:unix:passwd.byname $alias_maps
-alias_maps = hash:/etc/aliases
-alias_database = hash:/etc/aliases
+## Schritt 2: Installation von Postfix
 
-# restrict domains
-transport_maps = hash:/etc/postfix/transport
-</pre>
+Postfix ist ein weit verbreiteter Mail Transfer Agent (MTA) und wird für den Versand und Empfang von E-Mails verwendet. Installieren Sie Postfix mit dem folgenden Befehl:
 
-Beispiel einer <code>/etc/postfix/transport</code>
+```bash
+sudo apt install postfix -y
+```
 
-<pre>
-.zarat.ml   :
-zarat.ml    :
-*    discard:
-</pre>
+Während der Installation wird ein Konfigurationsassistent angezeigt. Wählen Sie "Internet Site" und geben Sie den vollständigen Domainnamen für Ihren Mailserver ein.
 
-<b>Hostname und IP Adresse ersetzen Sie Ihrem Setup dementsprechend.</b>
-  
-Danach bearbeiten Sie gleich die Datei <code>/etc/postfix/master.cf</code> um darin die Parameter für den vordefinierten Submission Block auszukommentieren.
+## Schritt 3: Konfiguration von Postfix
 
-<pre>
-submission inet n       -       -       -       -       smtpd
-  -o syslog_name=postfix/submission
-  -o smtpd_tls_wrappermode=no
-  -o smtpd_tls_security_level=encrypt
-  -o smtpd_sasl_auth_enable=yes
-  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject
-  -o milter_macro_daemon_name=ORIGINATING
-  -o smtpd_sasl_type=dovecot
-  -o smtpd_sasl_path=private/auth
-</pre>
+Öffnen Sie die Postfix-Konfigurationsdatei mit einem Texteditor:
 
-<h2>Dovecot installieren</h2>
+```bash
+sudo nano /etc/postfix/main.cf
+```
 
-Dovecot ist der MDA, der Mails an die jeweiligen Mailboxen verteilt und ausliefert. Auch Dovecot kann über das APT Tool installiert werden.
+Fügen Sie die folgenden Zeilen am Ende der Datei hinzu:
 
-<pre>apt install dovecot-core dovecot-imapd</pre>
+```plaintext
+# TLS-Einstellungen
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_use_tls=yes
+smtpd_tls_auth_only=yes
+smtp_tls_security_level=may
+smtpd_tls_security_level=may
 
-Ich bearbeite auch hier wieder zuerst die Datei
+# SMTP-Einstellungen
+smtpd_sasl_type=dovecot
+smtpd_sasl_path=private/auth
+smtpd_sasl_auth_enable=yes
+smtpd_sasl_security_options=noanonymous
+smtpd_sasl_local_domain=$myhostname
+smtpd_recipient_restrictions=permit_sasl_authenticated,permit_mynetworks,reject_unauth_destination
+myhostname = mail.example.com # Geben Sie Ihren vollständigen Domainnamen an
+mydomain = example.com # Geben Sie Ihren Domainnamen an
+myorigin = $mydomain
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+```
 
-<pre>/etc/dovecot/dovecot.conf</pre>
+Speichern und schließen Sie die Datei.
 
-indem ich an das Ende folgendes anhänge
+## Schritt 4: Installation von Dovecot
 
-<pre>disable_plaintext_auth = no
-mail_privileged_group = mail
-mail_location = mbox:~/mail:INBOX=/var/mail/%u
-userdb {
-  driver = passwd
-}
-passdb {
-  args = %s
-  driver = pam
-}
-protocols = "imap"
-namespace inbox {
-  type = private
-  inbox = yes
-  mailbox Trash {
-    auto = subscribe
-    special_use = \Trash
-  }
-  mailbox Drafts {
-    auto = subscribe
-    special_use = \Drafts
-  }
-  mailbox Sent {
-    auto = subscribe # autocreate and autosubscribe the Sent mailbox
-    special_use = \Sent
-  }
-  mailbox "Sent Messages" {
-    auto = no
-    special_use = \Sent
-  }
-  mailbox Junk {
-    auto = create # autocreate Spam, but don't autosubscribe
-    special_use = \Junk
-  }
-  mailbox virtual/All { # if you have a virtual "All messages" mailbox 
-    auto = no
-    special_use = \All
-  }
-}
-service auth {
-  unix_listener /var/spool/postfix/private/auth {
-    group = postfix
-    mode = 0660
-    user = postfix
-  }
-}
+Dovecot ist ein IMAP- und POP3-Server, der für den Empfang von E-Mails verwendet wird. Installieren Sie Dovecot mit dem folgenden Befehl:
 
-# optional
-ssl=required
-ssl_cert = </etc/ssl/certs/mailcert.pem
-ssl_key = </etc/ssl/private/mail.key</pre>
+```bash
+sudo apt install dovecot-core dovecot-imapd dovecot-pop3d -y
+```
 
-Es folgt das Anlegen von Mailboxen und Benutzern.
+## Schritt 5: Konfiguration von Dovecot
+
+Öffnen Sie die Dovecot-Konfigurationsdatei:
+
+```bash
+sudo nano /etc/dovecot/dovecot.conf
+```
+
+Ändern Sie die folgenden Zeilen in der Datei wie unten gezeigt:
+
+
+
+```plaintext
+protocols = imap pop3
+
+# SSL-Einstellungen
+ssl_cert = </etc/ssl/certs/ssl-cert-snakeoil.pem
+ssl_key = </etc/ssl/private/ssl-cert-snakeoil.key
+
+# Authentifizierungseinstellungen
+auth_mechanisms = plain login
+disable_plaintext_auth = yes
+
+# Mailbox-Einstellungen
+mail_location = maildir:~/Maildir
+```
+
+Speichern und schließen Sie die Datei.
+
+## Schritt 6: Mailboxen erstellen
+
+Erstellen Sie für jede Mailbox einen Benutzer. Verwenden Sie den folgenden Befehl, um einen Benutzer mit dem Namen "user" und der E-Mail-Adresse "user@example.com" zu erstellen:
+
+```bash
+sudo useradd -m user -s /usr/sbin/nologin
+sudo passwd user
+sudo mkdir /home/user/Maildir
+sudo chown -R user:user /home/user/Maildir
+```
+
+Wiederholen Sie diesen Schritt für jede gewünschte Mailbox.
+
+## Schritt 7: Hardening des Servers
+
+Es ist wichtig, den Server abzusichern, um unerwünschte Zugriffe zu verhindern. Führen Sie die folgenden Schritte aus:
+
+- Aktivieren Sie die Firewall und erlauben Sie nur den Zugriff auf die erforderlichen Ports (SMTP, IMAP, POP3).
+- Aktivieren Sie die Fail2Ban-Dienste, um Brute-Force-Angriffe zu blockieren.
+
+## Schritt 8: DKIM, SPF und DMARC einrichten
+
+Um die E-Mail-Zustellbarkeit und die Vermeidung von Spam zu verbessern, richten Sie DKIM, SPF und DMARC für Ihren Domainnamen ein. Dazu müssen Sie DNS-Einträge für Ihren Domainnamen erstellen. Die genauen Schritte hängen von Ihrem DNS-Anbieter ab.
+
+DKIM: Generieren Sie ein DKIM-Schlüsselpaar und fügen Sie den öffentlichen Schlüssel als TXT-Eintrag in Ihren DNS-Einstellungen hinzu.
+
+SPF: Erstellen Sie einen SPF-Eintrag (TXT) in Ihren DNS-Einstellungen, der festlegt, welche Server E-Mails für Ihre Domain senden dürfen.
+
+DMARC: Erstellen Sie einen DMARC-Eintrag (TXT) in Ihren DNS-Einstellungen, um E-Mail-Authentifizierungsrichtlinien festzulegen.
