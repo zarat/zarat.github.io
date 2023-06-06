@@ -59,8 +59,11 @@ Angenommen, wir haben das IP-Netzwerk 192.168.0.0 und möchten es in vier Subnet
 3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
 
     Subnetz 1: 192.168.0.0/26 (Netzwerkadresse: 192.168.0.0)
+    
     Subnetz 2: 192.168.0.64/26 (Netzwerkadresse: 192.168.0.64)
+    
     Subnetz 3: 192.168.0.128/26 (Netzwerkadresse: 192.168.0.128)
+    
     Subnetz 4: 192.168.0.192/26 (Netzwerkadresse: 192.168.0.192)
 
 Jedes Subnetz hat 62 (2^6 - 2) verfügbare Hosts, da die Netzwerkadresse und die Broadcast-Adresse ausgeschlossen sind.
@@ -82,8 +85,11 @@ Angenommen, wir haben das IPv6-Netzwerk 2001:0db8:85a3:0000::/64 und möchten es
 3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
 
     Subnetz 1: 2001:0db8:85a3:0000::/66
+    
     Subnetz 2: 2001:0db8:85a3:0001::/66
+    
     Subnetz 3: 2001:0db8:85a3:0002::/66
+    
     Subnetz 4: 2001:0db8:85a3:0003::/66
 
 Jedes Subnetz hat eine enorme Anzahl von verfügbaren IP-Adressen, da die Präfixlänge von /66 verwendet wird.
