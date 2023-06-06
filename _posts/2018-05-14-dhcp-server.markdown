@@ -102,6 +102,10 @@ Wenn Sie bestimmte IP-Adressen für bestimmte Clients reservieren möchten, kön
 
 3. Speichern Sie die Datei und schließen Sie den Texteditor.
 
+## Debugging
+
+Aktive Leases kann man in der Datei /var/lib/dhcp/dhcpd.leases einsehen. Um den Cache (die geleasten IPs) zu löschen leert man die Dateien /var/lib/dhcp/dhcpd.leases und /var/lib/dhcp/dhcpd.leases~ und startet den Server neu.
+
 ## Fazit
 
 Sie haben erfolgreich einen DHCP-Server unter Ubuntu eingerichtet. Clients in Ihrem Netzwerk erhalten nun automatisch IP-Adressen und andere Netzwerkkonfigurationen vom DHCP-Server. Bei Bedarf können Sie auch statische Reservierungen für bestimmte Clients konfigurieren.
