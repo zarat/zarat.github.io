@@ -38,7 +38,7 @@ IPv4-Adressen bestehen aus 32 Bits, die in vier Blöcken von jeweils 8 Bits aufg
 
 <h2>Subnetzmasken</h2>
 
-Das Netzwerkpräfix oder die Subnetzmaske gibt an, wie viele Bits der IPv4-Adresse den Netzwerkteil identifizieren. Die restlichen Bits werden für die Identifizierung der Hosts verwendet. Die Subnetzmaske besteht aus einer Reihe von 1-Bits, gefolgt von einer Reihe von 0-Bits. Zum Beispiel entspricht die Subnetzmaske 255.255.255.0 einem Netzwerkpräfix von 24 Bits.
+Das Netzwerkpräfix oder die Subnetzmaske gibt an, wie viele Bits der IPv4-Adresse den Netzwerkteil identifizieren. Die restlichen Bits werden für die Identifizierung der Hosts verwendet. Die Subnetzmaske besteht aus einer Reihe von 1-Bits, gefolgt von einer Reihe von 0-Bits. Zum Beispiel entspricht die Subnetzmaske 255.255.255.0 einem Netzwerkpräfix von 24 Bits. Ein Beispiel für eine Subnetzmaske ist 255.255.255.0. In binärer Form sieht diese Subnetzmaske wie folgt aus: 11111111.11111111.11111111.00000000. Hier sind die ersten 24 Bits 1 (Netzwerk) und die letzten 8 Bits 0 (Hosts).
 
 <h2>Netzwerk Bits</h2>
 
@@ -51,6 +51,20 @@ Nachdem Sie die Anzahl der benötigten Subnetze kennen, müssen Sie bestimmen, w
 <h2>Aufteilung</h2>
 
 Nehmen wir an, wir haben die IPv4-Adresse 192.168.0.0/24 und möchten sie in 4 Subnetze aufteilen. Zuerst teilen wir die Anzahl der Bits des Netzwerkpräfixes gleichmäßig auf die Subnetze auf. In diesem Fall haben wir 2 Bits pro Subnetz. Die Subnetzmaske für jedes Subnetz wäre dann /26, da wir die ursprünglichen 24 Bits des Netzwerkpräfixes beibehalten und 2 Bits für die Identifizierung der Subnetze verwenden.
+
+<h2>Beispiel</h2>
+
+Angenommen, wir haben das IP-Netzwerk 192.168.0.0 und möchten es in vier Subnetze aufteilen. Hier sind die Schritte, um dies zu erreichen:
+
+ * Bestimme die Anzahl der benötigten Subnetze: 4. 
+ * Wähle eine geeignete Subnetzmaske: 255.255.255.192. Diese Subnetzmaske hat 26 1-Bits und 6 0-Bits. Damit können wir 64 (2^6) Subnetze erstellen, von denen wir jedoch nur 4 benötigen. Die Netzwerkadressen steigen somit jedes mal um 64.
+ * Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
+  * Subnetz 1: 192.168.0.0/26 (Netzwerkadresse: 192.168.0.0)
+  * Subnetz 2: 192.168.0.64/26 (Netzwerkadresse: 192.168.0.64)
+  * Subnetz 3: 192.168.0.128/26 (Netzwerkadresse: 192.168.0.128)
+  * Subnetz 4: 192.168.0.192/26 (Netzwerkadresse: 192.168.0.192)
+
+Jedes Subnetz hat 62 (2^6 - 2) verfügbare Hosts, da die Netzwerkadresse und die Broadcast-Adresse ausgeschlossen sind.
 
 <h2>VLSM</h2>
 
