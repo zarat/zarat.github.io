@@ -34,62 +34,26 @@ Subnetting ist ein Konzept bei dem ein großes Netzwerk in kleinere Teilnetze (S
 
 <h1>Subnetting in IPv4</h1>
 
-In IPv4 werden IP-Adressen in vier Oktette aufgeteilt, die jeweils einen Wert zwischen 0 und 255 haben können. Ein Subnetz wird durch das Hinzufügen von Bits zur Netzwerkadresse erstellt. Die Anzahl der hinzugefügten Bits bestimmt die Größe des Subnetzes. Um das Subnetting zu erleichtern, werden in IPv4 oft sogenannte Subnetzmasken verwendet.
+IPv4-Adressen bestehen aus 32 Bits, die in vier Blöcken von jeweils 8 Bits aufgeteilt sind. Jeder Block wird als Oktett bezeichnet und kann einen Wert von 0 bis 255 haben. Zum Beispiel sieht eine typische IPv4-Adresse wie folgt aus: 192.168.0.1.
 
 <h2>Subnetzmasken</h2>
 
-Eine Subnetzmaske besteht aus 32 Bits, von denen die ersten auf 1 gesetzt sind, gefolgt von einer bestimmten Anzahl von Nullen. Die 1-Bits in der Subnetzmaske repräsentieren das Netzwerk, während die 0-Bits die Hosts im Netzwerk darstellen.
+Das Netzwerkpräfix oder die Subnetzmaske gibt an, wie viele Bits der IPv4-Adresse den Netzwerkteil identifizieren. Die restlichen Bits werden für die Identifizierung der Hosts verwendet. Die Subnetzmaske besteht aus einer Reihe von 1-Bits, gefolgt von einer Reihe von 0-Bits. Zum Beispiel entspricht die Subnetzmaske 255.255.255.0 einem Netzwerkpräfix von 24 Bits.
 
-Ein Beispiel für eine Subnetzmaske ist 255.255.255.0. In binärer Form sieht diese Subnetzmaske wie folgt aus: 11111111.11111111.11111111.00000000. Hier sind die ersten 24 Bits 1 (Netzwerk) und die letzten 8 Bits 0 (Hosts).
+<h2>Netzwerk Bits</h2>
 
-<h2>Subnetting-Schritte</h2>
+Um die Anzahl der benötigten Subnetze zu bestimmen, müssen Sie zunächst festlegen, wie viele Netzwerke oder Subnetze Sie erstellen möchten. Dies hängt von Ihren spezifischen Anforderungen ab. Sobald Sie die Anzahl der benötigten Subnetze kennen, sollten Sie die nächstgrößte Potenz von 2 finden, die größer oder gleich der Anzahl der benötigten Subnetze ist. Zum Beispiel, wenn Sie 6 Subnetze benötigen, ist die nächste Potenz von 2, die größer oder gleich 6 ist, 8.
 
-Um ein Netzwerk in Subnetze aufzuteilen, sind die folgenden Schritte erforderlich:
+<h2>Host Bits</h2>
 
-1. Bestimme die Anzahl der benötigten Subnetze. 
-2. Wähle eine geeignete Subnetzmaske basierend auf der Anzahl der Subnetze. 
-3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu.
+Nachdem Sie die Anzahl der benötigten Subnetze kennen, müssen Sie bestimmen, wie viele Hosts jedes Subnetz unterstützen muss. Dazu sollten Sie die maximale Anzahl von Hosts pro Subnetz schätzen, die Sie in Zukunft erwarten. Denken Sie daran, dass einige Hosts bereits reserviert sind (z. B. Netzwerkadresse und Broadcast-Adresse).
 
-<h2>Beispiel</h2>
+<h2>Aufteilung</h2>
 
-Angenommen, wir haben das IP-Netzwerk 192.168.0.0 und möchten es in vier Subnetze aufteilen. Hier sind die Schritte, um dies zu erreichen:
+Nehmen wir an, wir haben die IPv4-Adresse 192.168.0.0/24 und möchten sie in 4 Subnetze aufteilen. Zuerst teilen wir die Anzahl der Bits des Netzwerkpräfixes gleichmäßig auf die Subnetze auf. In diesem Fall haben wir 2 Bits pro Subnetz. Die Subnetzmaske für jedes Subnetz wäre dann /26, da wir die ursprünglichen 24 Bits des Netzwerkpräfixes beibehalten und 2 Bits für die Identifizierung der Subnetze verwenden.
 
-1. Bestimme die Anzahl der benötigten Subnetze: 4.
-2. Wähle eine geeignete Subnetzmaske: 255.255.255.192. Diese Subnetzmaske hat 26 1-Bits und 6 0-Bits. Damit können wir 64 (2^6) Subnetze erstellen, von denen wir jedoch nur 4 benötigen.
-3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
+<h2>VLSM</h2>
 
-    Subnetz 1: 192.168.0.0/26 (Netzwerkadresse: 192.168.0.0)
-    
-    Subnetz 2: 192.168.0.64/26 (Netzwerkadresse: 192.168.0.64)
-    
-    Subnetz 3: 192.168.0.128/26 (Netzwerkadresse: 192.168.0.128)
-    
-    Subnetz 4: 192.168.0.192/26 (Netzwerkadresse: 192.168.0.192)
+Das Variable Length Subnet Masking (VLSM) ist eine erweiterte Methode des Subnettings, die es ermöglicht, Netzwerke mit unterschiedlichen Subnetzmasken zu erstellen. Mit VLSM können wir Netzwerke effizienter nutzen, da wir Subnetze unterschiedlicher Größe erstellen können, um den Bedarf an Hosts in jedem Subnetz zu erfüllen. In diesem Tutorial werde ich Ihnen die Grundlagen von VLSM erklären und Ihnen zeigen, wie Sie es anwenden können.
 
-Jedes Subnetz hat 62 (2^6 - 2) verfügbare Hosts, da die Netzwerkadresse und die Broadcast-Adresse ausgeschlossen sind.
-
-<h1>Subnetting in IPv6</h1>
-
-In IPv6 werden IP-Adressen durch 128 Bits repräsentiert und in acht Blöcke zu je 16 Bits aufgeteilt. Subnetting in IPv6 funktioniert ähnlich wie in IPv4, jedoch aufgrund der viel größeren Adressgröße mit einer anderen Notation.
-
-<h2>Präfixlänge</h2>
-
-Anstelle von Subnetzmasken verwendet IPv6 Präfixlängen, um den Netzwerkbereich anzugeben. Eine Präfixlänge gibt an, wie viele Bits des Netzwerkteils verwendet werden. Zum Beispiel gibt ein Präfix mit der Länge /64 an, dass die ersten 64 Bits für das Netzwerk verwendet werden.
-
-<h2>Beispiel</h2>
-
-Angenommen, wir haben das IPv6-Netzwerk 2001:0db8:85a3:0000::/64 und möchten es in vier Subnetze aufteilen. Hier sind die Schritte, um dies zu erreichen:
-
-1. Bestimme die Anzahl der benötigten Subnetze: 4.
-2. Verwende eine Präfixlänge von /66, um 4 Subnetze zu ermöglichen.
-3. Weise jedem Subnetz eine eindeutige Netzwerkadresse zu:
-
-    Subnetz 1: 2001:0db8:85a3:0000::/66
-    
-    Subnetz 2: 2001:0db8:85a3:0001::/66
-    
-    Subnetz 3: 2001:0db8:85a3:0002::/66
-    
-    Subnetz 4: 2001:0db8:85a3:0003::/66
-
-Jedes Subnetz hat eine enorme Anzahl von verfügbaren IP-Adressen, da die Präfixlänge von /66 verwendet wird.
+Um VLSM anzuwenden, müssen Sie zuerst die Anforderungen an Ihre Subnetze verstehen. Identifizieren Sie die Anzahl der benötigten Subnetze und schätzen Sie die Anzahl der Hosts pro Subnetz. Ordnen Sie Ihre Anforderungen von der größten zur kleinsten Anzahl von Hosts pro Subnetz. Auf diese Weise können Sie die verfügbaren Adressbereiche effizienter nutzen und die Größe der Subnetze optimieren. Basierend auf den Anforderungen sortieren Sie Ihre Subnetze und beginnen mit dem größten Subnetz. Weisen Sie einen geeigneten Adressbereich zu und bestimmen Sie die Subnetzmaske entsprechend der Anzahl der benötigten Hosts. Fahren Sie mit dem nächsten Subnetz fort, bis Sie alle Subnetze erstellt haben.
