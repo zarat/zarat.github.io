@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Ein RSA Schlüsselpaar mit OpenSSL erzeugen
+title: Layer 2 tunneling protocol
 author: Manuel Zarat
 categories: tutorials
 tags: sicherheit
-permalink: /post/openssl-keys
+permalink: /post/l2tp
 ---
 
 L2TP ist ein Protokoll, das entwickelt wurde, um die Sicherheit und Privatsphäre von Internetverbindungen zu erhöhen. Es arbeitet in Verbindung mit anderen Protokollen wie IPsec (Internet Protocol Security) oder PPP (Point-to-Point Protocol) und schafft so eine geschützte Kommunikationsverbindung über das Internet.
