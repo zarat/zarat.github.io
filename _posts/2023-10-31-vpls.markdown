@@ -30,3 +30,5 @@ VPLS findet in verschiedenen Szenarien Anwendung, darunter:
  - Unternehmensweite Vernetzung: Unternehmen mit mehreren Niederlassungen können VPLS nutzen, um eine nahtlose Kommunikation zwischen den Standorten sicherzustellen.
  - Datacenter-Verbindungen: VPLS eignet sich auch hervorragend für die Anbindung von Rechenzentren, um den Datenaustausch zwischen verschiedenen Standorten zu optimieren.
  - Cloud-Zugriff: VPLS kann genutzt werden, um eine sichere und leistungsfähige Verbindung zu Cloud-Diensten herzustellen.
+
+![VPLS Lab in GNS3](/assets/images/vpls_gns3_lab.png)
