@@ -32,3 +32,89 @@ VPLS findet in verschiedenen Szenarien Anwendung, darunter:
  - Cloud-Zugriff: VPLS kann genutzt werden, um eine sichere und leistungsfähige Verbindung zu Cloud-Diensten herzustellen.
 
 ![VPLS Lab in GNS3](/assets/images/vpls_gns3_lab.png)
+
+<pre>
+! R1
+hostname R1
+
+int gi1
+ip add 192.1.12.1 255.255.255.0
+no shut
+
+int lo0
+ip addr 1.1.1.1 255.255.255.0
+no shut
+
+router eigrp 100
+net 192.1.12.0
+net 1.0.0.0
+
+mpls ldp router-id lo0
+int gi1
+mpls ip
+
+int gi2
+no shut
+service instance 5 ethernet
+encapsulation dot1q 100
+bridge-domain 123
+exit
+
+l2 vfi CUST-A manual
+vpn id 111
+bridge-domain 123
+neighbor 2.2.2.2 encapsulation mpls
+</pre>
+
+<pre>
+ ! R2
+hostname R2
+
+int gi1
+ip add 192.1.12.2 255.255.255.0
+no shut
+
+int lo0
+ip addr 2.2.2.2 255.255.255.0
+no shut
+
+router eigrp 100
+net 192.1.12.0
+net 2.0.0.0
+
+mpls ldp router-id lo0
+int gi1
+mpls ip
+
+int gi2
+no shut
+service instance 5 ethernet
+encapsulation dot1q 100
+bridge-domain 123
+exit
+
+l2 vfi CUST-A manual
+vpn id 111
+bridge-domain 123
+neighbor 1.1.1.1 encapsulation mpls
+</pre>
+
+<pre>
+ !R3
+hostname R3
+
+int fa0/0
+no shut
+
+int fa0/0.1
+encapsulation dot1q 100
+ip addr 192.1.100.3 255.255.255.0
+no shut
+
+int lo0
+ip addr 10.3.3.3 255.255.255.0
+
+router eigrp 100
+net 192.1.100.0
+net 10.0.0.0
+</pre>
