@@ -23,3 +23,4 @@ Durch die Verwendung von Labels anstelle von IP-Adressen bietet MPLS eine gewiss
 
 MPLS ermöglicht detaillierte Kontrolle über den Weg, den Datenverkehr durch das Netzwerk nimmt. Dies ermöglicht fortgeschrittenes Traffic Engineering, um Engpässe zu vermeiden und die bestmögliche Leistung zu erzielen.
 
+![MPLS Lab in GNS3](/assets/mpls_lab.png)
