@@ -1,0 +1,25 @@
+---
+layout: post
+title: Multi protocol label switching
+author: Manuel Zarat
+categories: articles
+tags: sicherheit
+permalink: /post/mpls
+---
+
+MPLS ist eine Technologie, die es ermöglicht, Datenpakete effizienter und zielgerichteter in einem Netzwerk zu transportieren. Im Gegensatz zu traditionellen Routing-Protokollen, die Pakete anhand ihrer IP-Adresse weiterleiten, verwendet MPLS spezielle Labels, um den Weg der Pakete durch das Netzwerk zu steuern.
+
+<!--excerpt_separator-->
+
+Diese Labels werden an den Anfang jedes Datenpakets angehängt und dienen als Anweisungen für die Router, wie sie die Pakete weiterleiten sollen.
+
+Eine der größten Stärken von MPLS liegt in seiner Fähigkeit, den Datenverkehr effizient zu routen. Durch die Verwendung von Labels kann MPLS Pakete schnell und direkt durch das Netzwerk leiten, ohne aufwendige Routing-Tabellen zu konsultieren. Dies führt zu kürzeren Latenzzeiten und einer insgesamt schnelleren Datenübertragung.
+
+MPLS ermöglicht es, verschiedenen Datenverkehrsklassen unterschiedliche Prioritäten zuzuweisen. Das bedeutet, dass Unternehmen die Möglichkeit haben, kritische Anwendungen und Dienste zu priorisieren, um sicherzustellen, dass sie stets die benötigte Bandbreite und Reaktionszeit erhalten.
+
+MPLS ist äußerst skalierbar und eignet sich daher perfekt für Unternehmen mit wachsenden Anforderungen an ihre Netzwerk-Infrastruktur. Neue Standorte oder zusätzliche Ressourcen können nahtlos in das bestehende MPLS-Netzwerk integriert werden, ohne die Gesamtleistung zu beeinträchtigen.
+
+Durch die Verwendung von Labels anstelle von IP-Adressen bietet MPLS eine gewisse Sicherheit gegenüber herkömmlichen IP-Routing-Methoden. Labels sind für externe Netzwerke nicht sichtbar, was es schwieriger macht, das Netzwerk zu analysieren oder anzugreifen.
+
+MPLS ermöglicht detaillierte Kontrolle über den Weg, den Datenverkehr durch das Netzwerk nimmt. Dies ermöglicht fortgeschrittenes Traffic Engineering, um Engpässe zu vermeiden und die bestmögliche Leistung zu erzielen.
+
