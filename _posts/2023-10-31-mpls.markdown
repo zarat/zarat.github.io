@@ -24,3 +24,87 @@ Durch die Verwendung von Labels anstelle von IP-Adressen bietet MPLS eine gewiss
 MPLS ermöglicht detaillierte Kontrolle über den Weg, den Datenverkehr durch das Netzwerk nimmt. Dies ermöglicht fortgeschrittenes Traffic Engineering, um Engpässe zu vermeiden und die bestmögliche Leistung zu erzielen.
 
 ![MPLS Lab in GNS3](/assets/images/mpls_lab.png)
+
+<pre>
+!R1
+hostname R1
+
+int gi1
+ip add 192.1.12.1 255.255.255.0
+no shut
+
+int gi2
+ip add 192.1.23.1 255.255.255.0
+no shut
+
+int lo0
+ip addr 1.1.1.1 255.255.255.0
+no shut
+
+router eigrp 100
+net 192.1.12.0
+net 192.1.23.0
+net 1.0.0.0
+
+mpls ldp router-id lo0
+int gi1
+mpls ip
+int gi2
+mpls ip
+</pre>
+
+<pre>
+!R2
+hostname R2
+
+int gi1
+ip add 192.1.12.2 255.255.255.0
+no shut
+
+int gi2
+ip add 192.1.13.1 255.255.255.0
+no shut
+
+int lo0
+ip addr 2.2.2.2 255.255.255.0
+no shut
+
+router eigrp 100
+net 192.1.12.0
+net 192.1.13.0
+net 2.0.0.0
+
+mpls ldp router-id lo0
+int gi1
+mpls ip
+int gi2
+mpls ip
+</pre>
+
+<pre>
+!R3
+hostname R3
+
+int gi1
+ip add 192.1.13.2 255.255.255.0
+no shut
+
+int gi2
+ip addr 192.1.23.2 255.255.255.0
+no shut
+
+int lo0
+ip addr 3.3.3.3 255.255.255.0
+no shut
+
+router eigrp 100
+net 192.1.23.0
+net 192.1.13.0
+net 3.0.0.0
+
+mpls ldp router-id lo0
+int gi1
+mpls ip
+int gi2
+mpls ip
+</pre>
