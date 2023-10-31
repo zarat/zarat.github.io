@@ -1,0 +1,70 @@
+---
+layout: post
+title: Ein RSA Schlüsselpaar mit OpenSSL erzeugen
+author: Manuel Zarat
+categories: tutorials
+tags: sicherheit
+permalink: /post/openssl-keys
+---
+
+L2TP ist ein Protokoll, das entwickelt wurde, um die Sicherheit und Privatsphäre von Internetverbindungen zu erhöhen. Es arbeitet in Verbindung mit anderen Protokollen wie IPsec (Internet Protocol Security) oder PPP (Point-to-Point Protocol) und schafft so eine geschützte Kommunikationsverbindung über das Internet.
+
+<!--excerpt_separator-->
+
+L2TP funktioniert, indem es ein virtuelles Netzwerk schafft, das als Tunnel durch das öffentliche Internet fungiert. Innerhalb dieses Tunnels werden die Daten verschlüsselt und können sicher von einem Punkt zum anderen übertragen werden. Es ist wichtig zu betonen, dass L2TP allein keine Verschlüsselung bereitstellt, sondern in Kombination mit anderen Protokollen wie IPsec verwendet werden sollte.
+
+Die gängigste Implementierung von L2TP erfolgt in Kombination mit IPsec. IPsec fügt eine zusätzliche Sicherheitsebene hinzu, indem es die Datenpakete vor der Übertragung verschlüsselt und authentifiziert. Dadurch wird sichergestellt, dass nur autorisierte Parteien auf die übertragenen Informationen zugreifen können.
+
+Durch die Kombination von L2TP und IPsec wird eine robuste Sicherheitsschicht geschaffen, die die Privatsphäre der Daten schützt. Dies ist besonders wichtig in Situationen, in denen vertrauliche Informationen über das Internet übertragen werden.
+
+L2TP ist ein weit verbreitetes Protokoll und wird von den meisten Betriebssystemen und VPN-Clients unterstützt. Dies bedeutet, dass es nahtlos in bestehende Netzwerkinfrastrukturen integriert werden kann.
+
+![image tooltip here](/assets/images/l2tp_lab.png)
+
+<pre>
+!R2
+hostname R2
+  
+interface fa0/0
+ip address 100.0.0.2 255.255.255.0
+no shutdown
+exit
+
+pseudowire-class test
+encapsulation l2tpv3
+protocol none
+ip local interface fa0/0
+exit
+
+interface fa1/0
+no ip address
+no shutdown
+xconnect 200.0.0.2 1 encapsulation l2tpv3 manual pw-class test
+l2tp id 1 2
+
+ip route 0.0.0.0 0.0.0.0 100.0.0.1
+</pre>
+
+<pre>
+!R3
+hostname R3
+
+interface fa0/0
+ip address 200.0.0.2 255.255.255.0
+no shutdown
+exit
+
+pseudowire-class test
+encapsulation l2tpv3
+protocol none
+ip local interface fa0/0
+exit
+
+interface fa1/0
+no ip address
+no shutdown
+xconnect 100.0.0.2 1 encapsulation l2tpv3 manual pw-class test
+l2tp id 2 1
+
+ip route 0.0.0.0 0.0.0.0 200.0.0.1
+</pre>
