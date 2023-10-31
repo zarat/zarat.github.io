@@ -2,7 +2,7 @@
 layout: post
 title: Multi protocol label switching
 author: Manuel Zarat
-categories: articles
+categories: tutorials
 tags: sicherheit
 permalink: /post/mpls
 ---
