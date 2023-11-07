@@ -7,11 +7,9 @@ tags: sicherheit
 permalink: /post/vpls
 ---
 
-In der Welt der Netzwerktechnologie gibt es eine Vielzahl von Lösungen, die entwickelt wurden, um die Kommunikation zwischen verschiedenen Standorten zu erleichtern und das Management von Unternehmensnetzwerken zu optimieren. Eine dieser Lösungen, die in den letzten Jahren immer mehr an Bedeutung gewonnen hat, ist VPLS - der Virtual Private LAN Service.
+VPLS, oder Virtual Private LAN Service, ist eine Technologie, die entwickelt wurde, um ein virtuelles LAN (Local Area Network) über ein Weitverkehrsnetzwerk bereitzustellen. Mit VPLS können verschiedene Standorte eines Unternehmens so miteinander verbunden werden, als wären sie Teil desselben lokalen Netzwerks.
 
 <!--excerpt_separator-->
-
-VPLS, oder Virtual Private LAN Service, ist eine Technologie, die entwickelt wurde, um ein virtuelles LAN (Local Area Network) über ein Weitverkehrsnetzwerk bereitzustellen. Mit VPLS können verschiedene Standorte eines Unternehmens so miteinander verbunden werden, als wären sie Teil desselben lokalen Netzwerks.
 
 Die Funktionsweise von VPLS ist vergleichbar mit der eines herkömmlichen LANs, bei dem alle Teilnehmer im selben Broadcast-Domäne arbeiten. Der Hauptunterschied liegt darin, dass VPLS über ein Weitverkehrsnetzwerk (WAN) bereitgestellt wird. Dies ermöglicht die nahtlose Kommunikation zwischen verschiedenen Standorten, unabhängig von ihrer geografischen Lage.
 
