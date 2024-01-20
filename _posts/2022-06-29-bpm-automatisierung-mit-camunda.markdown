@@ -4,7 +4,7 @@ title: Automatisierung mit Camunda BPM
 author: Manuel Zarat
 category: tutorials
 tags: monitoring cloud
-permalink: /blog/camunda-bpm
+permalink: /post/camunda-bpm
 ---
 
 Camunda ist ein kostenloses BPM Automatisierungstool auf Enterprise Niveau.
