@@ -13,19 +13,19 @@ In einer Welt, in der Datenschutz und Sicherheit immer wichtiger werden, ist es 
 
 Zuerst laden wir das Installationsscript herunter und machen es ausführbar.
 
-<code>
+<pre>
 wget https://git.io/vpn -O openvpn-install.sh
 chmod +x openvpn-install.sh
-</code>
+</pre>
 
 Danach installieren wir OpenVPN mit Hilfe des Script.
 
-<code>
+<pre>
 sudo bash openvpn-install.sh
-</code>
+</pre>
 
 Nach der Installation erstellen wir einen Server Key der für die Kommunkikation zwischen OpenVPN Server und Client verwendet wird.
 
-<code>
+<pre>
 openvpn --genkey --secret /etc/openvpn/server/tc.key
-</code>
+</pre>
