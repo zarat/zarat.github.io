@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Vektor Plotter mit Operationen</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        canvas { display: block; }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            width: 240px;
+            height: 90%;
+            overflow-y: auto;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .section h3 {
+            margin-top: 0;
+        }
+        .section input, .section button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <!-- Vektor Eingabe -->
+        <div class="section">
+            <h3>Vektor Eingabe</h3>
+            <label for="v1x">Vektor 1 (x): </label>
+            <input type="number" id="v1x" value="1"><br>
+            <label for="v1y">Vektor 1 (y): </label>
+            <input type="number" id="v1y" value="2"><br>
+            <label for="v1z">Vektor 1 (z): </label>
+            <input type="number" id="v1z" value="3"><br>
+            <label for="v2x">Vektor 2 (x): </label>
+            <input type="number" id="v2x" value="3"><br>
+            <label for="v2y">Vektor 2 (y): </label>
+            <input type="number" id="v2y" value="2"><br>
+            <label for="v2z">Vektor 2 (z): </label>
+            <input type="number" id="v2z" value="1"><br>
+            <button onclick="updateVectors()">Vektoren aktualisieren</button>
+        </div>
+
+        <!-- Vektor Operationen -->
+        <div class="section">
+            <h3>Vektor Operationen</h3>
+            <button onclick="toggleAddition()">Zeige Addition</button><br>
+			<button onclick="toggleSubtraction()">Zeige Subtraction</button><br>
+            <button onclick="toggleDifference()">Zeige Differenz</button><br>
+            <button onclick="toggleCrossProduct()">Zeige Kreuzprodukt</button><br>
+        </div>
+
+        <!-- Rotation der Szene -->
+        <div class="section">
+            <h3>Rotation der Szene</h3>
+            <label for="rotateX">Rotation X (rot):</label>
+            <input type="range" id="rotateX" min="-180" max="180" step="0.01" value="0"><br>
+            <input type="number" id="rotateXInput" value="0" step="0.01"><br>
+
+            <label for="rotateY">Rotation Y (grün):</label>
+            <input type="range" id="rotateY" min="-180" max="180" step="0.01" value="0"><br>
+            <input type="number" id="rotateYInput" value="0" step="0.01"><br>
+
+            <label for="rotateZ">Rotation Z (blau):</label>
+            <input type="range" id="rotateZ" min="-180" max="180" step="0.01" value="0"><br>
+            <input type="number" id="rotateZInput" value="0" step="0.01"><br>
+        </div>
+
+        <!-- Kamera Position und Rotation -->
+        <div class="section">
+            <h3>Kamera Position und Rotation</h3>
+            <label for="cameraX">Kamera Position X:</label>
+            <input type="number" id="cameraX" value="5" step="0.1"><br>
+
+            <label for="cameraY">Kamera Position Y:</label>
+            <input type="number" id="cameraY" value="3" step="0.1"><br>
+
+            <label for="cameraZ">Kamera Position Z:</label>
+            <input type="number" id="cameraZ" value="10" step="0.1"><br>
+
+            <label for="cameraRotateX">Kamera Rotation X:</label>
+            <input type="number" id="cameraRotateX" value="0" step="0.1"><br>
+
+            <label for="cameraRotateY">Kamera Rotation Y:</label>
+            <input type="number" id="cameraRotateY" value="0" step="0.1"><br>
+
+            <label for="cameraRotateZ">Kamera Rotation Z:</label>
+            <input type="number" id="cameraRotateZ" value="0" step="0.1"><br>
+
+            <button onclick="zoomIn()">Zoom In</button><br>
+            <button onclick="zoomOut()">Zoom Out</button><br>
+        </div>
+
+        <!-- Ausgabe -->
+        <div class="section">
+            <span id="output"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/PointerLockControls.js"></script>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const light = new THREE.AmbientLight(0x404040, 2);
+        scene.add(light);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight);
+
+        function zoomIn() {
+            if (camera.position.z > 1) {
+                camera.position.z -= 1;
+                renderer.render(scene, camera);
+            }
+        }
+
+        function zoomOut() {
+            camera.position.z += 1;
+            renderer.render(scene, camera);
+        }
+
+        let v1 = new THREE.Vector3(1, 2, 3);
+        let v2 = new THREE.Vector3(3, 2, 1);
+
+        let arrowV1, arrowV2, arrowAddition, arrowSubtraction, arrowDifference, arrowCrossProduct;
+
+        function createArrow(vector, color) {
+            const arrowHelper = new THREE.ArrowHelper(vector.clone().normalize(), new THREE.Vector3(0, 0, 0), vector.length(), color);
+            scene.add(arrowHelper);
+            return arrowHelper;
+        }
+
+        function createAxisAndScale() {
+            var maxNum = 9999;
+
+            const xAxisGeometry = new THREE.BufferGeometry().setFromPoints([ 
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(maxNum, 0, 0)
+            ]);
+            const xAxisMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 });
+            const xAxis = new THREE.Line(xAxisGeometry, xAxisMaterial);
+            scene.add(xAxis);
+
+            const yAxisGeometry = new THREE.BufferGeometry().setFromPoints([ 
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(0, maxNum, 0)
+            ]);
+            const yAxisMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+            const yAxis = new THREE.Line(yAxisGeometry, yAxisMaterial);
+            scene.add(yAxis);
+
+            const zAxisGeometry = new THREE.BufferGeometry().setFromPoints([ 
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(0, 0, maxNum)
+            ]);
+            const zAxisMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+            const zAxis = new THREE.Line(zAxisGeometry, zAxisMaterial);
+            scene.add(zAxis);
+
+            for (let i = 1; i <= maxNum; i++) {
+                const xMarker = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.1),
+                    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+                );
+                xMarker.position.set(i, 0, 0);
+                scene.add(xMarker);
+
+                const yMarker = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.1),
+                    new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+                );
+                yMarker.position.set(0, i, 0);
+                scene.add(yMarker);
+
+                const zMarker = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.1),
+                    new THREE.MeshBasicMaterial({ color: 0x0000ff })
+                );
+                zMarker.position.set(0, 0, i);
+                scene.add(zMarker);
+            }
+        }
+
+        function updateVectors() {
+            v1.set(
+                parseFloat(document.getElementById('v1x').value),
+                parseFloat(document.getElementById('v1y').value),
+                parseFloat(document.getElementById('v1z').value)
+            );
+
+            v2.set(
+                parseFloat(document.getElementById('v2x').value),
+                parseFloat(document.getElementById('v2y').value),
+                parseFloat(document.getElementById('v2z').value)
+            );
+
+            scene.clear();
+
+            createAxisAndScale();
+
+            arrowV1 = createArrow(v1, 0x0000ff); 
+            arrowV2 = createArrow(v2, 0xff0000); 
+
+            if (arrowAddition) scene.remove(arrowAddition);
+            if (arrowSubtraction) scene.remove(arrowSubtraction);
+            if (arrowDifference) scene.remove(arrowDifference);
+            if (arrowCrossProduct) scene.remove(arrowCrossProduct);
+
+            displayVectorComponents(v1, 'Vektor 1');
+            displayVectorComponents(v2, 'Vektor 2');
+
+            renderer.render(scene, camera);
+        }
+
+        function toggleAddition() {
+            if (arrowAddition) {
+                scene.remove(arrowAddition);
+                arrowAddition = null;
+            } else {
+                arrowAddition = createArrow(v1.clone().add(v2), 0x800160); 
+                displayVectorComponents(v1.clone().add(v2), 'Addition');
+                renderer.render(scene, camera);
+            }
+        }
+		
+		function toggleSubtraction() {
+            if (arrowSubtraction) {
+                scene.remove(arrowSubtraction);
+                arrowSubtraction = null;
+            } else {
+                arrowSubtraction = createArrow(v1.clone().sub(v2), 0x800080); 
+                displayVectorComponents(v1.clone().sub(v2), 'Subtraction');
+                renderer.render(scene, camera);
+            }
+        }
+
+        function toggleDifference() {
+            if (arrowDifference) {
+                scene.remove(arrowDifference);
+                arrowDifference = null;
+            } else {
+                arrowDifference = createArrow(v1.clone().sub(v2), 0x40E0D0); 
+                displayVectorComponents(v1.clone().sub(v2), 'Differenz');
+                renderer.render(scene, camera);
+            }
+        }
+
+        function toggleCrossProduct() {
+            if (arrowCrossProduct) {
+                scene.remove(arrowCrossProduct);
+                arrowCrossProduct = null;
+            } else {
+                arrowCrossProduct = createArrow(v1.clone().cross(v2), 0x00ff00); 
+                displayVectorComponents(v1.clone().cross(v2), 'Kreuzprodukt');
+                renderer.render(scene, camera);
+            }
+        }
+
+        function displayVectorComponents(vector, label) {
+            const output = document.getElementById('output');
+            const outputText = `${label} - x: ${vector.x.toFixed(2)}, y: ${vector.y.toFixed(2)}, z: ${vector.z.toFixed(2)}`;
+            output.textContent = outputText;
+            console.log(outputText);
+        }
+
+		/*
+        camera.position.x = document.getElementById("cameraX").value;
+        camera.position.y = document.getElementById("cameraY").value;
+		camera.position.z = document.getElementById("cameraZ").value;
+		*/
+		
+        function animate() {
+            requestAnimationFrame(animate);
+
+            scene.rotation.x = document.getElementById('rotateX').value * Math.PI / 180;
+            scene.rotation.y = document.getElementById('rotateY').value * Math.PI / 180;
+            scene.rotation.z = document.getElementById('rotateZ').value * Math.PI / 180;
+
+            renderer.render(scene, camera);
+        }
+
+        function updateCamera() {
+            camera.position.set(
+                parseFloat(document.getElementById('cameraX').value),
+                parseFloat(document.getElementById('cameraY').value),
+                parseFloat(document.getElementById('cameraZ').value)
+            );
+
+            camera.rotation.set(
+                parseFloat(document.getElementById('cameraRotateX').value) * Math.PI / 180,
+                parseFloat(document.getElementById('cameraRotateY').value) * Math.PI / 180,
+                parseFloat(document.getElementById('cameraRotateZ').value) * Math.PI / 180
+            );
+
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        document.getElementById('rotateX').addEventListener('input', function() {
+            scene.rotation.x = this.value * Math.PI / 180;
+            document.getElementById('rotateXInput').value = this.value;
+        });
+
+        document.getElementById('rotateY').addEventListener('input', function() {
+            scene.rotation.y = this.value * Math.PI / 180;
+            document.getElementById('rotateYInput').value = this.value;
+        });
+
+        document.getElementById('rotateZ').addEventListener('input', function() {
+            scene.rotation.z = this.value * Math.PI / 180;
+            document.getElementById('rotateZInput').value = this.value;
+        });
+
+        document.getElementById('rotateXInput').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            scene.rotation.x = value * Math.PI / 180;
+            document.getElementById('rotateX').value = value;
+        });
+
+        document.getElementById('rotateYInput').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            scene.rotation.y = value * Math.PI / 180;
+            document.getElementById('rotateY').value = value;
+        });
+
+        document.getElementById('rotateZInput').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            scene.rotation.z = value * Math.PI / 180;
+            document.getElementById('rotateZ').value = value;
+        });
+
+        document.getElementById('cameraX').addEventListener('input', updateCamera);
+        document.getElementById('cameraY').addEventListener('input', updateCamera);
+        document.getElementById('cameraZ').addEventListener('input', updateCamera);
+        document.getElementById('cameraRotateX').addEventListener('input', updateCamera);
+        document.getElementById('cameraRotateY').addEventListener('input', updateCamera);
+        document.getElementById('cameraRotateZ').addEventListener('input', updateCamera);
+
+        animate();
+        updateVectors();
+		updateCamera();
+		
+		//for(var i = 0; i<5; i++) zoomOut();
+    </script>
+</body>
+</html>
