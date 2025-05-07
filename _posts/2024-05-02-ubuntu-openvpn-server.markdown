@@ -29,3 +29,5 @@ Nach der Installation erstellen wir einen Server Key der für die Kommunkikation
 <pre>
 openvpn --genkey --secret /etc/openvpn/server/tc.key
 </pre>
+
+Um einen Benutzer zu erstellen ruft man das Installer Script erneut auf und bekommt ein interaktives Menü.
