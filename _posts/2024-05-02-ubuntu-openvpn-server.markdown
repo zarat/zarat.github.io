@@ -7,7 +7,7 @@ tags: sicherheit
 permalink: /post/openvpn
 ---
 
-In einer Welt, in der Datenschutz und Sicherheit immer wichtiger werden, ist es entscheidend, dass wir unsere Online-Kommunikation schützen. Eine Möglichkeit, dies zu erreichen, ist die Nutzung eines Virtual Private Networks (VPN). OpenVPN ist eine Open-Source-Software, die es uns ermöglicht, einen eigenen VPN-Server einzurichten, um unsere Internetverbindung zu sichern.
+In einer Welt, in der Datenschutz und Sicherheit immer wichtiger werden, ist es entscheidend, dass wir unsere Online-Kommunikation schützen. Eine Möglichkeit, dies zu erreichen, ist die Nutzung eines Virtual Private Networks (VPN). <a href="https://openvpn.net/" target="_blank">OpenVPN</a> ist eine Open-Source-Software, die es uns ermöglicht, einen eigenen VPN-Server einzurichten, um unsere Internetverbindung zu sichern.
 
 <!--excerpt_separator-->
 
