@@ -3,7 +3,7 @@ layout: post
 title: Einen Kubernetes Cluster unter Ubuntu erstellen
 author: Manuel Zarat
 categories: tutorials
-tags: cloud
+tags: cloud, automation
 permalink: /post/kubernetes-cluster
 ---
 
