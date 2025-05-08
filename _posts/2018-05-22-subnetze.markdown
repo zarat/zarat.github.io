@@ -50,7 +50,7 @@ Nachdem Sie die Anzahl der benötigten Subnetze kennen, müssen Sie bestimmen, w
 
 <h2>Aufteilung</h2>
 
-Nehmen wir an, wir haben die IPv4-Adresse 192.168.0.0/24 und möchten sie in 4 Subnetze aufteilen. Zuerst teilen wir die Anzahl der Bits des Netzwerkpräfixes gleichmäßig auf die Subnetze auf. In diesem Fall haben wir 2 Bits pro Subnetz. Die Subnetzmaske für jedes Subnetz wäre dann /26, da wir die ursprünglichen 24 Bits des Netzwerkpräfixes beibehalten und 2 Bits für die Identifizierung der Subnetze verwenden.
+Nehmen wir an, wir haben die IPv4-Adresse 192.168.0.0/24 und möchten sie in 4 Subnetze aufteilen. Zuerst teilen wir die Anzahl der Bits des Netzwerkpräfixes gleichmäßig auf die Subnetze auf. In diesem Fall haben wir 2 Bits, eines pro Subnetz. Die Subnetzmaske für jedes Subnetz wäre dann /26, da wir die ursprünglichen 24 Bits des Netzwerkpräfixes beibehalten und 2 Bits für die Identifizierung der Subnetze verwenden.
 
 <h2>Beispiel</h2>
 
