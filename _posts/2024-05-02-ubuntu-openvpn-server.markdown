@@ -30,4 +30,8 @@ Nach der Installation erstellen wir einen Server Key der für die Kommunkikation
 openvpn --genkey --secret /etc/openvpn/server/tc.key
 </pre>
 
-Um einen Benutzer zu erstellen ruft man das Installer Script erneut auf und bekommt ein interaktives Menü.
+Um einen Benutzer zu erstellen ruft man das Installer Script erneut auf und bekommt ein interaktives Menü. Den Server starten bzw. beenden kann man mit
+
+<pre>
+  sudo systemctl start|stop openvpn-server@server.service
+</pre>
