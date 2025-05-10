@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Root CA mit OpenSSL erstellen
+title: Eine einfache 2 Tier Root-Intermediate CA mit OpenSSL erstellen
 author: Manuel Zarat
 category: tutorials
 tags: sicherheit
