@@ -6,7 +6,7 @@ category: tutorials sicherheit
 permalink: /post/strongswan-site-to-site-vpn
 ---
 
-StrongSwan ist eine Open-Source IPsec-basiertes VPN-Lösung für Linux und andere Unix-Systeme. Es unterstützt IKEv1 und IKEv2, ist hochgradig konfigurierbar und eignet sich für viele Einsatzszenarien – vom einfachen Road-Warrior-VPN bis hin zu komplexen Netz-zu-Netz-Verbindungen mit mehreren Subnetzen.
+<a href="https://strongswan.org/" target="_blank">StrongSwan</a> ist eine Open-Source IPsec-basiertes VPN-Lösung für Linux und andere Unix-Systeme. Es unterstützt IKEv1 und IKEv2, ist hochgradig konfigurierbar und eignet sich für viele Einsatzszenarien – vom einfachen Road-Warrior-VPN bis hin zu komplexen Netz-zu-Netz-Verbindungen mit mehreren Subnetzen.
 
 <!--excerpt_separator-->
 
