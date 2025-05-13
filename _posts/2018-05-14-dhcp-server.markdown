@@ -2,7 +2,8 @@
 layout: post
 title: Einen Linux DHCP Server erstellen
 author: Manuel Zarat
-categories: tutorials
+category: tutorials
+tags: dhcp linux netzwerk
 permalink: /post/linux-dhcp-server
 ---
 
