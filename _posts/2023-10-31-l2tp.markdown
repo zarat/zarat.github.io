@@ -3,7 +3,7 @@ layout: post
 title: Layer 2 tunneling protocol
 author: Manuel Zarat
 categories: tutorials
-tags: sicherheit
+tags: sicherheit vpn
 permalink: /post/l2tp
 ---
 
