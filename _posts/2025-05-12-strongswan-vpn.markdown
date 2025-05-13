@@ -3,7 +3,7 @@ layout: post
 title: Ein kostenloses IPSec Site-to-Site VPN mit Strongswan
 author: Manuel Zarat
 category: tutorials
-tags: sicherheit
+tags: sicherheit vpn
 permalink: /post/strongswan-site-to-site-vpn
 ---
 
