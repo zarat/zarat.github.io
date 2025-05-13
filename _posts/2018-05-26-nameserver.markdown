@@ -2,7 +2,8 @@
 layout: post
 title: Einen Linux Nameserver mit bind erstellen
 author: Manuel Zarat
-categories: tutorials
+category: tutorials
+tags: nameserver dns bind linux
 permalink: /post/bind9-nameserver
 ---
 
