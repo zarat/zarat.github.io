@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu OpenVPN Server
 author: Manuel Zarat
 categories: tutorials
-tags: sicherheit
+tags: sicherheit vpn
 permalink: /post/openvpn
 ---
 
