@@ -7,7 +7,7 @@ tags: sicherheit vpn
 permalink: /post/l2tp
 ---
 
-L2TP ist ein Protokoll, das entwickelt wurde, um die Sicherheit und Privatsphäre von Internetverbindungen zu erhöhen. Es arbeitet in Verbindung mit anderen Protokollen wie IPsec (Internet Protocol Security) oder PPP (Point-to-Point Protocol) und schafft so eine geschützte Kommunikationsverbindung über das Internet.
+L2TP ist ein Protokoll, das entwickelt wurde, um die Sicherheit und Privatsphäre von Internetverbindungen zu erhöhen. Es arbeitet in Verbindung mit anderen Protokollen wie IPsec (Internet Protocol Security) oder PPP (Point-to-Point Protocol) und schafft so eine <span style="color:red;font-weight:bold;">geschützte Kommunikationsverbindung über das Internet</span>.
 
 <!--excerpt_separator-->
 
