@@ -15,7 +15,7 @@ layout: blog
     </div>
     
     <div class="sp-content-item-body">
-      {{ post.excerpt | remove: '.</p>' | append: '...</p>' }}
+      {{ post.excerpt | strip_html | truncatewords: 50 }}
     </div>
 
   </div>
