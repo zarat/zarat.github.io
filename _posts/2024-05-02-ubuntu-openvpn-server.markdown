@@ -11,6 +11,8 @@ In einer Welt, in der Datenschutz und Sicherheit immer wichtiger werden, ist es 
 
 <!--excerpt_separator-->
 
+<h2>Installation</h2>
+
 Zuerst laden wir das Installationsscript herunter und machen es ausführbar.
 
 <pre>
