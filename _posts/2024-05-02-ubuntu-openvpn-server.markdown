@@ -35,3 +35,48 @@ Um einen Benutzer zu erstellen ruft man das Installer Script erneut auf und beko
 <pre>
 sudo systemctl start|stop openvpn-server@server.service
 </pre>
+
+<h2>Statusberichte</h2>
+
+Um eine Statusübersicht über alle Verbindungen zu bekommen kann man in der Serverkonfiguration unter
+
+<pre>
+/etc/openvpn/server/server.conf
+</pre>
+
+die folgende Zeile eintragen.
+
+<pre>
+status /var/log/openvpn-status.log
+</pre>
+
+<h2>IP Reservierungen</h2>
+
+Um IP Reservierungen vorzunehmen kann man Client Config Dir (CCD) konfigurieren. In der Serverkonfig
+
+<pre>
+/etc/openvpn/server/server.conf
+</pre>
+
+diese Zeile einfügen (falls sie noch nicht exisitiert).
+
+<pre>
+client-config-dir /etc/openvpn/ccd
+</pre>
+
+<pre>
+sudo mkdir -p /etc/openvpn/ccd
+sudo chmod 755 /etc/openvpn/ccd
+</pre>
+  
+Um eine Konfiguration für einen User anzulegen muss man eine Datei erstellen, z.B
+
+<pre>
+/etc/openvpn/ccd/client1
+</pre>
+
+Die Syntax ist die selbe wie in der server.conf.
+
+<pre>
+ifconfig-push 10.8.0.10 255.255.255.0
+</pre>
