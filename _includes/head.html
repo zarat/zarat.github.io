@@ -33,8 +33,8 @@
   <meta property="article:author" content="{{ author.name }}" />
   {% endif %}
   
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="/assets/menu.css">
+  <link rel="stylesheet" href="{{ page.url }}/assets/style.css">
+  <link rel="stylesheet" href="{{ page.url }}/assets/menu.css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 </head>
 
