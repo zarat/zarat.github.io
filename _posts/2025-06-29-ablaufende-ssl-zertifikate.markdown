@@ -2,8 +2,8 @@
 layout: post
 title: Ablaufende SSL Zertifikate
 author: Manuel Zarat
-category: sicherheit
-tags: 
+category: articles
+tags: sicherheit
 permalink: /blog/ablaufende-ssl-zertifikate
 ---
 
