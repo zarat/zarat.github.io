@@ -55,9 +55,9 @@ Jeder Benutzer, der Zugriff auf die Shares haben soll, braucht noch ein Passwort
 
 <pre>
 //hinzufügen
-smbpasswd -a <username>
+smbpasswd -a username
 //entfernen
-smbpasswd -x <user>
+smbpasswd -x user
 </pre>
 
 Nun kann man einen Share für spezielle Benutzer anlegen.
